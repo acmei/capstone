@@ -23,9 +23,7 @@ The free android app (Dbt911) provides skills based on your selection and also h
 The iOS app (DBT Diary Card) is available for $4.99. While it seems pretty comprehensive, it is only available for those with Apple devices. I'm not able to test it out as I don't have an iPhone or iPad. This app appears to be designed with the user in mind.
 
 **Differentiation**
-The web app I'll be creating will be comprehensive and inclusive of all the skills and modules taught in DBT with additional functionality for therapists to access graphical data to better understand and track behavioral changes. The app will also include a fully customizable diary card that can also be emailed to a therapist. Those using the app will be required to create an account so that they may save their information and access at a later date if needed and bookmark specific skills or practices. There will  
-
-An app specifically for iOS already exists but does not exist for the web or android.
+The web app I'll be creating will be comprehensive and inclusive of all the skills and modules taught in DBT with additional functionality for therapists to access graphical data to better understand and track behavioral changes of their patients. The app will also include a fully customizable diary card that can also be emailed to a therapist. Those using the app will be required to create an account so that they may save their information and access at a later date if needed and bookmark specific skills or practices to reference later.
 
 ### User Personas
-  A summary of your main target user group(s). What are their key characteristics? How do those characteristics factor into project/app/idea?
+The users of this app will be both the person participating in DBT as well as a therapist/group leader. The user interface will allow the user to complete homework, access information on skills, and fill in their diary card without the need to use lots of paper. The therapist interface will provide charts and graphs based off the users diary card information so that behavior changes and improvements can be more easily tracked and understood.
