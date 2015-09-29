@@ -5,24 +5,24 @@ Dialectical Behavior Therapy or DBT, is a form of cognitive behavioral therapy d
 
 DBT consists of two main components:
 
-1.  **Skills Training Group**
+1.  **Skills Training Group**  
     The group is run like a class with a group leader that teaches the skills and assigns homework for the clients. Groups typically meet weekly for about 2.5 hours to review their practice of these newly learned skills from the previous week, followed by learning of a new skill. The full curriculum takes 6 months to complete with clients often choosing to repeat the 6 months for a full year-long program.
 
-2.  **Individual Therapy**
+2.  **Individual Therapy**  
     Each participant of DBT also meets weekly with a DBT therapist on an individual basis. These sessions are meant to help discuss difficulties in practicing the skills and applying them to specific events or as a reinforcing of newly learned skills through discussion and practice.
 
 ### Problem Statement
 DBT involves the use of diary cards (sometimes to be filled out multiple times a day) and group learning of skills broken down into several modules. These activies require lots of paper. The interaction of the user with both the diary cards and the skill resources can be built into an app which helps to track both completion and skill utilization. This enables an easier to access diary and skill resource so that the user may focus more on the important aspects of the treatment.
 
 ### Market Research
-**Competition and Current Opinions**
+**Competition and Current Opinions**  
 There are a several mental health related apps which aim to help the user treat or alleviate issues related to mood disorders. Specifically for DBT, there seems to exist one android app and one iOS app.
 
 The free android app (Dbt911) provides skills based on your selection and also has a diary interface. With this app it is not possible to access specific information for each skill but rather a finite list of ways to practice these skills are provided. Additionally, the diary function is limited to whatever options are listed with no ability to add or change fields.
 
 The iOS app (DBT Diary Card) is available for $4.99. While it seems pretty comprehensive, it is only available for those with Apple devices. I'm not able to test it out as I don't have an iPhone or iPad. This app appears to be designed with the user in mind.
 
-**Differentiation**
+**Differentiation**  
 The web app I'll be creating will be comprehensive and inclusive of all the skills and modules taught in DBT with additional functionality for therapists to access graphical data to better understand and track behavioral changes of their patients. The app will also include a fully customizable diary card that can also be emailed to a therapist. Those using the app will be required to create an account so that they may save their information and access at a later date if needed and bookmark specific skills or practices to reference later.
 
 ### User Personas
