@@ -12,7 +12,7 @@ DBT consists of two main components:
     Each participant of DBT also meets weekly with a DBT therapist on an individual basis. These sessions are meant to help discuss difficulties in practicing the skills and applying them to specific events or as a reinforcing of newly learned skills through discussion and practice.
 
 ### Problem Statement
-DBT involves the use of diary cards (sometimes to be filled out multiple times a day) and group learning of skills broken down into several modules. These activies require lots of paper. The interaction of the user with both the diary cards and the skill resources can be built into an app which helps to track both completion and skill utilization. This enables an easier to access diary and skill resource so that the user may focus more on the important aspects of the treatment.
+DBT involves the use of diary cards (sometimes to be filled out multiple times a day) and group learning of skills broken down into several modules. These activities require lots of paper. The interaction of the user with both the diary cards and the skill resources can be built into an app which helps to track both completion and skill utilization. This enables an easier to access diary and skill resource so that the user may focus more on the important aspects of the treatment.
 
 ### Market Research
 **Competition and Current Opinions**  
@@ -26,4 +26,4 @@ The iOS app (DBT Diary Card) is available for $4.99. While it seems pretty compr
 The web app I'll be creating will be comprehensive and inclusive of all the skills and modules taught in DBT with additional functionality for therapists to access graphical data to better understand and track behavioral changes of their patients. The app will also include a fully customizable diary card that can also be emailed to a therapist. Those using the app will be required to create an account so that they may save their information and access at a later date if needed and bookmark specific skills or practices to reference later.
 
 ### User Personas
-The users of this app will be both the person participating in DBT as well as a therapist/group leader. The user interface will allow the user to complete homework, access information on skills, and fill in their diary card without the need to use lots of paper. The therapist interface will provide charts and graphs based off the users diary card information so that behavior changes and improvements can be more easily tracked and understood.
+The users of this app will be both the person participating in DBT as well as a therapist/group leader. The user interface will allow the user to complete homework, access information on skills, and fill in their diary card without the need to use lots of paper. The therapist interface will provide charts and graphs based off the user's diary card information so that behavior changes and improvements can be more easily tracked and understood.
