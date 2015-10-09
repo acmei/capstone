@@ -1,4 +1,16 @@
-# Product Plan
+Product Plan
+============
+
+- [Background](#background)
+- [Problem Statement](#problem-statement)
+- [Market Research](#market-research)
+- [User Personas](#user-personas)
+- [Product Specifications](#product-specifications)
+  - [Deliverables](#deliverables)
+  - [Integration Choices](#integration-choices)
+  - [Advanced Feature Choices](#advanced-feature-choices)
+- [Resources](#resources)
+
 
 ### Background
 Dialectical Behavior Therapy or DBT, is a form of cognitive behavioral therapy developed by Marsha Linehan to treat individuals diagnosed with borderline personality disorder (BPD). It has been shown to be effective in treating other disorders such as substance dependence, depression, post-traumatic stress disorder (PTSD), and eating disorders. It is now recognized as a gold standard treatment, especially for those with BPD and chronically suicidal individuals. 
@@ -11,10 +23,12 @@ DBT consists of two main components:
 2.  **Individual Therapy**  
     Each participant of DBT also meets weekly with a DBT therapist on an individual basis. These sessions are meant to help discuss difficulties in practicing the skills and applying them to specific events or as a reinforcing of newly learned skills through discussion and practice.
 
+
 ### Problem Statement
 DBT involves the use of diary cards (sometimes to be filled out multiple times a day) and group learning of skills broken down into several modules. These activities require lots of paper. The interaction of the user with both the diary cards and the skill resources can be built into an app which helps to track both completion and skill utilization. This enables an easier to access diary and skill resource so that the user may focus more on the important aspects of the treatment.
 
 Additionally, those seeking help or have the desire to learn more about DBT do not have readily accessible sources of information beyond articles on the internet.
+
 
 ### Market Research
 **Competition and Current Opinions**  
@@ -27,9 +41,53 @@ The iOS app (*DBT Diary Card*) is available for $4.99. While it seems pretty com
 **Differentiation**  
 This web app will be comprehensive and inclusive of all the skills and modules taught in DBT with additional functionality for therapists to access graphical data to better understand and track behavioral changes of their patients. The app will also include a fully customizable diary card that can also be emailed to a therapist. Those using the app will be required to create an account so that they may save their information and access at a later date if needed and bookmark specific skills to reference later. The web application will be free and aims to provide information about DBT not only for those already enrolled but for those who are looking for learn about the benefits of this form of therapy and for programs near them.
 
+
 ### User Personas
 - **Curious about DBT**: These are people who are seeking answers about DBT and who may have been suffering from BPD or chronic/severe depression. They're looking for ways they can get help with their mental illness but have not yet made the decision to seek out therapy. They are looking for avenues of information and help.
 
 - **DBT participants**: Those going through the DBT program will get the most use out of the app. They are currently in the process of receiving therapy and need a better way to organize and use their diaries/skills beyond the usual paper and binder. They need reminders to practice and a reference for newly learned skills. They need a readily available diary card to fill out and take notes when skills are useful or not. These participants are technology savvy and prefer the use of a web interface. DBT participants are making a concerted effort to make changes in their behaviors in order to improve their lives.
 
 - **Therapists/Group Leaders**: The therapist/group leader is seeking to track their patient's behavior changes. They want to ensure that the skills are being practiced and are effectively helping their patient.
+
+### Product Specifications
+
+#### Deliverables
+
+**WAVE 1**  _due Wed, October 14th_
+
+- Complete product plan
+- Wireframing for site structure/design
+- Database structure and ERD finalized
+- OAuth development strategy
+- Create seed data for skills, users, therapists
+- Implement registration process, sign up (no email confirmation)
+
+**WAVE 2** _due Wed, October 21st_
+
+- Integrate email registration and password change confirmation
+- Create custom icon font for visual display
+- Seed data and complete model definition
+- CRUD for controllers
+- Start structure of views
+- Integrate calendar functions and display
+
+**WAVE 3** _due Wed, October 28th_
+
+- Integrate Therapist user visualizations
+- TBD
+
+#### Integration Choices
+- Background/Async Jobs (sending emails, confirming registrations)
+- Content Delivery Network (CDN)?
+- Front-end Framework (Ember)
+
+#### Advanced Feature Choices
+- Secure Socket Layer (SSL)
+- Live Events (notifications, live updates, think back to Philip's AWS presentation)
+- S3 storage/delivery
+
+### Resources
+- [Alchemy API](http://www.alchemyapi.com/api): text sentiment analysis
+- [Full Calendar](http://fullcalendar.io/): drag and drop calendar
+- [Mapbox](https://www.mapbox.com/developers/): mapping
+- [Rails Action Mailer](http://guides.rubyonrails.org/action_mailer_basics.html)
