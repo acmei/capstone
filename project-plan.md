@@ -55,7 +55,7 @@ This web app will be comprehensive and inclusive of all the skills and modules t
 
 #### Deliverables
 
-**WAVE 1**  _due Wed, October 14th_
+**WAVE 1**  (_due Wed, October 14th_)
 
 - Complete product plan
 - Wireframing for site structure/design
@@ -64,7 +64,7 @@ This web app will be comprehensive and inclusive of all the skills and modules t
 - Create seed data for skills, users, therapists
 - Implement registration process, sign up (no email confirmation)
 
-**WAVE 2** _due Wed, October 21st_
+**WAVE 2** (_due Wed, October 21st_)
 
 - Integrate email registration and password change confirmation
 - Create custom icon font for visual display
@@ -73,7 +73,7 @@ This web app will be comprehensive and inclusive of all the skills and modules t
 - Start structure of views
 - Integrate calendar functions and display
 
-**WAVE 3** _due Wed, October 28th_
+**WAVE 3** (_due Wed, October 28th_)
 
 - Integrate Therapist user visualizations
 - TBD
