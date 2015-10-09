@@ -51,6 +51,8 @@ This web app will be comprehensive and inclusive of all the skills and modules t
 
 ### Product Specifications
 
+[Wireframes](https://github.com/acmei/capstone/tree/master/resources/wireframe)
+
 #### Deliverables
 
 **WAVE 1**  _due Wed, October 14th_
@@ -87,7 +89,9 @@ This web app will be comprehensive and inclusive of all the skills and modules t
 - S3 storage/delivery
 
 ### Resources
+- [Project Requirements](https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/topic_resources/capstone/capstone.md)
 - [Alchemy API](http://www.alchemyapi.com/api): text sentiment analysis
 - [Full Calendar](http://fullcalendar.io/): drag and drop calendar
 - [Mapbox](https://www.mapbox.com/developers/): mapping
 - [Rails Action Mailer](http://guides.rubyonrails.org/action_mailer_basics.html)
+- [Creating a Good README](http://stackoverflow.com/questions/2304863/how-to-write-a-good-readme)
