@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      <h1>Sign up to use all of Hambre</h1>
+
+      <%= form_for @user do |f| %>
+        <%= render partial: 'shared/error_messages', locals: { any_errors: @user.errors.any?,
+                                                               count_errors: @user.errors.count,
+                                                               messages: @user.errors.full_messages } 
+        %>
+        
+        <%= f.label :username, class: 'required' %>
+        <%= f.text_field :username, class: 'form-control form-group' %>
+
+        <%= f.label :email, class: 'required' %>
+        <%= f.email_field :email, class: 'form-control form-group' %>
+
+        <%= f.label :password, "Password (min 6 characters)", class: 'required' %>
+        <%= f.password_field :password, class: 'form-control form-group' %>
+
+        <%= f.label :password_confirmation, "Confirmation", class: 'required' %>
+        <%= f.password_field :password_confirmation, class: 'form-control form-group' %>
+
+        <%= f.submit "Create my account", class: "btn btn-primary form-control form-group" %>
+      <% end %>
+      <br>
+      <p class="center">By joining you are agreeing to our <%= link_to "Terms of Use", "#" %></p>
+    </div>
+  </div>
+</div>
