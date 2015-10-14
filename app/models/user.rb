@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
   before_save { email.downcase! }
 
-  # ASSOCIATIONS --------------------------------------
+  # ASSOCIATIONS ---------------------------------------------------------------
   has_secure_password
 
-  # VALIDATIONS ---------------------------------------
+  # VALIDATIONS ----------------------------------------------------------------
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
   validates :username,  presence: true,
