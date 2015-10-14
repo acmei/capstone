@@ -17,10 +17,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @cookbooks = @user.cookbooks
-    if params[:cookbook]
-      @cookbook = Cookbook.find(params[:cookbook])
-    end
+    # @cookbooks = @user.cookbooks
+    # if params[:cookbook]
+    #   @cookbook = Cookbook.find(params[:cookbook])
+    # end
   end
 
 private
