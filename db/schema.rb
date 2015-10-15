@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015200840) do
+ActiveRecord::Schema.define(version: 20151015202533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,26 @@ ActiveRecord::Schema.define(version: 20151015200840) do
 
   add_index "diaries", ["user_id"], name: "index_diaries_on_user_id", using: :btree
 
+  create_table "diaries_questions", id: false, force: :cascade do |t|
+    t.integer "diary_id",    null: false
+    t.integer "question_id", null: false
+  end
+
+  add_index "diaries_questions", ["diary_id", "question_id"], name: "index_diaries_questions_on_diary_id_and_question_id", using: :btree
+  add_index "diaries_questions", ["question_id", "diary_id"], name: "index_diaries_questions_on_question_id_and_diary_id", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "text"
+    t.string   "category"
+    t.string   "answer_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "therapists", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "phone"
-    t.string   "password"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -50,7 +65,6 @@ ActiveRecord::Schema.define(version: 20151015200840) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "username"
-    t.string   "password"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
