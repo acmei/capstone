@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   # ASSOCIATIONS ---------------------------------------------------------------
   has_secure_password
+  has_many :contacts
+  has_one :therapist
 
   # VALIDATIONS ----------------------------------------------------------------
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
