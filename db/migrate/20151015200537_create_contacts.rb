@@ -3,7 +3,7 @@ class CreateContacts < ActiveRecord::Migration
     create_table :contacts do |t|
       t.string :contact1
       t.string :contact2
-      t.reference :user
+      t.references :therapist, index: true, foreign_key: true
 
       t.timestamps null: false
     end

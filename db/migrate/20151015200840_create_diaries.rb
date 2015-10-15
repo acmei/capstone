@@ -2,9 +2,9 @@ class CreateDiaries < ActiveRecord::Migration
   def change
     create_table :diaries do |t|
       t.boolean :filled_in_session
-      t.integer :how_often
+      t.integer :times_filled
       t.datetime :end_date
-      t.reference :user
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end
