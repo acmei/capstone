@@ -1,12 +1,10 @@
 class Contact < ActiveRecord::Base
-  before_save { email.downcase! }
 
   # ASSOCIATIONS ---------------------------------------------------------------
-  has_secure_password
   belongs_to :user
 
   # VALIDATIONS ----------------------------------------------------------------
-  VALID_PHONE_REGEX = ^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$
+  VALID_PHONE_REGEX = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/
 
   validates :name,  presence: true
   validates :phone, presence: true,

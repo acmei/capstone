@@ -19,3 +19,11 @@ CSV.foreach("db/users.csv", headers: true, header_converters: :symbol, converter
     therapist_id: row[:therapist_id]
     )
 end
+
+CSV.foreach("db/contacts.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
+  Contact.create(
+    name: row[:name],
+    phone: row[:phone],
+    user_id: row[:user_id]
+    )
+end
