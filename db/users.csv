@@ -1,7 +1,7 @@
-username,email,password
-anita,asovay@email.com,password
-justine,justine@email.com,password
-harry,harry@gmail.com,password
-william,willy@gmail.com,password
-luna,luna@gmail.com,password
-fox,fox@gmail.com,password
+username,email,password,therapist_id
+anita,asovay@email.com,password,1
+justine,justine@email.com,password,2
+harry,harry@gmail.com,password,1
+william,willy@gmail.com,password,2
+luna,luna@gmail.com,password,1
+fox,fox@gmail.com,password,2

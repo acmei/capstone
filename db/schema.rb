@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015202533) do
+ActiveRecord::Schema.define(version: 20151015224047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.integer  "num_val"
+    t.string   "text_val"
+    t.boolean  "bool_val"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+
+  create_table "coming_to_sessions", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.integer  "diary_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "coming_to_sessions", ["diary_id"], name: "index_coming_to_sessions_on_diary_id", using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.string   "contact1"
@@ -73,6 +94,8 @@ ActiveRecord::Schema.define(version: 20151015202533) do
 
   add_index "users", ["therapist_id"], name: "index_users_on_therapist_id", using: :btree
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "coming_to_sessions", "diaries"
   add_foreign_key "contacts", "therapists"
   add_foreign_key "diaries", "users"
   add_foreign_key "users", "therapists"
