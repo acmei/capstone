@@ -4,10 +4,9 @@ class Question < ActiveRecord::Base
   has_and_belongs_to_many :diaries, :join_table => "diaries_questions"
 
   # VALIDATIONS ----------------------------------------------------------------
-  validates :text,        presence: true,
-                          uniqueness: { case_sensitive: false }
+  validates :text,        presence: true
   validates :category,    presence: true,
                           inclusion: { in: ["urge", "rating", "drugs/meds", "actions", "emotions", "optional"] }
   validates :answer_type, presence: true,
-                          inclusion: { in: ["num", "text", "bool"] }
+                          inclusion: { in: ["num", "text", "num/text", "bool"] }
 end

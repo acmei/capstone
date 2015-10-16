@@ -1,1 +1,14 @@
 text,category,answer_type
+commit suicide,urge,num
+self-harm,urge,num
+use drugs,urge,num
+emotional misery,rating,num
+physical misery,rating,num
+joy,rating,num
+alcohol,drugs/meds,num/text
+illegal drugs,drugs/meds,num/text
+meds as prescribed,drugs/meds,bool
+prn/OTC meds,drugs/meds,num/text
+self-harm,actions,bool
+lied,actions,num
+used skills,actions,num
