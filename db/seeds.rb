@@ -71,6 +71,7 @@ CSV.foreach("db/answers.csv", headers: true, header_converters: :symbol, convert
     num_val: row[:num_val],
     text_val: row[:text_val],
     bool_val: row[:bool_val],
-    question_id: row[:question_id]
+    question_id: row[:question_id],
+    user_id: row[:user_id]
     )
 end

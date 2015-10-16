@@ -5,6 +5,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.string :text_val
       t.boolean :bool_val
       t.references :question, index: true, foreign_key: true
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

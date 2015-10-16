@@ -21,21 +21,13 @@ ActiveRecord::Schema.define(version: 20151016011501) do
     t.string   "text_val"
     t.boolean  "bool_val"
     t.integer  "question_id"
+    t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
-
-  create_table "coming_to_sessions", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "value"
-    t.integer  "diary_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "coming_to_sessions", ["diary_id"], name: "index_coming_to_sessions_on_diary_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name",       null: false
@@ -109,7 +101,7 @@ ActiveRecord::Schema.define(version: 20151016011501) do
   add_index "users", ["therapist_id"], name: "index_users_on_therapist_id", using: :btree
 
   add_foreign_key "answers", "questions"
-  add_foreign_key "coming_to_sessions", "diaries"
+  add_foreign_key "answers", "users"
   add_foreign_key "contacts", "users"
   add_foreign_key "diaries", "users"
   add_foreign_key "skills", "diaries"

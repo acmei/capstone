@@ -3,7 +3,7 @@ class Diary < ActiveRecord::Base
   belongs_to :user
   has_many :skills
   has_and_belongs_to_many :questions, join_table: :diaries_questions
-  has_many :answers, through: :questions
+  has_many :answers, through: :user
 
   # VALIDATIONS ----------------------------------------------------------------
   validates :filled_in_session, inclusion: { in: [true, false] }
