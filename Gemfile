@@ -22,6 +22,11 @@ group :development, :test do
   gem 'simplecov', require: false
 end
 
+group :test do 
+  gem 'shoulda-matchers', '~> 3.0'
+  # gem 'shoulda', '~> 3.5'
+end
+
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'

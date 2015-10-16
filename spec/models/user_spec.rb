@@ -5,6 +5,16 @@ RSpec.describe User, type: :model do
   let(:nil_name) { build :user, username: nil }
   let(:nil_email) { build :user, email: nil }
 
+  describe "model associations" do
+    it { should have_secure_password }
+    it { should have_many(:contacts) }
+    it { should have_many(:skills) }
+    it { should have_many(:diaries) }
+    it { should have_many(:answers) }
+    it { should have_many(:questions).through(:diaries) }
+    it { should belong_to(:therapist) }
+  end
+
   describe "model validations" do
     it "requires a username to be present" do
       expect(nil_name).to be_invalid
@@ -13,7 +23,7 @@ RSpec.describe User, type: :model do
 
     it "requires username to be unique" do
       create :user
-      dup_username = build :user, username: "user1"
+      dup_username = build :user, username: "USER1"
 
       expect(dup_username).to be_invalid
       expect(dup_username.errors.keys).to include(:username)
@@ -43,14 +53,14 @@ RSpec.describe User, type: :model do
 
     it "requires email to be unique" do
       create :user
-      dup_email = build :user, email: "email@example.com"
+      dup_email = build :user, email: "EMAIL@example.com"
 
       expect(dup_email).to be_invalid
       expect(dup_email.errors.keys).to include(:email)
     end
 
     it "requires password to be present (nonblank)" do
-      new_user.password = new_user.password_confirmation = " " * 10
+      new_user.password = new_user.password_confirmation = " " * 6
 
       expect(new_user).to be_invalid
       expect(new_user.errors.keys).to include(:password)
