@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015230331) do
+ActiveRecord::Schema.define(version: 20151016011501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20151015230331) do
   add_index "coming_to_sessions", ["diary_id"], name: "index_coming_to_sessions_on_diary_id", using: :btree
 
   create_table "contacts", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone"
+    t.string   "name",       null: false
+    t.string   "phone",      null: false
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20151015230331) do
   create_table "diaries", force: :cascade do |t|
     t.boolean  "filled_in_session"
     t.integer  "times_filled"
-    t.datetime "end_date"
     t.integer  "user_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
@@ -67,26 +66,41 @@ ActiveRecord::Schema.define(version: 20151015230331) do
   add_index "diaries_questions", ["question_id", "diary_id"], name: "index_diaries_questions_on_question_id_and_diary_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
-    t.string   "text"
+    t.string   "text",        null: false
     t.string   "category"
-    t.string   "answer_type"
+    t.string   "answer_type", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
+  create_table "skills", force: :cascade do |t|
+    t.string   "category",                    null: false
+    t.string   "text",                        null: false
+    t.string   "acronym"
+    t.boolean  "favorite",    default: false, null: false
+    t.text     "description",                 null: false
+    t.integer  "user_id"
+    t.integer  "diary_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "skills", ["diary_id"], name: "index_skills_on_diary_id", using: :btree
+  add_index "skills", ["user_id"], name: "index_skills_on_user_id", using: :btree
+
   create_table "therapists", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone"
-    t.string   "password_digest"
+    t.string   "name",            null: false
+    t.string   "email",           null: false
+    t.string   "phone",           null: false
+    t.string   "password_digest", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "username"
-    t.string   "password_digest"
+    t.string   "email",           null: false
+    t.string   "username",        null: false
+    t.string   "password_digest", null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "therapist_id"
@@ -98,5 +112,7 @@ ActiveRecord::Schema.define(version: 20151015230331) do
   add_foreign_key "coming_to_sessions", "diaries"
   add_foreign_key "contacts", "users"
   add_foreign_key "diaries", "users"
+  add_foreign_key "skills", "diaries"
+  add_foreign_key "skills", "users"
   add_foreign_key "users", "therapists"
 end

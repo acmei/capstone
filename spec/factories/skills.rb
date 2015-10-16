@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :skill do
-    module "MyString"
+    category "MyString"
 text "MyString"
 acronym "MyString"
 favorite false

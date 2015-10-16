@@ -27,3 +27,11 @@ CSV.foreach("db/contacts.csv", headers: true, header_converters: :symbol, conver
     user_id: row[:user_id]
     )
 end
+
+CSV.foreach("db/diaries.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
+  Diary.create(
+    filled_in_session: row[:filled_in_session],
+    times_filled: row[:times_filled],
+    user_id: row[:user_id]
+    )
+end

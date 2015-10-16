@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   # ASSOCIATIONS ---------------------------------------------------------------
   has_secure_password
   has_many :contacts
+  has_many :diaries
   belongs_to :therapist
 
   # VALIDATIONS ----------------------------------------------------------------
