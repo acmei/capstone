@@ -44,7 +44,7 @@ CSV.foreach("db/questions.csv", headers: true, header_converters: :symbol, conve
     )
 end
 
-question_ids = (1..13).to_a
+question_ids = (1..19).to_a
 diary_ids = (1..12).to_a
 diaries_questions = {}
 

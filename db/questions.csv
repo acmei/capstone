@@ -12,3 +12,9 @@ prn/OTC meds,drugs/meds,num/text
 self-harm,actions,bool
 lied,actions,num
 used skills,actions,num
+quit therapy,session_urge,num
+use drugs,session_urge,num
+commit suicide,session_urge,num
+emotions,session_reg,num
+actions,session_reg,num
+thoughts,session_reg,num

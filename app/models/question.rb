@@ -6,7 +6,10 @@ class Question < ActiveRecord::Base
   # VALIDATIONS ----------------------------------------------------------------
   validates :text,        presence: true
   validates :category,    presence: true,
-                          inclusion: { in: ["urge", "rating", "drugs/meds", "actions", "emotions", "optional"] }
+                          inclusion: { 
+                            in: ["urge", "rating", "drugs/meds", "actions", 
+                                "emotions", "optional", "session_urge", 
+                                "session_reg"] }
   validates :answer_type, presence: true,
                           inclusion: { in: ["num", "text", "num/text", "bool"] }
 end
