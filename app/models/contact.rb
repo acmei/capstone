@@ -1,5 +1,4 @@
 class Contact < ActiveRecord::Base
-
   # ASSOCIATIONS ---------------------------------------------------------------
   belongs_to :user
 

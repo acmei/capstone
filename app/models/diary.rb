@@ -1,7 +1,9 @@
 class Diary < ActiveRecord::Base
-
   # ASSOCIATIONS ---------------------------------------------------------------
   belongs_to :user
+  has_many :skills
+  has_many :coming_to_sessions
+  has_and_belongs_to_many :questions, :join_table => "diaries_questions"
 
   # VALIDATIONS ----------------------------------------------------------------
   validates :filled_in_session, inclusion: { in: [true, false] }
