@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :contacts
   has_many :diaries
   has_many :skills
-  has_many :answers, through: :questions
+  has_many :answers, through: :diaries_questions
   belongs_to :therapist
 
   # VALIDATIONS ----------------------------------------------------------------
