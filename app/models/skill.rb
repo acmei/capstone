@@ -6,12 +6,12 @@ class Skill < ActiveRecord::Base
   # VALIDATIONS ----------------------------------------------------------------
   validates :category,    presence: true,
                           inclusion: { in: ["mindfulness", "IE", "ER", "DT"] }
-  validates :text,        presence: true
+  validates :text,        presence: true,
                           uniqueness: { case_sensitive: false }
-  validates :acronym,     presence: true
+  validates :acronym,     presence: true,
                           uniqueness: { case_sensitive: false }
   validates :favorite,    presence: true,
                           inclusion: { in: [true, false] }
-  validates :description, presence: true
+  validates :description, presence: true,
                           uniqueness: { case_sensitive: false }
 end
