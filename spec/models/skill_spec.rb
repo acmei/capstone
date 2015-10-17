@@ -33,14 +33,14 @@ RSpec.describe Skill, type: :model do
       expect(dup_acronym.errors.keys).to include(:acronym)
     end
 
-  it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:description) }
 
-  it "requires description to be unique" do
-    create :skill
-    dup_description = build :skill, description: "This is a description"
+    it "requires description to be unique" do
+      create :skill
+      dup_description = build :skill, description: "This is a description"
 
-    expect(dup_description).to be_invalid
-    expect(dup_description.errors.keys).to include(:description)
-  end
+      expect(dup_description).to be_invalid
+      expect(dup_description.errors.keys).to include(:description)
+    end
   end
 end

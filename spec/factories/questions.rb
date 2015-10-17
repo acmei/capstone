@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :question do
-    text "MyString"
-category "MyString"
-answer_type "MyString"
+    text "self-harm"
+    category "urge"
+    answer_type "num"
   end
-
 end
