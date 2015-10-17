@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Therapist, type: :model do
-  let(:new_therapist) { create :therapist}
+  let(:new_therapist) { create :therapist }
 
   describe "model associations" do
     it { should have_secure_password }

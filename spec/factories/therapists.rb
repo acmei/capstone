@@ -6,5 +6,4 @@ FactoryGirl.define do
     password "password"
     password_digest "password"
   end
-
 end

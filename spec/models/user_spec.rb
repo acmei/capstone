@@ -7,12 +7,12 @@ RSpec.describe User, type: :model do
 
   describe "model associations" do
     it { should have_secure_password }
+    it { should belong_to(:therapist) }
     it { should have_many(:contacts) }
     it { should have_many(:skills) }
     it { should have_many(:diaries) }
     it { should have_many(:answers) }
     it { should have_many(:questions).through(:diaries) }
-    it { should belong_to(:therapist) }
   end
 
   describe "model validations" do
@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
     end
 
     it "requires username to be unique" do
-      create :user
+      create :user, username: "user1"
       dup_username = build :user, username: "USER1"
 
       expect(dup_username).to be_invalid
@@ -52,7 +52,7 @@ RSpec.describe User, type: :model do
     end
 
     it "requires email to be unique" do
-      create :user
+      create :user, email: "email@example.com"
       dup_email = build :user, email: "EMAIL@example.com"
 
       expect(dup_email).to be_invalid
