@@ -38,6 +38,14 @@ RSpec.describe Therapist, type: :model do
       end
     end
 
+    it "requires email to be unique" do
+      create :therapist
+      dup_email = build :therapist, email: "EMAIL@email.com"
+
+      expect(dup_email).to be_invalid
+      expect(dup_email.errors.keys).to include(:email)
+    end
+
     it { should validate_presence_of(:phone) }
 
     it "requires a valid phone number to be present - meets regex requirements" do
@@ -55,14 +63,6 @@ RSpec.describe Therapist, type: :model do
         expect(new_therapist).to be_invalid
         expect(new_therapist.errors.keys).to include(:phone)
       end
-    end
-
-    it "requires email to be unique" do
-      create :therapist
-      dup_email = build :therapist, email: "EMAIL@email.com"
-
-      expect(dup_email).to be_invalid
-      expect(dup_email.errors.keys).to include(:email)
     end
 
     it "requires password to be present (nonblank)" do
