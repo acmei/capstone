@@ -5,21 +5,24 @@ RSpec.describe Contact, type: :model do
     it { should belong_to(:user) }
   end
 
-  # describe "model validations" do
-  #   it { should validate_presence_of(:text) }
-  #   it { should validate_presence_of(:category) }
+  describe "model validations" do
+    it { should validate_presence_of(:name) }
+    
+    it "requires a valid phone number to be present - meets regex requirements" do
+      valid_phone = ["382-302-2302," "234.567.8901", "1 234 567-8901", "1-234-567-8901 ext1234"]
+      valid_phone.each do |valid_phone|
+        new_therapist.phone = valid_phone
+        expect(new_therapist).to be_valid
+      end
+    end
 
-  #   it do
-  #     should validate_inclusion_of(:category).
-  #       in_array(["urge", "rating", "drugs/meds", "actions", 
-  #                 "emotions", "optional", "session_urge", "session_reg"])
-  #   end
-
-  #   it { should validate_presence_of(:answer_type) }
-
-  #   it do
-  #     should validate_inclusion_of(:answer_type).
-  #       in_array(["num", "text", "num/text", "bool"])
-  #   end
-  # end
+    it "does not persist invalid phone numbers" do
+      invalid_phone = ["555-5555-555", "1-392-329392", "1-800-HOTLINE", "+1 392 393 2039"]
+      invalid_phone.each do |invalid_phone|
+        new_therapist.phone = invalid_phone
+        expect(new_therapist).to be_invalid
+        expect(new_therapist.errors.keys).to include(:phone)
+      end
+    end
+  end
 end
