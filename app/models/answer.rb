@@ -4,6 +4,9 @@ class Answer < ActiveRecord::Base
   belongs_to :question
 
   # VALIDATIONS ----------------------------------------------------------------
-  validates :num_val,  numericality: { only_integer: true }, allow_nil: true
-  validates :bool_val, inclusion: { in: [true, false] }, allow_nil: true
+  validates :num_val, numericality: { 
+                        only_integer: true, 
+                        greater_than_or_equal_to: 0 
+                      }, 
+                      allow_nil: true
 end

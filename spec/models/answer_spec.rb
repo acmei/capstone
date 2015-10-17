@@ -8,25 +8,23 @@ RSpec.describe Answer, type: :model do
     it { should belong_to(:question) }
   end
 
-  # describe "model validations" do
-  #   it { should validate_presence_of(:name) }
-  #   it { should validate_presence_of(:phone) }
+  describe "model validations" do
 
-  #   it "requires a valid phone number to be present - meets regex requirements" do
-  #     valid_phone = ["382-302-2302," "234.567.8901", "1 234 567-8901", "1-234-567-8901 ext1234"]
-  #     valid_phone.each do |valid_phone|
-  #       new_contact.phone = valid_phone
-  #       expect(new_contact).to be_valid
-  #     end
-  #   end
+    it "requires num_val to be an integer >= 0 || nil" do
+      valid_num_val = [7, 1, 0, 3, nil]
+      valid_num_val.each do |valid_num_val|
+        new_answer.num_val = valid_num_val
+        expect(new_answer).to be_valid
+      end
+    end
 
-  #   it "does not persist invalid phone numbers" do
-  #     invalid_phone = ["555-5555-555", "1-392-329392", "1-800-HOTLINE", "+1 392 393 2039"]
-  #     invalid_phone.each do |invalid_phone|
-  #       new_contact.phone = invalid_phone
-  #       expect(new_contact).to be_invalid
-  #       expect(new_contact.errors.keys).to include(:phone)
-  #     end
-  #   end
-  # end
+    it "does not persist invalid num_val" do
+      invalid_num_val = [1.5, -2, -0.5]
+      invalid_num_val.each do |invalid_num_val|
+        new_answer.num_val = invalid_num_val
+        expect(new_answer).to be_invalid
+        expect(new_answer.errors.keys).to include(:num_val)
+      end
+    end
+  end
 end

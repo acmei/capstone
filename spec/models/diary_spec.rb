@@ -22,7 +22,7 @@ RSpec.describe Diary, type: :model do
     end
 
     it "does not persist invalid times_filled" do
-      invalid_times_filled = %w(1.5 -2 -0.5)
+      invalid_times_filled = %w(1.5 -2 -0.5 nil)
       invalid_times_filled.each do |invalid_times_filled|
         new_diary.times_filled = invalid_times_filled
         expect(new_diary).to be_invalid
