@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :contact do
-    name "MyString"
-phone "MyString"
-user nil
+    name "Ada Lovelace"
+    phone "392-193-2930"
+    association :user_id, factory: :user
   end
-
 end
