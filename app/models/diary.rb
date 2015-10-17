@@ -6,7 +6,9 @@ class Diary < ActiveRecord::Base
   has_and_belongs_to_many :questions, join_table: :diaries_questions
 
   # VALIDATIONS ----------------------------------------------------------------
-  validates :filled_in_session, inclusion: { in: [true, false] }
-  validates :times_filled,      presence: true,
-                                numericality: { only_integer: true }
+  validates :times_filled,  presence: true,
+                            numericality: { 
+                              only_integer: true, 
+                              greater_than_or_equal_to: 0 
+                            }
 end
