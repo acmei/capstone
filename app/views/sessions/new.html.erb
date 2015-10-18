@@ -4,7 +4,10 @@
 
       <h1>Sign In</h1>
       <% if flash.now[:error] %>
-        <p class="errors"><%= flash.now[:error] %></p>
+        <div class="alert alert-danger">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <%= flash.now[:error] %>
+        </div>
       <% end %>
 
       <%= form_for :session, url: login_path do |f| %>
