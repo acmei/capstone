@@ -37,6 +37,9 @@
         </div>
 
         <%= f.submit "Create my account", class: "btn btn-primary form-control form-group" %>
+        <%= link_to google_path(:google_oauth2), class: 'form-control btn btn-danger google' do %>
+          <i class="fa fa-google-plus"></i> Login with Google
+        <% end %>
       <% end %>
       <br>
       <p class="center">By joining you are agreeing to our <%= link_to "Terms of Use", "#" %></p>
