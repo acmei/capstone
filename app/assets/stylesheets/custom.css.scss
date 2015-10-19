@@ -33,7 +33,7 @@ a:hover {
 /* forms -------------------------------------------------------------------- */
 
 .has-feedback-left {  
-  // Left Icon Input Padding
+  /* Left Icon Input Padding */
   .form-control {
     //reset changes to right
     padding-right: 12px;
@@ -41,13 +41,13 @@ a:hover {
   }
 }
 
-// Left Align Icon
+/* Left Align Icon */
 .has-feedback-left .form-control-feedback {
-    left: 0; 
+  left: 0; 
 }
 
 .form-control-feedback {
-    line-height: 34px !important;
+  line-height: 34px !important;
 }
 
 .register {

@@ -6,9 +6,11 @@
       <p class="text-small"><%= link_to("Take me to therapist registration", "#") %></p>
 
       <%= form_for @user do |f| %>
-        <%= render partial: 'shared/error_messages', locals: { any_errors: @user.errors.any?,
-                                                               messages: @user.errors.full_messages } 
-        %>
+        <%= render partial: 'shared/error_messages', 
+                            locals: { 
+                              any_errors: @user.errors.any?,
+                              messages: @user.errors.full_messages 
+                            } %>
 
         <div class="form-group has-feedback has-feedback-left">
           <%= f.label :username, class: 'required sr-only' %>
