@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
+gem 'normalize-rails'
 
 group :development, :test do
   gem 'byebug'
