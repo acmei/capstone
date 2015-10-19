@@ -5,14 +5,17 @@ Rails.application.routes.draw do
   resources :therapists
   resources :sessions, only: [:new, :create, :destroy]
 
-  # Custom Routes
+  # Login/Logout
   get    "signup"             => "users#new"
   get    "therapist_signup"   => "therapists#new"
   get    "login"              => "sessions#new"
   post   "login"              => "sessions#create"
   delete "logout"             => "sessions#destroy"
 
-  #OAuth
+  # Account Activation
+  resources :account_activations, only: [:edit]
+
+  # OmniAuth
   get "auth/:provider/callback" => 'sessions#create'
   get "auth/:provider" => 'sessions#create', as: 'google'
 end
