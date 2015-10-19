@@ -12,16 +12,22 @@
 
       <%= form_for :session, url: login_path do |f| %>
 
-        <%= f.label :username %>
-        <%= f.email_field :username, class: 'form-control form-group' %>
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :username, class: 'required sr-only' %>
+          <%= f.text_field :username, class: 'form-control', placeholder: "username" %>
+          <i class="form-control-feedback fa fa-user"></i>
+        </div>
 
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control form-group' %>
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :password, class: 'required sr-only' %>
+          <%= f.password_field :password, class: 'form-control form-group', placeholder: "password (min 6 characters)" %>
+          <i class="form-control-feedback fa fa-lock"></i>
+        </div>
 
         <%= f.submit "Sign In", class: "btn btn-primary form-control form-group" %>
       <% end %>
       <br>
-      <p class="center text-small"><%= link_to("forgot my username or pasword", "#") %></p>
+      <p class="text-center"><%= link_to("I forgot my username or pasword", "#") %></p>
     </div>
   </div>
 </div>
