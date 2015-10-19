@@ -1,5 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 
 /* universal ---------------------------------------------------------------- */
 
@@ -27,6 +28,24 @@ a:hover {
 
 .text-small {
   font-size: 0.8em;
+}
+
+.has-feedback-left {  
+  // Left Icon Input Padding
+  .form-control {
+    //reset changes to right
+    padding-right: 12px;
+    padding-left:  34px;
+  }
+}
+
+// Left Align Icon
+.has-feedback-left .form-control-feedback {
+    left: 0; 
+}
+
+.form-control-feedback {
+    line-height: 34px !important;
 }
 
 /* navigation --------------------------------------------------------------- */

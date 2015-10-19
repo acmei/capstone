@@ -1,26 +1,38 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-4 col-md-offset-4">
 
-      <h1>Register a new account</h1>
+      <h1>Sign Up</h1>
 
       <%= form_for @user do |f| %>
         <%= render partial: 'shared/error_messages', locals: { any_errors: @user.errors.any?,
                                                                count_errors: @user.errors.count,
                                                                messages: @user.errors.full_messages } 
         %>
-        
-        <%= f.label :username, class: 'required' %>
-        <%= f.text_field :username, class: 'form-control form-group' %>
 
-        <%= f.label :email, class: 'required' %>
-        <%= f.email_field :email, class: 'form-control form-group' %>
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :username, class: 'required sr-only' %>
+          <%= f.text_field :username, class: 'form-control', placeholder: "username" %>
+          <i class="form-control-feedback fa fa-user"></i>
+        </div>
 
-        <%= f.label :password, "Password (min 6 characters)", class: 'required' %>
-        <%= f.password_field :password, class: 'form-control form-group' %>
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :email, class: 'required sr-only' %>
+          <%= f.email_field :email, class: 'form-control form-group', placeholder: "e-mail" %>
+          <i class="form-control-feedback fa fa-envelope"></i>
+        </div>
 
-        <%= f.label :password_confirmation, "Confirmation", class: 'required' %>
-        <%= f.password_field :password_confirmation, class: 'form-control form-group' %>
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :password, class: 'required sr-only' %>
+          <%= f.password_field :password, class: 'form-control form-group', placeholder: "password" %>
+          <i class="form-control-feedback fa fa-key"></i>
+        </div>
+
+        <div class="form-group has-feedback has-feedback-left">
+          <%= f.label :password_confirmation, class: 'required sr-only' %>
+          <%= f.password_field :password_confirmation, class: 'form-control form-group', placeholder: "confirm password" %>
+          <i class="form-control-feedback fa fa-lock"></i>
+        </div>
 
         <%= f.submit "Create my account", class: "btn btn-primary form-control form-group" %>
       <% end %>
