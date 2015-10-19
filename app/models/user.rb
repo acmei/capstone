@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class User < ActiveRecord::Base
   attr_accessor :remember_token
   before_save { self.email.downcase! }
@@ -53,5 +55,18 @@ class User < ActiveRecord::Base
   # Forgets a user
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  # OmniAuth
+  def self.find_or_create_from_omniauth(auth_hash)
+    uid = auth_hash[:uid]
+    provider = auth_hash[:provider]
+
+    user = User.where(uid: uid, provider: provider).first_or_initialize
+    user.email = auth_hash[:info][:email]
+    user.username = auth_hash[:info][:name]
+    user.password = SecureRandom.uuid
+
+    return user.save ? user : nil 
   end
 end

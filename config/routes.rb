@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   get    "login"              => "sessions#new"
   post   "login"              => "sessions#create"
   delete "logout"             => "sessions#destroy"
+
+  #OAuth
+  get "auth/:provider/callback" => 'sessions#create'
+  get "auth/:provider" => 'sessions#create', as: 'google'
 end

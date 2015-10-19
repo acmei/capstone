@@ -4,9 +4,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:session][:username])
-
-    if user && user.authenticate(params[:session][:password])
+    if params[:provider] == 'google_oauth2'
+      auth_hash = request.env['omniauth.auth'] || params
+      user = User.find_or_create_from_omniauth(auth_hash)
+      log_in user
+      redirect_to user
+    elsif user && user.authenticate(params[:session][:password])
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to user
