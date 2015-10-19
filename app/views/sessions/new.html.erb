@@ -24,7 +24,8 @@
           <i class="form-control-feedback text-muted fa fa-lock"></i>
         </div>
 
-        <%= f.submit "Sign In", class: "btn btn-primary form-control form-group" %>
+        <%= f.submit "Login", class: "btn btn-primary form-control form-group" %>
+        <%= link_to("Register for an Account", new_user_path, class: "form-control btn btn-info register") %>
       <% end %>
       <br>
       <p class="text-center"><%= link_to("I forgot my username or pasword", "#") %></p>
