@@ -24,11 +24,14 @@
           <i class="form-control-feedback text-muted fa fa-lock"></i>
         </div>
 
+        <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me • </span><%= link_to("Forgot username/password?", "#", class: "forgot") %>
+        <% end %>
+
         <%= f.submit "Login", class: "btn btn-primary form-control form-group" %>
-        <%= link_to("Register for an Account", new_user_path, class: "form-control btn btn-info register") %>
+        <%= link_to("Register for an Account", new_user_path, class: "form-control form-group btn btn-info register") %>
       <% end %>
-      <br>
-      <p class="text-center"><%= link_to("I forgot my username or pasword", "#") %></p>
     </div>
   </div>
 </div>
