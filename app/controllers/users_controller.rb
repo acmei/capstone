@@ -8,8 +8,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in(@user)
-      redirect_to user_path(@user)
+      log_in @user
+      redirect_to @user
     else
       render :new
     end
@@ -17,11 +17,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @cookbooks = @user.cookbooks
-    # if params[:cookbook]
-    #   @cookbook = Cookbook.find(params[:cookbook])
-    # end
   end
+
 
 private
 
