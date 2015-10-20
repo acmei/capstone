@@ -1,6 +1,6 @@
-username,email,password,therapist_id
-anita,anita@email.com,password,1
-justine,justine@email.com,password,2
-harry,harry@email.com,password,1
-william,willy@email.com,password,2
-luna,luna@email.com,password,1
+username,email,password,therapist_id,activated,activated_at
+anita,anita@email.com,password,1,true
+justine,justine@email.com,password,2,true
+harry,harry@email.com,password,1,true
+william,willy@email.com,password,2,true
+luna,luna@email.com,password,1,true
