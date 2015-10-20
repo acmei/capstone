@@ -41,9 +41,13 @@ a:hover {
   font-size: 0.8em;
 }
 
+.fa-bars {
+  font-size: 1.3em;
+}
+
 /* navigation --------------------------------------------------------------- */
 
-.navbar-brand { 
+/*.navbar-brand { 
   font-family: 'Unica One', cursive;
   font-size: 2em;
 }
@@ -54,6 +58,10 @@ a:hover {
 
 .btn-info {
   margin-right: 10px;
+}*/
+
+.nav-profile-img {
+  width: 20px;
 }
 
 /* forms -------------------------------------------------------------------- */
