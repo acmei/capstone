@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   # Account Activation
   resources :account_activations, only: [:edit]
 
+  # Password Reset
+  resources :password_resets, only: [:new, :create, :edit, :update]
+
   # OmniAuth
   get "auth/:provider/callback" => 'sessions#create'
   get "auth/:provider" => 'sessions#create', as: 'google'
