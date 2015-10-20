@@ -64,10 +64,5 @@ class Therapist < ActiveRecord::Base
       self.activation_token  = Therapist.new_token
       self.activation_digest = Therapist.digest(activation_token)
     end
-
-    # Remembers a user in the database for use in persistent sessions.
-    def remember
-      self.remember_token = Therapist.new_token
-      update_attribute(:remember_digest, Therapist.digest(remember_token))
-    end
+    
 end
