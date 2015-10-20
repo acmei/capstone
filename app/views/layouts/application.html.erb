@@ -8,8 +8,12 @@
 </head>
 <body>
 
+<%= render 'layouts/header' %>
 <%= render partial: "shared/messages", flash: flash %>
-<%= yield %>
+<div class="content">
+  <%= yield %>
+</div>
+<%= render 'layouts/footer' %>
 
 </body>
 </html>

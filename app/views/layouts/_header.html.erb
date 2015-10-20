@@ -1,0 +1,26 @@
+<nav>
+  <div class="navbar navbar-default navbar-fixed-top">
+
+    <div class="navbar-header">
+      <%= link_to "DBT Companion", root_path, class: "navbar-brand" %>
+    </div>
+
+    <!-- Add logic to only show if user is logged in -->
+    <ul class="nav navbar-nav navbar-link">
+      <li role="presentation"><%= link_to "Diary", "#" %></li>
+      <li role="presentation"><%= link_to "Calendar", "#" %></li>
+    </ul>
+
+    <!-- Login/Signup Links and Buttons -->
+    <ul class="nav navbar-nav navbar-right">
+      <% if logged_in? %>
+        <li><%= button_to "Logout", logout_path, method: :delete, class: "btn btn-info navbar-btn" %></li>
+        <li><%= button_to "User Profile", "#", method: :get, class: "btn btn-default navbar-btn" %></li>
+      <% else %>
+        <li><%= button_to "Login", login_path, method: :get, class: "btn btn-info navbar-btn" %></li>
+        <li><%= button_to "Create Account", new_user_path, method: :get, class: "btn btn-default navbar-btn" %></li>
+      <% end %>
+    </ul>
+
+  </div>
+</nav>
