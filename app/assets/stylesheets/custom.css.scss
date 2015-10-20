@@ -31,14 +31,6 @@ a:hover {
   font-size: 0.8em;
 }
 
-.fa-bars {
-  font-size: 1.4em;
-}
-
-.navbar-left .fa {
-  font-size: 1.2em;
-}
-
 /* navigation --------------------------------------------------------------- */
 
 .nav-profile-img {
@@ -48,9 +40,19 @@ a:hover {
   border: 1px solid lightgrey;
 }
 
-li .fa {
+.fa-bars {
+  font-size: 1.4em;
+}
+
+.dropdown-menu .fa {
   margin-right: 0.6em;
-  color: hsla(0, 0%, 40%, 1);
+  color: hsla(0, 0%, 44%, 1);
+}
+
+.navbar-left .fa {
+  margin-right: 0.6em;
+  font-size: 1.2em;
+  color: hsla(0, 0%, 44%, 1);
 }
 
 /* forms -------------------------------------------------------------------- */
