@@ -3,12 +3,6 @@
     <div class="col-md-4 col-md-offset-4">
 
       <h3>Sign In</h3>
-      <% if flash.now[:error] %>
-        <div class="alert alert-danger">
-          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <%= flash.now[:error] %>
-        </div>
-      <% end %>
 
       <%= form_for :session, url: login_path do |f| %>
 
