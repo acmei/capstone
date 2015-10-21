@@ -7,57 +7,57 @@
           <ul class="nav nav-tabs" role="tablist">
 
             <li role="presentation" class="active">
-              <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+              <a href="#urges" data-toggle="tab" aria-controls="urges" role="tab" title="Urges">
                 <span class="round-tab">
-                  <i class="glyphicon glyphicon-folder-open"></i>
+                  <%= fa_icon "hand-stop-o" %>
                 </span>
               </a>
             </li>
 
             <li role="presentation" class="disabled">
-              <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+              <a href="#ratings" data-toggle="tab" aria-controls="ratings" role="tab" title="Ratings">
                 <span class="round-tab">
-                  <i class="glyphicon glyphicon-pencil"></i>
+                  <%= fa_icon "pencil" %>
                 </span>
               </a>
             </li>
             <li role="presentation" class="disabled">
-              <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+              <a href="#drugs-meds" data-toggle="tab" aria-controls="drugs-meds" role="tab" title="Drugs and Medications">
                 <span class="round-tab">
-                  <i class="glyphicon glyphicon-picture"></i>
+                  <%= fa_icon "heartbeat" %>
                 </span>
               </a>
             </li>
 
             <li role="presentation" class="disabled">
-              <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+              <a href="#actions" data-toggle="tab" aria-controls="actions" role="tab" title="Actions">
                 <span class="round-tab">
-                  <i class="glyphicon glyphicon-ok"></i>
+                  <%= fa_icon "play" %>
                 </span>
               </a>
             </li>
           </ul>
         </div>
-        
+
         <form role="form">
           <div class="tab-content">
-            <div class="tab-pane active" role="tabpanel" id="step1">
-              <h3>Step 1</h3>
+            <div class="tab-pane active" role="tabpanel" id="urges">
+              <h3>Urges</h3>
               <p>This is step 1</p>
               <ul class="list-inline pull-right">
                 <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
               </ul>
             </div>
-            <div class="tab-pane" role="tabpanel" id="step2">
-              <h3>Step 2</h3>
+            <div class="tab-pane" role="tabpanel" id="ratings">
+              <h3>Ratings</h3>
               <p>This is step 2</p>
               <ul class="list-inline pull-right">
                 <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
                 <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
               </ul>
             </div>
-            <div class="tab-pane" role="tabpanel" id="step3">
-              <h3>Step 3</h3>
+            <div class="tab-pane" role="tabpanel" id="drugs-meds">
+              <h3>Drugs and Medications</h3>
               <p>This is step 3</p>
               <ul class="list-inline pull-right">
                 <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
@@ -65,9 +65,9 @@
                 <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
               </ul>
             </div>
-            <div class="tab-pane" role="tabpanel" id="complete">
-              <h3>Complete</h3>
-              <p>You have successfully completed all steps.</p>
+            <div class="tab-pane" role="tabpanel" id="actions">
+              <h3>Actions</h3>
+              <p>You have successfully actionsd all steps.</p>
             </div>
             <div class="clearfix"></div>
           </div>
