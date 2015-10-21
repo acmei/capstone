@@ -37,16 +37,21 @@ a:hover {
   width: 1.6875em;
   height: 1.6875em;
   margin-right: 0.25em;
-  border: 1px solid lightgrey;
+  border: 1px solid hsla(0, 0%, 88%, 1);
 }
 
 .fa-bars {
   font-size: 1.4em;
 }
 
-.dropdown-menu .fa {
+.dropdown-menu {
+  .fa {
   margin-right: 0.6em;
   color: hsla(0, 0%, 44%, 1);
+  }
+  li {
+    margin-bottom: 0.3125em;
+  }
 }
 
 .navbar-left .fa {
@@ -55,7 +60,7 @@ a:hover {
   color: hsla(0, 0%, 44%, 1);
 }
 
-.login {
+.login, .user-nav {
   border-top: 0.1em solid hsla(0, 0%, 88%, 1);
 }
 

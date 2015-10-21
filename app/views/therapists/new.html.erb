@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
 
-      <h3>Sign Up</h3>
-      <p class="text-small"><%= link_to("Take me to user registration", signup_path) %></p>
+      <h3>Therapist Sign Up</h3>
+      <p class="text-small"><%= link_to("Take me to DBT participant registration", signup_path) %></p>
 
       <%= form_for @therapist do |f| %>
         <%= render partial: 'shared/error_messages', 
@@ -14,7 +14,7 @@
 
         <div class="form-group has-feedback has-feedback-left">
           <%= f.label :name, class: 'required sr-only' %>
-          <%= f.text_field :name, class: 'form-control', placeholder: "Username" %>
+          <%= f.text_field :name, class: 'form-control', placeholder: "Name" %>
           <i class="form-control-feedback text-muted fa fa-user"></i>
         </div>
 
@@ -26,7 +26,7 @@
 
         <div class="form-group has-feedback has-feedback-left">
           <%= f.label :phone, class: 'required sr-only' %>
-          <%= f.email_field :phone, class: 'form-control form-group', placeholder: "Phone number (to be shared with patients)" %>
+          <%= f.text_field :phone, class: 'form-control form-group', placeholder: "Phone number (to be shared with patients)" %>
           <i class="form-control-feedback text-muted fa fa-phone"></i>
         </div>
 

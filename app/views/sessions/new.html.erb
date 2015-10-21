@@ -27,8 +27,8 @@
         <%= link_to google_path(:google_oauth2), class: 'form-control btn btn-danger google' do %>
           <i class="fa fa-google-plus"></i> Login with Google
         <% end %>
-        <%= link_to("Register for an Account", new_user_path, class: "form-control btn btn-info register") %>
       <% end %>
+      <p class="register">New? <%= link_to "Create an Account", new_user_path %></p>
     </div>
   </div>
 </div>
