@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         message  = "Account not activated. "
         message += "Check your email for the activation link."
         flash[:error] = message
-        redirect_to root_url
+        redirect_to root_path
       end
     else
       flash.now[:error] = "Invalid email/password combination."
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
       user = User.find_or_create_from_omniauth(auth_hash)
       set_default_photo(user)
       log_in user
-      redirect_to user
+      redirect_to root_path
     else
       flash.now[:error] = "Oops, that didn't seem to work."
       render 'new'
