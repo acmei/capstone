@@ -54,7 +54,7 @@ end
 # PHOTOS
 CSV.foreach("db/photos.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
   Photo.create(
-    image: row[:image],
+    link: row[:link],
     user_id: row[:user_id]
     )
 end

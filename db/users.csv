@@ -2,4 +2,4 @@ username,email,password,therapist_id,activated,activated_at
 anita,anita@email.com,password,1,true
 harry,harry@email.com,password,1,true
 william,willy@email.com,password,2,true
-luna,luna@email.com,p assword,1,true
+luna,luna@email.com,password,1,true

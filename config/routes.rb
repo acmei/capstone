@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   # OmniAuth
-  get "auth/:provider/callback" => 'sessions#create'
-  get "auth/:provider" => 'sessions#create', as: 'google'
+  get "auth/:provider/callback" => 'sessions#google'
+  get "auth/:provider" => 'sessions#google', as: 'google'
 end
