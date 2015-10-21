@@ -9,6 +9,6 @@ $(document).ready(function($) {
     }, 1000);
 
     // and now we create 7 day cookie
-    $.cookie('preloader', true, {path: '/', expire: 7});
+    $.cookie('preloader', true, {path: '/', expire: 1});
   }
 });
