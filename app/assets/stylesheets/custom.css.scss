@@ -1,7 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic);
 
 /* universal ---------------------------------------------------------------- */
 
@@ -15,10 +14,6 @@
   font-family: 'Open Sans', sans-serif;  
 }
 
-.content {
-  padding-top: 55px;
-}
-
 .center {
   text-align: center;
   h1 {
@@ -30,11 +25,6 @@ a:hover {
   text-decoration: none;
 }
 
-/*.btn {
-  background: rgba(0, 0, 0, 0.5);
-}*/
-
-
 /* typography --------------------------------------------------------------- */
 
 .text-small {
@@ -43,17 +33,26 @@ a:hover {
 
 /* navigation --------------------------------------------------------------- */
 
-.navbar-brand { 
-  font-family: 'Unica One', cursive;
-  font-size: 2em;
+.nav-profile-img {
+  width: 1.6875em;
+  height: 1.6875em;
+  margin-right: 0.25em;
+  border: 1px solid lightgrey;
 }
 
-.navbar-right {
- margin-right: 15px;
+.fa-bars {
+  font-size: 1.4em;
 }
 
-.btn-info {
-  margin-right: 10px;
+.dropdown-menu .fa {
+  margin-right: 0.6em;
+  color: hsla(0, 0%, 44%, 1);
+}
+
+.navbar-left .fa {
+  margin-right: 0.6em;
+  font-size: 1.2em;
+  color: hsla(0, 0%, 44%, 1);
 }
 
 /* forms -------------------------------------------------------------------- */

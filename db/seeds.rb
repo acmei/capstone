@@ -51,6 +51,14 @@ CSV.foreach("db/questions.csv", headers: true, header_converters: :symbol, conve
     )
 end
 
+# PHOTOS
+CSV.foreach("db/photos.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
+  Photo.create(
+    link: row[:link],
+    user_id: row[:user_id]
+    )
+end
+
 # DIARIES_QUESTIONS JOIN TABLE
 question_ids = (1..19).to_a
 diary_ids = (1..12).to_a

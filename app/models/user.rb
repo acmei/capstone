@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   # ASSOCIATIONS ---------------------------------------------------------------
   has_secure_password
   belongs_to :therapist
+  has_one  :photo
   has_many :contacts
   has_many :skills
   has_many :diaries
@@ -94,6 +95,14 @@ class User < ActiveRecord::Base
   end
 
   private
+
+    # Sign in with email or username
+    def self.find_by_email_or_username(email_or_username)
+      user_by_email = User.find_by(email: email_or_username)
+      user_by_username = User.find_by(username: email_or_username)
+
+      user = user_by_email || user_by_username
+    end
 
     # OmniAuth
     def self.find_or_create_from_omniauth(auth_hash)

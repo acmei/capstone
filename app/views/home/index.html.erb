@@ -1,20 +1,5 @@
 <div id="loader-wrapper">
   <div id="loader"></div>
-
   <div class="loader-section section-left"></div>
   <div class="loader-section section-right"></div>
- 
-</div>
-
-<div class="container" id="content">
-  <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-      <% if logged_in? %>
-        <%= link_to("logout", logout_path, class: 'btn btn-danger', method: :delete) %>
-      <% else %>
-        <%= link_to("login", login_path, class: 'btn btn-primary') %>
-        <%= link_to("sign up", new_user_path, class: 'btn btn-info') %>
-      <% end %>
-    </div>
-  </div>
 </div>
