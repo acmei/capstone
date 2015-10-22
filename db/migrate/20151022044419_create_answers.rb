@@ -1,7 +1,7 @@
 class CreateAnswers < ActiveRecord::Migration
   def change
     create_table :answers do |t|
-      t.datetime :date
+      t.datetime :date, default: Time.now
       t.integer :num
       t.string :text
       t.boolean :bool

@@ -2,7 +2,7 @@ require 'securerandom'
 
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save   :downcase_email
+  before_save   :downcase_email, :format_day
   before_create :create_activation_digest
 
   # ASSOCIATIONS ---------------------------------------------------------------
@@ -17,16 +17,15 @@ class User < ActiveRecord::Base
   # VALIDATIONS ----------------------------------------------------------------
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-  validates :name,      presence: true,
-                        uniqueness: { case_sensitive: false },
-                        length: { maximum: 20 }
-  validates :email,     presence: true,
-                        format: { with: VALID_EMAIL_REGEX },
-                        uniqueness: { case_sensitive: false }
-  validates :password,  presence: true, length: { minimum: 6 }
-
-  # QUERYING answers for user
-  # User.first.diaries.first.questions &:answers
+  validates :name,        presence: true,
+                          uniqueness: { case_sensitive: false },
+                          length: { maximum: 20 }
+  validates :email,       presence: true,
+                          format: { with: VALID_EMAIL_REGEX },
+                          uniqueness: { case_sensitive: false }
+  validates :session_day, inclusion: { in: Date::DAYNAMES }
+  validates :password,    presence: true, 
+                          length: { minimum: 6 }
 
   # METHODS --------------------------------------------------------------------
   # Returns the hash digest of the given string
@@ -112,13 +111,18 @@ class User < ActiveRecord::Base
       user.email = auth_hash[:info][:email]
       user.name = auth_hash[:info][:name]
       user.password = SecureRandom.uuid
-
+      raise
       return user.save ? user : nil 
     end
 
     # Converts email to all lower-case
     def downcase_email
       self.email = email.downcase
+    end
+
+    # Formats day to DAYNAME constant elements
+    def format_day
+      self.session_day = session_day.downcase.capitalize
     end
 
     # Creates and assigns the activation token and digest
