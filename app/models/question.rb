@@ -9,7 +9,10 @@ class Question < ActiveRecord::Base
                           inclusion: { 
                             in: ["urge", "rating", "drugs/meds", "actions", 
                                 "emotions", "optional", "session_urge", 
-                                "session_reg"] }
+                                "session_reg", "skill"] }
   validates :answer_type, presence: true,
                           inclusion: { in: ["num", "text", "num/text", "bool"] }
+  validates :recurrence,  presence: true,
+                          numericality: { only_integer: true },
+                          inclusion: { in: [1, 7] }
 end
