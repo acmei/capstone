@@ -46,12 +46,8 @@ class DiariesController < ApplicationController
 
 private
 
-    def find_diary
-      @diary = Diary.find(params[:id])
+    def answer_params
+      params.require(:answer).permit(:date, :num, :text, :bool, :question_id, :user_id)
     end
-
-    def diary_params
-      params.require(:diary).permit(:filled_in_session, :times_filled, :user_id)
-    end
-
+    
 end
