@@ -21,7 +21,7 @@ CSV.foreach("db/users.csv", headers: true, header_converters: :symbol, converter
     password_confirmation: row[:password],
     activated: row[:activated],
     activated_at: Time.zone.now,
-    therapist_id: row[:therapist_id] == "nil" ? nil : row[:therapist_id],
+    therapist_id: row[:therapist_id],
     photo_id: row[:photo_id]
     )
 end

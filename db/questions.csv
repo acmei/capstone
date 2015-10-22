@@ -18,6 +18,7 @@ commit suicide,session,num,1
 emotions,session,num,1
 actions,session,num,1
 thoughts,session,num,1
+filled_out_in_session,session,bool,1
 monday,skill,text,7
 tuesday,skill,text,7
 wednesday,skill,text,7
