@@ -1,4 +1,4 @@
-num_val,text_val,bool_val,question_id,user_id
+num,text,bool,question_id,user_id
 5,,,1,1
 5,,,2,1
 5,,,3,1

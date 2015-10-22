@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151022050351) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.datetime "date",        default: '2015-10-22 06:22:25'
+    t.datetime "date",        default: '2015-10-22 18:44:22'
     t.integer  "num"
     t.string   "text"
     t.boolean  "bool"
@@ -80,21 +80,6 @@ ActiveRecord::Schema.define(version: 20151022050351) do
   add_index "skills_users", ["skill_id", "user_id"], name: "index_skills_users_on_skill_id_and_user_id", using: :btree
   add_index "skills_users", ["user_id", "skill_id"], name: "index_skills_users_on_user_id_and_skill_id", using: :btree
 
-  create_table "therapists", force: :cascade do |t|
-    t.string   "username"
-    t.string   "name"
-    t.string   "email"
-    t.string   "phone"
-    t.string   "password_digest"
-    t.string   "remember_digest"
-    t.string   "activaton_digest"
-    t.boolean  "activated"
-    t.datetime "activated_at"
-    t.integer  "photo_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
@@ -119,5 +104,4 @@ ActiveRecord::Schema.define(version: 20151022050351) do
   add_foreign_key "answers", "users"
   add_foreign_key "contacts", "users"
   add_foreign_key "users", "photos"
-  add_foreign_key "users", "therapists"
 end

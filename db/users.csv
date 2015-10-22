@@ -1,5 +1,7 @@
-username,email,password,therapist_id,activated,activated_at
-anita,anita@email.com,password,1,true
-harry,harry@email.com,password,1,true
-william,willy@email.com,password,2,true
-luna,luna@email.com,password,1,true
+name,email,password,therapist_id,activated,photo_id
+anita,anita@email.com,password,1,true,1
+harry,harry@email.com,password,2,true,2
+william,willy@email.com,password,2,true,3
+luna,luna@email.com,password,1,true,4
+Dana Scully,scully@email.com,password,nil,true,1
+Fox Mulder,mulder@email.com,password,nil,true,3

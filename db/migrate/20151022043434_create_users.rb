@@ -12,7 +12,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :activated, default: "false"
       t.datetime :activated_at
       t.references :photo, index: true, foreign_key: true, default: 1
-      t.references :therapist, index: true, foreign_key: true
+      t.references :therapist, index: true
 
       t.timestamps null: false
     end

@@ -1,55 +1,9 @@
 require 'csv'
 
-# # THERAPISTS
-# CSV.foreach("db/therapists.csv", headers: true, header_converters: :symbol, converters: :all) do |row|  
-#   Therapist.create(
-#     name: row[:name],
-#     email: row[:email],
-#     phone: row[:phone],
-#     password: row[:password],
-#     password_confirmation: row[:password]
-#     )
-# end
-
-# # USERS
-# CSV.foreach("db/users.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
-#   User.create(
-#     username: row[:username],
-#     email: row[:email],
-#     password: row[:password],
-#     password_confirmation: row[:password],
-#     therapist_id: row[:therapist_id],
-#     activated: row[:activated],
-#     activated_at: Time.zone.now
-#     )
-# end
-
-# # CONTACTS
-# CSV.foreach("db/contacts.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
-#   Contact.create(
-#     name: row[:name],
-#     phone: row[:phone],
-#     user_id: row[:user_id]
-#     )
-# end
-
-# # DIARIES
-# CSV.foreach("db/diaries.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
-#   Diary.create(
-#     filled_in_session: row[:filled_in_session],
-#     times_filled: row[:times_filled],
-#     user_id: row[:user_id]
-#     )
-# end
-
-# # QUESTIONS
-# CSV.foreach("db/questions.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
-#   Question.create(
-#     text: row[:text],
-#     category: row[:category],
-#     answer_type: row[:answer_type]
-#     )
-# end
+# generate random datetime
+def time_rand from = Time.new(2015, 10, 15), to = Time.now
+  Time.at(from + rand * (to.to_f - from.to_f))  
+end 
 
 # PHOTOS
 CSV.foreach("db/photos.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
@@ -58,29 +12,63 @@ CSV.foreach("db/photos.csv", headers: true, header_converters: :symbol, converte
     )
 end
 
-# # DIARIES_QUESTIONS JOIN TABLE
-# question_ids = (1..19).to_a
-# diary_ids = (1..12).to_a
-# diaries_questions = {}
+# USERS
+CSV.foreach("db/users.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
+  User.create(
+    name: row[:name],
+    email: row[:email],
+    password: row[:password],
+    password_confirmation: row[:password],
+    activated: row[:activated],
+    activated_at: Time.zone.now,
+    therapist_id: row[:therapist_id] == "nil" ? nil : row[:therapist_id],
+    photo_id: row[:photo_id]
+    )
+end
 
-# diary_ids.each do |id|
-#   diaries_questions[id] = question_ids
-# end
+# CONTACTS
+CSV.foreach("db/contacts.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
+  Contact.create(
+    name: row[:name],
+    phone: row[:phone],
+    user_id: row[:user_id]
+    )
+end
 
-# diaries_questions.each do |i, r|
-#   diary = Diary.find(i)
-#   r.each do |x|
-#     diary.questions << Question.find(x)
-#   end
-# end
+# QUESTIONS
+CSV.foreach("db/questions.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
+  Question.create(
+    text: row[:text],
+    category: row[:category],
+    answer_type: row[:answer_type],
+    recurrence: rand > 0.9 ? 1 : 7
+    )
+end
 
-# # ANSWERS
-# CSV.foreach("db/answers.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
-#   Answer.create(
-#     num_val: row[:num_val],
-#     text_val: row[:text_val],
-#     bool_val: row[:bool_val],
-#     question_id: row[:question_id],
-#     user_id: row[:user_id]
-#     )
-# end
+# QUESTIONS_USERS JOIN TABLE
+question_ids = (1..19).to_a
+user_ids = (1..4).to_a
+questions_users = {}
+
+user_ids.each do |id|
+  questions_users[id] = question_ids
+end
+
+questions_users.each do |i, r|
+  user = User.find(i)
+  r.each do |x|
+    user.questions << Question.find(x)
+  end
+end
+
+# ANSWERS
+CSV.foreach("db/answers.csv", headers: true, header_converters: :symbol, converters: :all) do |row|
+  Answer.create(
+    date: time_rand,
+    num: row[:num],
+    text: row[:text],
+    bool: row[:bool],
+    question_id: row[:question_id],
+    user_id: row[:user_id]
+    )
+end

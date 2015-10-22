@@ -10,12 +10,16 @@ class User < ActiveRecord::Base
 
   # ASSOCIATIONS ---------------------------------------------------------------
   has_secure_password
-  belongs_to :therapist
-  belongs_to :photo
-  has_many :contacts
-  has_many :answers
+  belongs_to  :photo
+  has_many    :contacts
+  has_many    :answers
   has_and_belongs_to_many :skills, join_table: :skills_users
   has_and_belongs_to_many :questions, join_table: :questions_users
+
+  # self join - allows user defined as therapist to have many clients
+  has_many    :clients,   class_name: 'User',
+                          foreign_key: 'therapist_id'
+  belongs_to  :therapist, class_name: 'User'
 
   # VALIDATIONS ----------------------------------------------------------------
   validates :name,        presence: true,
