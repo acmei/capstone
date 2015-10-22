@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe Skill, type: :model do
 
   describe "model associations" do
-    it { should belong_to(:user) }
-    it { should belong_to(:diary) }
+    it { should have_and_belong_to_many(:users) }
   end
 
   describe "model validations" do

@@ -8,17 +8,16 @@ class User < ActiveRecord::Base
   # ASSOCIATIONS ---------------------------------------------------------------
   has_secure_password
   belongs_to :therapist
-  has_one  :photo
+  belongs_to :photo
   has_many :contacts
-  has_many :skills
-  has_many :diaries
   has_many :answers
-  has_many :questions, through: :diaries
+  has_and_belongs_to_many :skills, join_table: :skills_users
+  has_and_belongs_to_many :questions, join_table: :questions_users
 
   # VALIDATIONS ----------------------------------------------------------------
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 
-  validates :username,  presence: true,
+  validates :name,      presence: true,
                         uniqueness: { case_sensitive: false },
                         length: { maximum: 20 }
   validates :email,     presence: true,
@@ -96,12 +95,12 @@ class User < ActiveRecord::Base
 
   private
 
-    # Sign in with email or username
-    def self.find_by_email_or_username(email_or_username)
-      user_by_email = User.find_by(email: email_or_username)
-      user_by_username = User.find_by(username: email_or_username)
+    # Sign in with email or name
+    def self.find_by_email_or_name(email_or_name)
+      user_by_email = User.find_by(email: email_or_name)
+      user_by_name = User.find_by(name: email_or_name)
 
-      user = user_by_email || user_by_username
+      user = user_by_email || user_by_name
     end
 
     # OmniAuth
@@ -111,7 +110,7 @@ class User < ActiveRecord::Base
 
       user = User.where(uid: uid, provider: provider).first_or_initialize
       user.email = auth_hash[:info][:email]
-      user.username = auth_hash[:info][:name]
+      user.name = auth_hash[:info][:name]
       user.password = SecureRandom.uuid
 
       return user.save ? user : nil 

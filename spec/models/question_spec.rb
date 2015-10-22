@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Question, type: :model do
   describe "model associations" do
     it { should have_many(:answers) }
-    it { should have_and_belong_to_many(:diaries) }
+    it { should have_and_belong_to_many(:users) }
   end
 
   describe "model validations" do

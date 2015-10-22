@@ -1,9 +1,10 @@
 FactoryGirl.define do
   factory :answer do
-    num_val 1
-    text_val "text is here"
-    bool_val false
-    association :user_id, factory: :user
-    association :question_id, factory: :question
+    date "2015-10-21 21:44:26"
+    num 1
+    text "text is here"
+    bool false
+    user nil
+    question nil
   end
 end

@@ -1,7 +1,7 @@
 class Question < ActiveRecord::Base
   # ASSOCIATIONS ---------------------------------------------------------------
   has_many :answers
-  has_and_belongs_to_many :diaries, join_table: :diaries_questions
+  has_and_belongs_to_many :users, join_table: :questions_users
 
   # VALIDATIONS ----------------------------------------------------------------
   validates :text,        presence: true
