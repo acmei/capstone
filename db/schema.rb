@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20151020202934) do
   add_index "diaries_questions", ["question_id", "diary_id"], name: "index_diaries_questions_on_question_id_and_diary_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
-    t.string   "image",      default: "jellyfish.jpg"
+    t.string   "link",       default: "jellyfish.jpg"
     t.integer  "user_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
