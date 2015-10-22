@@ -1,4 +1,5 @@
 class Question < ActiveRecord::Base
+  
   # ASSOCIATIONS ---------------------------------------------------------------
   has_many :answers
   has_and_belongs_to_many :users, join_table: :questions_users
@@ -14,4 +15,8 @@ class Question < ActiveRecord::Base
   validates :recurrence,  presence: true,
                           numericality: { only_integer: true },
                           inclusion: { in: [1, 7] }
+
+  # SCOPES ---------------------------------------------------------------------
+  scope :published, -> { where(published: true) }
+
 end
