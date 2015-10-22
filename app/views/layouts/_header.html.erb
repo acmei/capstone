@@ -20,8 +20,8 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="#" class="dropdown-toggle user-nav" data-toggle="dropdown" role="button" aria-expanded="false">
-              <%= image_tag @user.photo.link, class: "nav-profile-img img-circle btn-outline", alt: "username picture" %>
-              <%= @user.username %>
+              <%= image_tag @user.photo.link, class: "nav-profile-img img-circle btn-outline", alt: "profile picture" %>
+              <%= @user.name %>
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">

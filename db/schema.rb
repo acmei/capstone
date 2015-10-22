@@ -17,14 +17,14 @@ ActiveRecord::Schema.define(version: 20151022050351) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.datetime "date"
+    t.datetime "date",        default: '2015-10-22 06:22:25'
     t.integer  "num"
     t.string   "text"
     t.boolean  "bool"
     t.integer  "question_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
@@ -98,18 +98,18 @@ ActiveRecord::Schema.define(version: 20151022050351) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
-    t.string   "session_day"
+    t.string   "session_day",       default: "Monday"
     t.string   "uid"
     t.string   "provider"
     t.string   "password_digest"
     t.string   "remember_digest"
     t.string   "activation_digest"
-    t.boolean  "activated"
+    t.boolean  "activated",         default: false
     t.datetime "activated_at"
-    t.integer  "photo_id"
+    t.integer  "photo_id",          default: 1
     t.integer  "therapist_id"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   add_index "users", ["photo_id"], name: "index_users_on_photo_id", using: :btree

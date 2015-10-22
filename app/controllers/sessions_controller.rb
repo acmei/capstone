@@ -26,7 +26,6 @@ class SessionsController < ApplicationController
     if params[:provider] == 'google_oauth2'
       auth_hash = request.env['omniauth.auth'] || params
       user = User.find_or_create_from_omniauth(auth_hash)
-      set_default_photo(user)
       log_in user
       redirect_to root_path
     else

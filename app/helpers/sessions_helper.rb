@@ -5,12 +5,6 @@ module SessionsHelper
     session[:user_id] = user.id
   end
 
-  def set_default_photo(user)
-    default_photo = Photo.new
-    default_photo.user_id = user.id
-    default_photo.save
-  end
-
   # Remembers a user in a persistent session
    def remember(user)
     user.remember
