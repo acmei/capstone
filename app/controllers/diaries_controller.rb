@@ -7,9 +7,7 @@ class DiariesController < ApplicationController
   def show; end
 
   # Add a new diary
-  def new
-    @diary = Diary.new
-  end
+  def new; end
 
   def create
     @diary = Diary.new(diary_params)

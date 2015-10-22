@@ -1,12 +1,9 @@
 FactoryGirl.define do
   factory :skill do
-    category "mindfulness"
     text "wise mind"
+    category "mindfulness"
     acronym "WM"
-    favorite false
     description "This is a description"
-    association :user_id, factory: :user
-    association :diary_id, factory: :diary
   end
 
 end

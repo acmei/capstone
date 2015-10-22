@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email_or_username(params[:session][:username])
+    user = User.find_by_email_or_name(params[:session][:name])
     if user && user.authenticate(params[:session][:password])
       if user.activated?
         log_in user
@@ -26,7 +26,6 @@ class SessionsController < ApplicationController
     if params[:provider] == 'google_oauth2'
       auth_hash = request.env['omniauth.auth'] || params
       user = User.find_or_create_from_omniauth(auth_hash)
-      set_default_photo(user)
       log_in user
       redirect_to root_path
     else

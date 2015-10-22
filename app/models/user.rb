@@ -1,33 +1,38 @@
 require 'securerandom'
+VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+PROVIDERS = ["google_oauth2"]
+PASSWORD_EXPIRATION = 3
 
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save   :downcase_email
+  before_save   :downcase_email, :format_day
   before_create :create_activation_digest
 
   # ASSOCIATIONS ---------------------------------------------------------------
   has_secure_password
-  belongs_to :therapist
-  has_one  :photo
-  has_many :contacts
-  has_many :skills
-  has_many :diaries
-  has_many :answers
-  has_many :questions, through: :diaries
+  belongs_to  :photo
+  has_many    :contacts
+  has_many    :answers
+  has_and_belongs_to_many :skills, join_table: :skills_users
+  has_and_belongs_to_many :questions, join_table: :questions_users
+
+  # self join - allows user defined as therapist to have many clients
+  has_many    :clients,   class_name: 'User',
+                          foreign_key: 'therapist_id'
+  belongs_to  :therapist, class_name: 'User'
 
   # VALIDATIONS ----------------------------------------------------------------
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
-
-  validates :username,  presence: true,
-                        uniqueness: { case_sensitive: false },
-                        length: { maximum: 20 }
-  validates :email,     presence: true,
-                        format: { with: VALID_EMAIL_REGEX },
-                        uniqueness: { case_sensitive: false }
-  validates :password,  presence: true, length: { minimum: 6 }
-
-  # QUERYING answers for user
-  # User.first.diaries.first.questions &:answers
+  validates :name,        presence: true,
+                          uniqueness: { case_sensitive: false },
+                          length: { maximum: 20 }
+  validates :email,       presence: true,
+                          format: { with: VALID_EMAIL_REGEX },
+                          uniqueness: { case_sensitive: false }
+  validates :session_day, inclusion: { in: Date::DAYNAMES }
+  validates :provider,    inclusion: { in: PROVIDERS }, allow_nil: true
+  validates :activated,   inclusion: { in: [true, false] }
+  validates :password,    presence: true, 
+                          length: { minimum: 6 }
 
   # METHODS --------------------------------------------------------------------
   # Returns the hash digest of the given string
@@ -91,17 +96,17 @@ class User < ActiveRecord::Base
 
   # Returns true if a password reset has expired.
   def password_reset_expired?
-    reset_sent_at < 3.hours.ago
+    reset_sent_at < PASSWORD_EXPIRATION.hours.ago
   end
 
   private
 
-    # Sign in with email or username
-    def self.find_by_email_or_username(email_or_username)
-      user_by_email = User.find_by(email: email_or_username)
-      user_by_username = User.find_by(username: email_or_username)
+    # Sign in with email or name
+    def self.find_by_email_or_name(email_or_name)
+      user_by_email = User.find_by(email: email_or_name)
+      user_by_name = User.find_by(name: email_or_name)
 
-      user = user_by_email || user_by_username
+      user = user_by_email || user_by_name
     end
 
     # OmniAuth
@@ -111,7 +116,7 @@ class User < ActiveRecord::Base
 
       user = User.where(uid: uid, provider: provider).first_or_initialize
       user.email = auth_hash[:info][:email]
-      user.username = auth_hash[:info][:name]
+      user.name = auth_hash[:info][:name]
       user.password = SecureRandom.uuid
 
       return user.save ? user : nil 
@@ -120,6 +125,11 @@ class User < ActiveRecord::Base
     # Converts email to all lower-case
     def downcase_email
       self.email = email.downcase
+    end
+
+    # Formats day to Date::DAYNAME constant elements
+    def format_day
+      self.session_day = session_day.downcase.capitalize
     end
 
     # Creates and assigns the activation token and digest

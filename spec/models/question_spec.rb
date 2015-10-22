@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Question, type: :model do
   describe "model associations" do
     it { should have_many(:answers) }
-    it { should have_and_belong_to_many(:diaries) }
+    it { should have_and_belong_to_many(:users) }
   end
 
   describe "model validations" do
@@ -13,7 +13,7 @@ RSpec.describe Question, type: :model do
     it do
       should validate_inclusion_of(:category).
         in_array(["urge", "rating", "drugs/meds", "actions", 
-                  "emotions", "optional", "session_urge", "session_reg"])
+                  "emotions", "optional", "session", "skill"])
     end
 
     it { should validate_presence_of(:answer_type) }

@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe Skill, type: :model do
 
   describe "model associations" do
-    it { should belong_to(:user) }
-    it { should belong_to(:diary) }
+    it { should have_and_belong_to_many(:users) }
   end
 
   describe "model validations" do
@@ -23,14 +22,6 @@ RSpec.describe Skill, type: :model do
 
       expect(dup_text).to be_invalid
       expect(dup_text.errors.keys).to include(:text)
-    end
-
-    it "requires acronym to be unique" do
-      create :skill
-      dup_acronym = build :skill, acronym: "WM"
-
-      expect(dup_acronym).to be_invalid
-      expect(dup_acronym.errors.keys).to include(:acronym)
     end
 
     it { should validate_presence_of(:description) }
