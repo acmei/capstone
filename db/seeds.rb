@@ -41,7 +41,7 @@ CSV.foreach("db/questions.csv", headers: true, header_converters: :symbol, conve
     text: row[:text],
     category: row[:category],
     answer_type: row[:answer_type],
-    recurrence: rand > 0.9 ? 1 : 7
+    recurrence: row[:recurrence]
     )
 end
 

@@ -1,20 +1,27 @@
-text,category,answer_type
-commit suicide,urge,num
-self-harm,urge,num
-use drugs,urge,num
-emotional misery,rating,num
-physical misery,rating,num
-joy,rating,num
-alcohol,drugs/meds,num/text
-illegal drugs,drugs/meds,num/text
-meds as prescribed,drugs/meds,bool
-prn/OTC meds,drugs/meds,num/text
-self-harm,actions,bool
-lied,actions,num
-used skills,actions,num
-quit therapy,session_urge,num
-use drugs,session_urge,num
-commit suicide,session_urge,num
-emotions,session_reg,num
-actions,session_reg,num
-thoughts,session_reg,num
+text,category,answer_type,recurrence
+commit suicide,urge,num,7
+self-harm,urge,num,7
+use drugs,urge,num,7
+emotional misery,rating,num,7
+physical misery,rating,num,7
+joy,rating,num,7
+alcohol,drugs/meds,num/text,7
+illegal drugs,drugs/meds,num/text,7
+meds as prescribed,drugs/meds,bool,7
+prn/OTC meds,drugs/meds,num/text,7
+self-harm,actions,bool,7
+lied,actions,num,7
+used skills,actions,num,7
+quit therapy,session,num,1
+use drugs,session,num,1
+commit suicide,session,num,1
+emotions,session,num,1
+actions,session,num,1
+thoughts,session,num,1
+monday,skill,text,7
+tuesday,skill,text,7
+wednesday,skill,text,7
+thursday,skill,text,7
+friday,skill,text,7
+saturday,skill,text,7
+sunday,skill,text,7

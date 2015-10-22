@@ -8,8 +8,7 @@ class Question < ActiveRecord::Base
   validates :category,    presence: true,
                           inclusion: { 
                             in: ["urge", "rating", "drugs/meds", "actions", 
-                                "emotions", "optional", "session_urge", 
-                                "session_reg", "skill"] }
+                                "emotions", "optional", "session", "skill"] }
   validates :answer_type, presence: true,
                           inclusion: { in: ["num", "text", "num/text", "bool"] }
   validates :recurrence,  presence: true,
