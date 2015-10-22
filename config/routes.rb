@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :therapists
+  resources :diaries
   resources :sessions, only: [:new, :create, :destroy]
 
   # Login/Logout

@@ -1,0 +1,31 @@
+<div class="form">
+  <%= form_for @answer do |f| %>
+
+    <%= f.label :num_val, question_text %>
+    <%= f.number_field :num_val, class: "form-control form-group" %>
+
+    <%= f.hidden_field :user_id, value: session[:user_id] %>
+
+    <%= f.submit "Save", id: session[:user_id], class: "btn btn-primary col-sm-2" %>
+  <% end %>
+</div>
+
+<%= render partial: "shared/ingredient_form", locals: { ingredient: @ingredient, 
+                                                        url: @url, 
+                                                        method: @method
+                                                      } %>
+<%= render partial: "form", locals: { item: @market,
+                                    name_desc: "Market Name",
+                                    name_placeholder: "",
+                                    address_desc: "Address",
+                                    address_placeholder: "",
+                                    city_desc: "City",
+                                    city_placeholder: "",
+                                    county_desc: "County",
+                                    county_placeholder: "",
+                                    state_desc: "State",
+                                    zip_desc: "Zip Code",
+                                    zip_placeholder: "",
+                                    submit_button: "save changes" }
+%>
+
