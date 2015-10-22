@@ -7,7 +7,6 @@ class Skill < ActiveRecord::Base
                           uniqueness: { case_sensitive: false }
   validates :category,    presence: true,
                           inclusion: { in: ["mindfulness", "IE", "ER", "DT"] }
-  validates :acronym,     uniqueness: { case_sensitive: false }
   validates :description, presence: true,
                           uniqueness: { case_sensitive: false }
 end

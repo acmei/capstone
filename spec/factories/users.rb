@@ -4,7 +4,7 @@ FactoryGirl.define do
     user.sequence(:email) { |n| "email#{n}@example.com"}
     user.session_day "Monday"
     user.uid "random"
-    user.provider "google"
+    user.provider "google_oauth2"
     user.password "password"
     user.password_digest "password"
     user.remember_digest "remember"

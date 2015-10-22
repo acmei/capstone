@@ -72,3 +72,13 @@ CSV.foreach("db/answers.csv", headers: true, header_converters: :symbol, convert
     user_id: row[:user_id]
     )
 end
+
+# SKILLS
+CSV.foreach("db/skills.csv", headers:true, header_converters: :symbol, converters: :all) do |row|
+  Skill.create(
+    text: row[:text],
+    category: row[:category],
+    acronym: row[:acronym],
+    description: row[:description]
+    )
+end
