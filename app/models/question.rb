@@ -19,5 +19,8 @@ class Question < ActiveRecord::Base
 
   # SCOPES ---------------------------------------------------------------------
   scope :category, -> (category) { where(category: category) }
+  scope :daily, -> { where(recurrence: 7) }
+  scope :once, -> { where(recurrence: 1) }
+  scope :response, -> (answer_type) { where(answer_type: answer_type) }
 
 end
