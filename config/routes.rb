@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :users
-  resources :diaries
+  resources :users, except: [:show]
+  resources :answers, as: 'diary'
   resources :sessions, only: [:new, :create, :destroy]
+
+  # Settings
+  get     "settings" => "users#show"
+  post    "settings" => "questions#create"
+  delete  "settings" => "questions#destroy"
 
   # Login/Logout
   get    "signup"             => "users#new"

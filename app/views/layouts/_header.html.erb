@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapsed">
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to root_path do %><%= fa_icon "home" %>Home<% end %></li>
-        <li><%= link_to diaries_path do %><%= fa_icon "book" %>Diary<% end %></li>
+        <li><%= link_to new_diary_path do %><%= fa_icon "book" %>Diary<% end %></li>
         <li><%= link_to root_path do %><%= fa_icon "calendar" %>Calendar<% end %></li>
         <li><%= link_to root_path do %><%= fa_icon "graduation-cap" %>DBT Skills<% end %></li>
         <li class="divider"></li>
@@ -29,7 +29,7 @@
               <!-- <li><= link_to user_path(@user) do %><= fa_icon "user" %>Profile< end %></li> -->
               <li><%= link_to "#" do %><%= fa_icon "star-o" %>Favorites<% end %></li>
               <li><%= link_to root_path do %><%= fa_icon "users" %>Contacts<% end %></li>
-              <li><%= link_to "#" do %><%= fa_icon "gear" %>Settings<% end %></li>
+              <li><%= link_to settings_path do %><%= fa_icon "gear" %>Settings<% end %></li>
               <li class="divider"></li>
               <li><%= link_to "Logout", logout_path, method: :delete %></li>
             </ul>
