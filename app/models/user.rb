@@ -31,7 +31,8 @@ class User < ActiveRecord::Base
   validates :email,       presence: true,
                           format: { with: VALID_EMAIL_REGEX },
                           uniqueness: { case_sensitive: false }
-  validates :phone,       format: { with: VALID_PHONE_REGEX } 
+  validates :phone,       format: { with: VALID_PHONE_REGEX },
+                          allow_nil: true
   validates :session_day, inclusion: { in: Date::DAYNAMES }
   validates :provider,    inclusion: { in: PROVIDERS }, allow_nil: true
   validates :activated,   inclusion: { in: [true, false] }
