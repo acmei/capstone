@@ -16,6 +16,8 @@ class UsersController < ApplicationController
       @user.send_activation_email
       flash[:notice] = "Please check your email to activate your account."
       redirect_to root_url
+    elsif user_params[:is_therapist] == "true"
+      render :new_therapist
     else
       render :new
     end
@@ -30,7 +32,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation, :is_therapist)
   end
 
 end

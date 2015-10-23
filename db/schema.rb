@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023174003) do
+ActiveRecord::Schema.define(version: 20151023211606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.datetime "date",        default: '2015-10-23 17:40:52'
+    t.datetime "date",        default: '2015-10-23 21:16:18'
     t.integer  "num"
     t.string   "text"
     t.boolean  "bool"
@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20151023174003) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.string   "phone"
-    t.boolean  "therapist"
+    t.boolean  "is_therapist"
   end
 
   add_index "users", ["photo_id"], name: "index_users_on_photo_id", using: :btree
