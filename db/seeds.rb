@@ -17,6 +17,7 @@ CSV.foreach("db/users.csv", headers: true, header_converters: :symbol, converter
   User.create(
     name: row[:name],
     email: row[:email],
+    phone: row[:phone],
     password: row[:password],
     password_confirmation: row[:password],
     activated: row[:activated],
