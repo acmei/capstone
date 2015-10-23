@@ -3,6 +3,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    if request.fullpath == "/signup"
+      return render :new
+    else
+      return render :new_therapist
+    end
+    # request.fullpath == "/signup" ? render :new : render :new_therapist
   end
 
   def create
@@ -25,7 +31,7 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation)
   end
 
 end

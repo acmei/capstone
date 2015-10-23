@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users
-  resources :therapists
   resources :diaries
   resources :sessions, only: [:new, :create, :destroy]
 
   # Login/Logout
   get    "signup"             => "users#new"
-  get    "therapist_signup"   => "therapists#new"
+  get    "therapist_signup"   => "users#new"
   get    "login"              => "sessions#new"
   post   "login"              => "sessions#create"
   delete "logout"             => "sessions#destroy"
