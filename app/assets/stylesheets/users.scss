@@ -1,9 +1,38 @@
 /* Settings ----------------------------------------------------------------- */
-.setting-img {
-  width: 10.9375em;
-  height: 10.9375em;
-  border: 0.1875em solid hsla(0, 0%, 75%, 1);
-  margin: 2em;
+
+/* PHOTO */
+.photo-settings {
+  text-align: center;
+  padding: 0.75em;
+  border-bottom: 0.125em solid hsla(0, 0%, 88%, 1);
+  .photo-text {
+  margin-top: 0.625em;
+  text-align: center;
+  font-style: italic;
+  }
+  .current-img {
+    border: 0.1875em solid hsla(0, 0%, 80%, 1);
+    height: 10.9375em;
+    width: 10.9375em;
+  }
+  .img-options {
+  border: 0.1875em solid hsla(0, 0%, 80%, 1);
+  width: 4.375em;
+  margin: 0.5em;
+  }
 }
 
+/* USER */
+
+.user-settings {
+  padding-bottom: 1.5625em;
+  border-bottom: 0.125em solid hsla(0, 0%, 88%, 1);
+}
+
+/* QUESTION */
+
+.question-settings {
+  padding-bottom: 1.5625em;
+  border-bottom: 0.125em solid hsla(0, 0%, 88%, 1);
+}
 

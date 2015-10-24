@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   validates :session_day, inclusion: { in: Date::DAYNAMES }
   validates :provider,    inclusion: { in: PROVIDERS }, allow_nil: true
   validates :activated,   inclusion: { in: [true, false] }
-  validates :password,    length: { minimum: 6 }
+  # validates :password,    length: { minimum: 6 }
 
   # METHODS --------------------------------------------------------------------
   # Returns the hash digest of the given string

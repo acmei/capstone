@@ -6,16 +6,67 @@
       </div>
 
       <div class="panel-body">
-        <div class="row">
-          <div class="col-md-4">
-            <%= image_tag @user.photo.link, class: "setting-img img-circle" %>
+
+        <div class="row photo-settings">
+          <div class="col-md-3 photo-preview">
+            <%= image_tag @user.photo.link, class: "current-img img-circle" %>
+            <p class="photo-text">Select a photo</p>
           </div>
-          <div class="col-md-4 col-md-offset-1">
-            <% @questions.each do |question| %>
-              <%= question.text %></ br>
+          <div class="col-md-9">
+            <% @photos.each do |photo| %>
+              <%= link_to image_tag(photo.link, class: "img-options img-circle"), 
+              change_photo_path(photo: photo.id), method: :post %>
             <% end %>
           </div>
         </div>
+
+        <div class="row user-settings">
+          <div class="col-md-8 col-md-offset-2">
+            <h3><%= @user.name.titlecase %> Profile Settings</h3>
+            <div class="form">
+              <%= form_for @user do |f| %>
+              
+                <div class="form-group has-feedback has-feedback-left">
+                  <%= f.label :name, class: "sr-only" %>
+                  <%= f.text_field :name, class: "form-control form-group" %>
+                  <i class="form-control-feedback text-muted fa fa-user"></i>
+                </div>
+
+                <div class="form-group has-feedback has-feedback-left">
+                  <%= f.label :email, class: 'sr-only' %>
+                  <%= f.email_field :email, class: 'form-control form-group', placeholder: "E-mail" %>
+                  <i class="form-control-feedback text-muted fa fa-envelope"></i>
+                </div>
+
+                <div class="form-group has-feedback has-feedback-left">
+                  <%= f.label :password, class: 'sr-only' %>
+                  <%= f.password_field :password, class: 'form-control form-group', placeholder: "New password" %>
+                  <i class="form-control-feedback text-muted fa fa-lock"></i>
+                </div>
+
+                <div class="form-group has-feedback has-feedback-left">
+                  <%= f.label :password_confirmation, class: 'sr-only' %>
+                  <%= f.password_field :password_confirmation, class: 'form-control form-group', placeholder: "Password confirmation" %>
+                  <i class="form-control-feedback text-muted fa fa-lock"></i>
+                </div>
+
+                <%= f.hidden_field :user_id, value: session[:user_id] %>
+
+                <%= f.submit "Save", id: session[:user_id], class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row question-settings">
+          <div class="col-md-12">
+            <h3>Diary Questions</h3>
+            <% @questions.each do |question| %>
+              <%= question.text %>
+            <% end %>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>

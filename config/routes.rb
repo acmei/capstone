@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get     "settings" => "users#show"
   post    "settings" => "questions#create"
   delete  "settings" => "questions#destroy"
+  post    "photo"    => "photos#create", as: 'change_photo'
 
   # Login/Logout
   get    "signup"             => "users#new"

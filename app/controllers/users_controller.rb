@@ -25,7 +25,18 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @photos = Photo.all
     @questions = @user.questions
+  end
+
+  def update
+    @user = current_user
+    if @user.update_attributes(user_params)
+      flash[:success] = "User profile updated"
+      redirect_to settings_path
+    else
+      render settings_path
+    end
   end
 
 

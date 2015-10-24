@@ -6,7 +6,8 @@
 
 .body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #F5F8FA;
+  /*background-color: #F5F8FA;*/
+  background: asset-url("blue.jpg") center center cover no-repeat fixed;
 }
 
 .center {
@@ -26,8 +27,7 @@ a:hover {
 /* navigation --------------------------------------------------------------- */
 
 .nav-profile-img {
-  width: 1.5625em;
-  height: 1.5625em;
+  width: 1.625em;
   margin-right: 0.25em;
   border: 1px solid hsla(0, 0%, 88%, 1);
 }
