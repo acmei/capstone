@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @photos = Photo.all
     @questions = @user.questions
   end
 
