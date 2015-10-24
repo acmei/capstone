@@ -26,8 +26,8 @@ a:hover {
 /* navigation --------------------------------------------------------------- */
 
 .nav-profile-img {
-  width: 1.6875em;
-  height: 1.6875em;
+  width: 1.5625em;
+  height: 1.5625em;
   margin-right: 0.25em;
   border: 1px solid hsla(0, 0%, 88%, 1);
 }
@@ -46,10 +46,15 @@ a:hover {
   }
 }
 
-.navbar-left .fa {
+.navbar-left {
+  .fa {
   margin-right: 0.6em;
   font-size: 1.3em;
   color: hsla(0, 0%, 44%, 1);
+  }
+  a:hover {
+    border-bottom: 3px solid #80D4BD;
+  }
 }
 
 .login, .user-nav {
