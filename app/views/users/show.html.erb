@@ -14,7 +14,8 @@
           </div>
           <div class="col-md-9">
             <% @photos.each do |photo| %>
-              <%= image_tag photo.link, class: "img-options img-circle" %>
+              <%= link_to image_tag(photo.link, class: "img-options img-circle"), 
+              change_photo_path(photo: photo.id), method: :post %>
             <% end %>
           </div>
         </div>
