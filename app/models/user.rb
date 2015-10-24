@@ -5,11 +5,10 @@ VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
 VALID_PHONE_REGEX = /(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})/
 PROVIDERS = ["google_oauth2"]
 PASSWORD_EXPIRATION = 3
+DEFAULT_QUESTION_IDS = (1..27).to_a
 
 class User < ActiveRecord::Base
   attr_accessor :remember_token, :activation_token, :reset_token
-  before_save   :downcase_email, :format_day
-  before_create :create_activation_digest
 
   # ASSOCIATIONS ---------------------------------------------------------------
   has_secure_password
@@ -24,6 +23,11 @@ class User < ActiveRecord::Base
                           foreign_key: 'therapist_id'
   belongs_to  :therapist, class_name: 'User'
 
+  # CALLBACKS ------------------------------------------------------------------
+  before_save   :downcase_email, :format_day
+  before_create :create_activation_digest
+  after_create  :add_default_questions
+
   # VALIDATIONS ----------------------------------------------------------------
   validates :name,        presence: true,
                           uniqueness: { case_sensitive: false },
@@ -36,8 +40,7 @@ class User < ActiveRecord::Base
   validates :session_day, inclusion: { in: Date::DAYNAMES }
   validates :provider,    inclusion: { in: PROVIDERS }, allow_nil: true
   validates :activated,   inclusion: { in: [true, false] }
-  validates :password,    presence: true, 
-                          length: { minimum: 6 }
+  validates :password,    length: { minimum: 6 }
 
   # METHODS --------------------------------------------------------------------
   # Returns the hash digest of the given string
@@ -104,6 +107,7 @@ class User < ActiveRecord::Base
     reset_sent_at < PASSWORD_EXPIRATION.hours.ago
   end
 
+
   private
 
     # Sign in with email or name
@@ -127,6 +131,11 @@ class User < ActiveRecord::Base
       return user.save ? user : nil 
     end
 
+    # Add default set of questions to new users
+    def add_default_questions
+      self.questions << Question.where(id: DEFAULT_QUESTION_IDS)
+    end
+
     # Converts email to all lower-case
     def downcase_email
       self.email = email.downcase
@@ -136,6 +145,7 @@ class User < ActiveRecord::Base
     def format_day
       self.session_day = session_day.downcase.capitalize
     end
+
 
     # Creates and assigns the activation token and digest
     def create_activation_digest

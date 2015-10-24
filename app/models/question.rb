@@ -9,7 +9,8 @@ class Question < ActiveRecord::Base
   validates :category,    presence: true,
                           inclusion: { 
                             in: ["urge", "rating", "drugs/meds", "actions", 
-                                "emotions", "optional", "session", "skill"] }
+                                "emotions", "optional", "session_urge", 
+                                "session_reg", "session", "skill"] }
   validates :answer_type, presence: true,
                           inclusion: { in: ["num", "text", "num/text", "bool"] }
   validates :recurrence,  presence: true,
@@ -17,6 +18,9 @@ class Question < ActiveRecord::Base
                           inclusion: { in: [1, 7] }
 
   # SCOPES ---------------------------------------------------------------------
-  scope :published, -> { where(published: true) }
+  scope :category, -> (category) { where(category: category) }
+  scope :daily, -> { where(recurrence: 7) }
+  scope :once, -> { where(recurrence: 1) }
+  scope :response, -> (answer_type) { where(answer_type: answer_type) }
 
 end

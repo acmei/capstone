@@ -12,12 +12,12 @@ prn/OTC meds,drugs/meds,num/text,7
 self-harm,actions,bool,7
 lied,actions,num,7
 used skills,actions,num,7
-quit therapy,session,num,1
-use drugs,session,num,1
-commit suicide,session,num,1
-emotions,session,num,1
-actions,session,num,1
-thoughts,session,num,1
+quit therapy,session_urge,num,1
+use drugs,session_urge,num,1
+commit suicide,session_urge,num,1
+emotions,session_reg,num,1
+actions,session_reg,num,1
+thoughts,session_reg,num,1
 filled_out_in_session,session,bool,1
 monday,skill,text,7
 tuesday,skill,text,7

@@ -13,7 +13,8 @@ RSpec.describe Question, type: :model do
     it do
       should validate_inclusion_of(:category).
         in_array(["urge", "rating", "drugs/meds", "actions", 
-                  "emotions", "optional", "session", "skill"])
+                  "emotions", "optional", "session_urge", "session_reg", 
+                  "session", "skill"])
     end
 
     it { should validate_presence_of(:answer_type) }

@@ -1,0 +1,22 @@
+<div class="container settings">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">Account Settings</h2>
+      </div>
+
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <%= image_tag @user.photo.link, class: "setting-img img-circle" %>
+          </div>
+          <div class="col-md-4 col-md-offset-1">
+            <% @questions.each do |question| %>
+              <%= question.text %></ br>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
