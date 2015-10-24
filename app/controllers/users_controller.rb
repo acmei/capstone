@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include ApplicationHelper
+  before_action :logged_in_user, only: [:update]
 
   def new
     @user = User.new
@@ -45,5 +46,14 @@ private
   def user_params
     params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation, :is_therapist)
   end
+
+  # Confirms a logged-in user
+  def logged_in_user
+    unless logged_in?
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
 
 end

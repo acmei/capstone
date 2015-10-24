@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   # VALIDATIONS ----------------------------------------------------------------
   validates :name,        presence: true,
                           uniqueness: { case_sensitive: false },
-                          length: { maximum: 20 }
+                          length: { minimum: 3, maximum: 20 }
   validates :email,       presence: true,
                           format: { with: VALID_EMAIL_REGEX },
                           uniqueness: { case_sensitive: false }
@@ -40,7 +40,8 @@ class User < ActiveRecord::Base
   validates :session_day, inclusion: { in: Date::DAYNAMES }
   validates :provider,    inclusion: { in: PROVIDERS }, allow_nil: true
   validates :activated,   inclusion: { in: [true, false] }
-  # validates :password,    length: { minimum: 6 }
+  validates :password,    presence: true,
+                          length: { minimum: 6 }
 
   # METHODS --------------------------------------------------------------------
   # Returns the hash digest of the given string
