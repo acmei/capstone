@@ -8,7 +8,7 @@ joy,rating,num,7
 alcohol,drugs/meds,num/text,7
 illegal drugs,drugs/meds,num/text,7
 meds as prescribed,drugs/meds,bool,7
-prn/OTC meds,drugs/meds,num/text,7
+PRN/OTC meds,drugs/meds,num/text,7
 self-harm,actions,bool,7
 lied,actions,num,7
 used skills,actions,num,7
