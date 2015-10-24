@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
 
+  resources :questions
   resources :users, except: [:show]
   resources :answers, as: 'diary'
   resources :sessions, only: [:new, :create, :destroy]
