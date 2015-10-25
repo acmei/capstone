@@ -1,42 +1,59 @@
-<table class="table table-condensed table-hover">
-  <tr>
-    <th>Question</th>
-    <th>Response Type</th>
-    <th>Recurrence</th>
-    <th></th>
-    <th></th>
-  <tr>
-  <% questions.each do |question| %>
-      <td class="question-text">
-        <%= asker %>
-        <% if question.category == 'urge' %>
-          <%= question.text %>
-        <% else %>
-          <%= question.text.titlecase %>
-        <% end %>
-      </td>
-      <td>
-        <% case question.answer_type %>
-          <% when "num" %>
-            Number
-          <% when "text" %>
-            Text
-          <% when "num/text" %>
-            Number and Text
-          <% when "bool" %>
-            Yes or No
-        <% end %>
-      </td>
-      <td>
-        <% if question.recurrence == 7 %>
-          Daily
-        <% else %>
-          Weekly
-        <% end %>
-      </td>
-      <td class="delete_question">
-        <%= link_to "\u00D7", question_path(question.id, question_id: question.id),  method: :delete, data: { confirm: "NOTICE: All of your answers to this question will be removed. Are you sure you want to delete this question from your diary? " } %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<div id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading>
+  <div class="panel-body">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id=heading>
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href=collapse_id aria-expanded="true" aria-controls=collapse>
+            Urges
+          </a>
+        </h4>
+      </div>
+      <div id=collapse class="panel-collapse collapse in" role="tabpanel" aria-labelledby=heading>
+        <div class="panel-body">
+          <table class="table table-condensed table-hover">
+            <tr>
+              <th>Question</th>
+              <th>Response Type</th>
+              <th>Recurrence</th>
+              <th></th>
+              <th></th>
+            </tr>
+            <% questions.each do |question| %>
+                <td class="question-text">
+                  <%= asker %>
+                  <% if question.category == 'urge' %>
+                    <%= question.text %>
+                  <% else %>
+                    <%= question.text.titlecase %>
+                  <% end %>
+                </td>
+                <td>
+                  <% case question.answer_type %>
+                    <% when "num" %>
+                      Number
+                    <% when "text" %>
+                      Text
+                    <% when "num/text" %>
+                      Number and Text
+                    <% when "bool" %>
+                      Yes or No
+                  <% end %>
+                </td>
+                <td>
+                  <% if question.recurrence == 7 %>
+                    Daily
+                  <% else %>
+                    Weekly
+                  <% end %>
+                </td>
+                <td class="delete_question">
+                  <%= link_to "\u00D7", question_path(question.id, question_id: question.id),  method: :delete, data: { confirm: "NOTICE: All of your answers to this question will be removed. Are you sure you want to delete this question from your diary? " } %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -72,7 +72,13 @@
                 </div>
                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
-                    <%= render partial: 'questions', locals: { questions: @urges, asker: "Highest urge to " } %>
+                    <%= render partial: 'questions', locals: { 
+                      questions: @urges, 
+                      asker: "Highest urge to ",
+                      collapse: "collapseOne",
+                      collapse_id: "#collapseOne",
+                      heading: "headingOne"
+                      } %>
                   </div>
                 </div>
               </div>
