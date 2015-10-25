@@ -7,6 +7,7 @@
 
       <div class="panel-body">
 
+        <!-- PHOTO SETTINGS -->
         <div class="row photo-settings">
           <div class="col-md-3 photo-preview">
             <%= image_tag @user.photo.link, class: "current-img img-circle" %>
@@ -20,12 +21,12 @@
           </div>
         </div>
 
+        <!-- USER SETTINGS -->
         <div class="row user-settings">
           <div class="col-md-8 col-md-offset-2">
             <h3><%= @user.name.titlecase %> Profile Settings</h3>
             <div class="form">
               <%= form_for @user do |f| %>
-              
                 <div class="form-group has-feedback has-feedback-left">
                   <%= f.label :name, class: "sr-only" %>
                   <%= f.text_field :name, class: "form-control form-group" %>
@@ -58,31 +59,33 @@
           </div>
         </div>
 
+        <!-- QUESTION SETTINGS -->
         <div class="row question-settings">
           <div class="col-md-12">
             <h3>Diary Questions</h3>
+            <!-- PANELS: for deleting a diary question-->
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
               
-              <div class="panel panel-info">
-                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <div class="panel panel-default">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                   <div class="panel-heading" role="tab" id="headingOne">
                     <h4 class="panel-title">
-                        Urges
+                      Urges
                     </h4>
                   </div>
                 </a>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
                     <%= render partial: 'questions', locals: { questions: @urges, asker: "Highest urge to " } %>
                   </div>
                 </div>
               </div>
 
-              <div class="panel panel-info">
+              <div class="panel panel-default">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                   <div class="panel-heading" role="tab" id="headingTwo">
                     <h4 class="panel-title">
-                        Ratings
+                      Ratings
                     </h4>
                   </div>
                 </a>
@@ -93,11 +96,11 @@
                 </div>
               </div>
 
-              <div class="panel panel-info">
+              <div class="panel panel-default">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                   <div class="panel-heading" role="tab" id="headingThree">
                     <h4 class="panel-title">
-                        Drugs & Medications
+                      Drugs & Medications
                     </h4>
                   </div>
                 </a>
@@ -108,11 +111,11 @@
                 </div>
               </div>
 
-              <div class="panel panel-info">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+              <div class="panel panel-default">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                   <div class="panel-heading" role="tab" id="headingFour">
                     <h4 class="panel-title">
-                        Actions
+                      Actions
                     </h4>
                   </div>
                 </a>
@@ -123,7 +126,98 @@
                 </div>
               </div>
 
+              <div class="panel panel-default">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                  <div class="panel-heading" role="tab" id="headingFive">
+                    <h4 class="panel-title">
+                      Emotions
+                    </h4>
+                  </div>
+                </a>
+                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                  <div class="panel-body">
+                    <%= render partial: 'questions', locals: { questions: @emotions, asker: nil } %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                  <div class="panel-heading" role="tab" id="headingSix">
+                    <h4 class="panel-title">
+                      Optional
+                    </h4>
+                  </div>
+                </a>
+                <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+                  <div class="panel-body">
+                    <%= render partial: 'questions', locals: { questions: @optionals, asker: nil } %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                  <div class="panel-heading" role="tab" id="headingSeven">
+                    <h4 class="panel-title">
+                      Coming to Session: Urges
+                    </h4>
+                  </div>
+                </a>
+                <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+                  <div class="panel-body">
+                    <%= render partial: 'questions', locals: { questions: @session_urges, asker: "Urge Coming to Session: " } %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                  <div class="panel-heading" role="tab" id="headingEight">
+                    <h4 class="panel-title">
+                      Coming to Session: Belief I can Change/Regulate
+                    </h4>
+                  </div>
+                </a>
+                <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
+                  <div class="panel-body">
+                    <%= render partial: 'questions', locals: { questions: @session_regs, asker: "Belief I Can Change/Regulate My " } %>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="panel panel-default">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                  <div class="panel-heading" role="tab" id="headingNine">
+                    <h4 class="panel-title">
+                      <i class="text-muted fa fa-plus"></i> 
+                      <span class="add-question">Add A New Question</span>
+                    </h4>
+                  </div>
+                </a>
+                <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine">
+                  <div class="panel-body">
+                    <!-- FORM Add diary question -->
+                    <div class="form col-md-10 col-md-offset-1">
+                      <%= form_for @question do |f| %>
+                        <%= f.label :text, class: "sr-only" %>
+                        <%= f.text_field :text, class: "form-control form-group", placeholder: "Question" %>
+
+                        <%= f.select :category, options_for_select(categories), { include_blank: "Select a Category" }, { class: 'form-control form-group' } %>
+
+                        <%= f.select :answer_type, options_for_select(answer_types), { include_blank: "Select a Response Type" }, { class: 'form-control form-group' } %>
+
+                        <%= f.select :recurrence, options_for_select(recurrence), { include_blank: "How Often Should this Question be Asked?" }, { class: 'form-control form-group' } %>
+
+                        <%= f.submit "Save", class: "btn btn-primary" %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            
+
           </div>
         </div>
 

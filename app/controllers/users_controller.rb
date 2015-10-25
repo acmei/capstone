@@ -27,10 +27,16 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @photos = Photo.all
+    @question = Question.new
+
     @urges = Question.category("urge")
     @ratings = Question.category("rating")
-    @meds = Question.category("drugs/meds")
-    @actions = Question.category("actions")
+    @meds = Question.category("med")
+    @actions = Question.category("action")
+    @emotions = Question.category("emotion")
+    @optionals = Question.category("optional")
+    @session_urges = Question.category("session_urge")
+    @session_regs = Question.category("session_reg")
   end
 
   def update

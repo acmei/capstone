@@ -5,13 +5,13 @@ use drugs,urge,num,7
 emotional misery,rating,num,7
 physical misery,rating,num,7
 joy,rating,num,7
-alcohol,drugs/meds,num/text,7
-illegal drugs,drugs/meds,num/text,7
-meds as prescribed,drugs/meds,bool,7
-PRN/OTC meds,drugs/meds,num/text,7
-self-harm,actions,bool,7
-lied,actions,num,7
-used skills,actions,num,7
+alcohol,med,num/text,7
+illegal drugs,med,num/text,7
+meds as prescribed,med,bool,7
+PRN/OTC meds,med,num/text,7
+self-harm,action,bool,7
+lied,action,num,7
+used skills,action,num,7
 quit therapy,session_urge,num,1
 use drugs,session_urge,num,1
 commit suicide,session_urge,num,1
