@@ -6,7 +6,6 @@
       </div>
 
       <div class="panel-body">
-
         <!-- PHOTO SETTINGS -->
         <div class="row photo-settings">
           <div class="col-md-3 photo-preview">
@@ -24,7 +23,7 @@
         <!-- USER SETTINGS -->
         <div class="row user-settings">
           <div class="col-md-8 col-md-offset-2">
-            <h3><%= @user.name.titlecase %> Profile Settings</h3>
+            <h4><%= @user.name.titlecase %> Profile Settings</h4>
             <div class="form">
               <%= form_for @user do |f| %>
                 <div class="form-group has-feedback has-feedback-left">
@@ -61,8 +60,8 @@
 
         <!-- QUESTION SETTINGS -->
         <div class="row question-settings">
-          <div class="col-md-12">
-            <h3>Diary Questions</h3>
+          <div class="col-md-10 col-md-offset-1">
+            <h4>Diary Questions</h4>
             <!-- PANELS: for deleting a diary question-->
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
               
@@ -216,8 +215,6 @@
                 </div>
               </div>
             </div>
-            
-
           </div>
         </div>
 
