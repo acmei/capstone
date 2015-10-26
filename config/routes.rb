@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :answers
   resources :questions
+  resources :skills, only: [:index, :show]
   resources :users, except: [:show]
   resources :contacts, except: [:show]
   resources :sessions, only: [:new, :create, :destroy]
