@@ -32,127 +32,124 @@
           </ul>
         </div>
 
-        <!-- <form role="form"> -->
-          <div class="tab-content">
-            <!-- URGES TAB -->
-            <div class="tab-pane active" role="tabpanel" id="urges">
-              <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                  <div class="panel-heading">Urges</div>
-                  <div class="panel-body">
-                    <%= form_for @answer do |f| %>
-                      <% @urges.each do |urge| %>
-                        <div class="row">
-                          <div class="col-md-5">
-                            <%= f.label :num, "Highest urge to: " + urge.text, class: "required" %>
-                          </div>
-                          <div class="col-md-7">
-                          <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
-                          </div>
+        <!-- FORM -->
+        <div class="tab-content">
+          <!-- URGES TAB -->
+          <div class="tab-pane active" role="tabpanel" id="urges">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="panel panel-default">
+                <div class="panel-heading">Urges</div>
+                <div class="panel-body">
+                  <%= form_for @answer do |f| %>
+                    <% @urges.each do |urge| %>
+                      <div class="row">
+                        <div class="col-md-5">
+                          <%= f.label :num, "Highest urge to: " + urge.text, class: "required" %>
                         </div>
+                        <div class="col-md-7">
+                        <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
+                        </div>
+                      </div>
 
-                        <%= f.hidden_field :user_id, value: @user.id %>
-                        <%= f.hidden_field :question_id, value: urge.id %>
+                      <%= f.hidden_field :user_id, value: @user.id %>
+                      <%= f.hidden_field :question_id, value: urge.id %>
 
-                      <% end %>
-                      <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
                     <% end %>
-                  </div>
+                    <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
+                  <% end %>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- RATINGS TAB -->
-            <div class="tab-pane" role="tabpanel" id="ratings">
-              <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                  <div class="panel-heading">Ratings</div>
-                  <div class="panel-body">
-                    <%= form_for @answer do |f| %>
-                      <% @ratings.each do |rating| %>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <%= f.label :num, "Highest rating for each day: " + rating.text, class: "required" %>
-                          </div>
-                          <div class="col-md-6">
-                          <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
-                          </div>
+          <!-- RATINGS TAB -->
+          <div class="tab-pane" role="tabpanel" id="ratings">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="panel panel-default">
+                <div class="panel-heading">Ratings</div>
+                <div class="panel-body">
+                  <%= form_for @answer do |f| %>
+                    <% @ratings.each do |rating| %>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <%= f.label :num, "Highest rating for each day: " + rating.text, class: "required" %>
                         </div>
+                        <div class="col-md-6">
+                        <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
+                        </div>
+                      </div>
 
-                        <%= f.hidden_field :user_id, value: @user.id %>
-                        <%= f.hidden_field :question_id, value: rating.id %>
+                      <%= f.hidden_field :user_id, value: @user.id %>
+                      <%= f.hidden_field :question_id, value: rating.id %>
 
-                      <% end %>
-                      <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
-                      <button type="button" class="btn btn-default prev-step pull-left">Previous</button>
                     <% end %>
-                  </div>
+                    <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
+                    <button type="button" class="btn btn-default prev-step pull-left">Previous</button>
+                  <% end %>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- DRUGS/MEDS TAB -->
-            <div class="tab-pane" role="tabpanel" id="drugs-meds">
-              <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                  <div class="panel-heading">Drugs and Medications</div>
-                  <div class="panel-body">
-                    <%= form_for @answer do |f| %>
-                      <% @meds.each do |med| %>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <%= f.label :num, "Highest rating for each day: " + med.text, class: "required" %>
-                          </div>
-                          <div class="col-md-6">
-                          <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
-                          </div>
+          <!-- DRUGS/MEDS TAB -->
+          <div class="tab-pane" role="tabpanel" id="drugs-meds">
+            <div class="col-md-8 col-md-offset-2">
+              <div class="panel panel-default">
+                <div class="panel-heading">Drugs and Medications</div>
+                <div class="panel-body">
+                  <%= form_for @answer do |f| %>
+                    <% @meds.each do |med| %>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <%= f.label :num, "Highest rating for each day: " + med.text, class: "required" %>
                         </div>
+                        <div class="col-md-6">
+                        <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
+                        </div>
+                      </div>
 
-                        <%= f.hidden_field :user_id, value: @user.id %>
-                        <%= f.hidden_field :question_id, value: med.id %>
+                      <%= f.hidden_field :user_id, value: @user.id %>
+                      <%= f.hidden_field :question_id, value: med.id %>
 
-                      <% end %>
-                      <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
-                      <button type="button" class="btn btn-default prev-step pull-right">Previous</button>
                     <% end %>
-                  </div>
+                    <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
+                    <button type="button" class="btn btn-default prev-step pull-right">Previous</button>
+                  <% end %>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- ACTIONS TAB -->
-            <div class="tab-pane" role="tabpanel" id="actions">
-             <div class="col-md-8 col-md-offset-2">
-               <div class="panel panel-default">
-                 <div class="panel-heading">Actions</div>
-                 <div class="panel-body">
-                   <%= form_for @answer do |f| %>
-                     <% @actions.each do |action| %>
-                       <div class="row">
-                         <div class="col-md-6">
-                           <%= f.label :num, action.text, class: "required" %>
-                         </div>
-                         <div class="col-md-6">
-                         <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
-                         </div>
+          <!-- ACTIONS TAB -->
+          <div class="tab-pane" role="tabpanel" id="actions">
+           <div class="col-md-8 col-md-offset-2">
+             <div class="panel panel-default">
+               <div class="panel-heading">Actions</div>
+               <div class="panel-body">
+                 <%= form_for @answer do |f| %>
+                   <% @actions.each do |action| %>
+                     <div class="row">
+                       <div class="col-md-6">
+                         <%= f.label :num, action.text, class: "required" %>
                        </div>
+                       <div class="col-md-6">
+                       <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
+                       </div>
+                     </div>
 
-                       <%= f.hidden_field :user_id, value: @user.id %>
-                       <%= f.hidden_field :question_id, value: action.id %>
+                     <%= f.hidden_field :user_id, value: @user.id %>
+                     <%= f.hidden_field :question_id, value: action.id %>
 
-                     <% end %>
-                     <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
-                     <button type="button" class="btn btn-default prev-step">Previous</button>
-                     <button type="button" class="btn btn-default next-step">Skip</button>
                    <% end %>
-                 </div>
+                   <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
+                   <button type="button" class="btn btn-default prev-step">Previous</button>
+                   <button type="button" class="btn btn-default next-step">Skip</button>
+                 <% end %>
                </div>
              </div>
-            </div>
-
-            <div class="clearfix"></div>
+           </div>
           </div>
-        <!-- </form> -->
+        </div>
       </div>
     </section>
   </div>
