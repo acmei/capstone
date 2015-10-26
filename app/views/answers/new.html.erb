@@ -44,7 +44,7 @@
                     <% @urges.each do |urge| %>
                       <div class="row">
                         <div class="col-md-5">
-                          <%= f.label :num, "Highest urge to: " + urge.text, class: "required" %>
+                          <%= f.label :num, "Highest urge to: " + urge.text.titlecase, class: "required" %>
                         </div>
                         <div class="col-md-7">
                         <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
@@ -72,7 +72,7 @@
                     <% @ratings.each do |rating| %>
                       <div class="row">
                         <div class="col-md-6">
-                          <%= f.label :num, "Highest rating for each day: " + rating.text, class: "required" %>
+                          <%= f.label :num, "Highest rating for each day: " + rating.text.titlecase, class: "required" %>
                         </div>
                         <div class="col-md-6">
                         <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
@@ -103,10 +103,10 @@
                         <div class="col-md-2">
                           <%= f.label :num, med.text.titlecase, class: "required" %>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                           <%= f.select :num, (0..20).map{ |n| [n, n] }, { include_blank: "#" }, { class: 'form-control form-group' } %>
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-8">
                           <%= f.label :text, class: "sr-only" %>
                           <%= f.text_field :text, placeholder: 'What?', class: 'form-control form-group' %>
                         </div>
@@ -126,26 +126,35 @@
 
           <!-- ACTIONS TAB -->
           <div class="tab-pane" role="tabpanel" id="actions">
-           <div class="col-md-8 col-md-offset-2">
+           <div class="col-md-4 col-md-offset-4">
              <div class="panel panel-default">
                <div class="panel-heading">Actions</div>
                <div class="panel-body">
                  <%= form_for @answer do |f| %>
                    <% @actions.each do |action| %>
                      <div class="row">
-                       <div class="col-md-6">
-                         <%= f.label :num, action.text, class: "required" %>
-                       </div>
-                       <div class="col-md-6">
-                       <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
-                       </div>
+                      <% if action.answer_type == "bool" %>
+                        <div class="col-md-6">
+                          <%= f.label :bool, action.text.titlecase, class: "required" %>
+                        </div>
+                        <div class="col-md-6">
+                          <%= f.select :bool, ['No', 'Yes'].map{ |n| [n, n] }, {}, { class: 'form-control form-group' } %>
+                        </div>
+                      <% elsif action.answer_type == "num" %>
+                        <div class="col-md-6">
+                          <%= f.label :num, action.text.titlecase, class: "required" %>
+                        </div>
+                        <div class="col-md-6">
+                          <%= f.text_field :num, placeholder: '#', class: 'form-control form-group' %>
+                        </div>
+                      <% end %>
                      </div>
 
                      <%= f.hidden_field :user_id, value: @user.id %>
                      <%= f.hidden_field :question_id, value: action.id %>
 
                    <% end %>
-                   <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
+                   <%= f.submit "Save", class: "btn btn-success next-step pull-right" %>
                    <button type="button" class="btn btn-default prev-step pull-left">Previous</button>
                  <% end %>
                </div>
