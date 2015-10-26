@@ -7,27 +7,27 @@
           <div class="connecting-line"></div>
           <ul class="nav nav-tabs" role="tablist">
             <%= render partial: 'icon', locals: { 
+              state: "active",
               category: "urges", 
-              icon: "hand-stop-o",
-              state: "active"
+              icon: "hand-stop-o"
               } %>
 
             <%= render partial: 'icon', locals: { 
+              state: "disabled",
               category: "ratings", 
-              icon: "pencil",
-              state: "disabled"
+              icon: "pencil"
               } %>
 
             <%= render partial: 'icon', locals: { 
+              state: "disabled",
               category: "drugs-and-medications", 
-              icon: "heartbeat",
-              state: "disabled"
+              icon: "heartbeat"
               } %>
 
             <%= render partial: 'icon', locals: { 
+              state: "disabled",
               category: "actions", 
-              icon: "play",
-              state: "disabled"
+              icon: "play"
               } %>
           </ul>
         </div>
@@ -92,10 +92,10 @@
           </div>
 
           <!-- DRUGS/MEDS TAB -->
-          <div class="tab-pane" role="tabpanel" id="drugs-meds">
+          <div class="tab-pane" role="tabpanel" id="drugs-and-medications">
             <div class="col-md-8 col-md-offset-2">
               <div class="panel panel-default">
-                <div class="panel-heading">Drugs and Medications</div>
+                <div class="panel-heading">Drugs</div>
                 <div class="panel-body">
                   <%= form_for @answer do |f| %>
                     <% @meds.each do |med| %>
@@ -113,7 +113,7 @@
 
                     <% end %>
                     <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
-                    <button type="button" class="btn btn-default prev-step pull-right">Previous</button>
+                    <button type="button" class="btn btn-default prev-step pull-left">Previous</button>
                   <% end %>
                 </div>
               </div>
@@ -142,8 +142,7 @@
 
                    <% end %>
                    <%= f.submit "Save and continue", class: "btn btn-primary next-step pull-right" %>
-                   <button type="button" class="btn btn-default prev-step">Previous</button>
-                   <button type="button" class="btn btn-default next-step">Skip</button>
+                   <button type="button" class="btn btn-default prev-step pull-left">Previous</button>
                  <% end %>
                </div>
              </div>
