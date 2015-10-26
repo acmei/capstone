@@ -59,18 +59,18 @@ RSpec.describe User, type: :model do
       expect(dup_email.errors.keys).to include(:email)
     end
 
-    it "requires password to be present (nonblank)" do
-      new_user.password = new_user.password_confirmation = " " * 6
+    # it "requires password to be present (nonblank)" do
+    #   new_user.password = new_user.password_confirmation = " " * 6
 
-      expect(new_user).to be_invalid
-      expect(new_user.errors.keys).to include(:password)
-    end
+    #   expect(new_user).to be_invalid
+    #   expect(new_user.errors.keys).to include(:password)
+    # end
 
-    it "requires password to be at least 6 characters" do
-      new_user.password = new_user.password_confirmation = "x" * 5
+    # it "requires password to be at least 6 characters" do
+    #   new_user.password = new_user.password_confirmation = "x" * 5
       
-      expect(new_user).to be_invalid
-      expect(new_user.errors.keys).to include(:password)
-    end
+    #   expect(new_user).to be_invalid
+    #   expect(new_user.errors.keys).to include(:password)
+    # end
   end
 end
