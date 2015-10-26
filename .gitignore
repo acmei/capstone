@@ -21,3 +21,7 @@
 /coverage
 
 /.env
+
+# Notes
+aws.md
+/resources
