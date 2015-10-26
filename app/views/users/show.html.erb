@@ -64,126 +64,62 @@
             <h4>Diary Questions</h4>
             <!-- PANELS: for deleting a diary question-->
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-              
-              <div class="panel panel-default">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  <div class="panel-heading" role="tab" id="headingOne">
-                    <h4 class="panel-title">
-                      Urges
-                    </h4>
-                  </div>
-                </a>
-                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                  <div class="panel-body">
-                    <%= render partial: 'questions', locals: { questions: @urges, asker: "Highest urge to " } %>
-                  </div>
-                </div>
-              </div>
 
-              <div class="panel panel-default">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  <div class="panel-heading" role="tab" id="headingTwo">
-                    <h4 class="panel-title">
-                      Ratings
-                    </h4>
-                  </div>
-                </a>
-                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                  <div class="panel-body">
-                    <%= render partial: 'questions', locals: { questions: @ratings, asker: "Highest rating for each day: " } %>
-                  </div>
-                </div>
-              </div>
+              <%= render partial: 'questions', locals: { 
+                questions: @urges, 
+                asker: "Highest urge to ",
+                number: "One",
+                title: "Urges"
+                } %>
 
-              <div class="panel panel-default">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  <div class="panel-heading" role="tab" id="headingThree">
-                    <h4 class="panel-title">
-                      Drugs & Medications
-                    </h4>
-                  </div>
-                </a>
-                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                  <div class="panel-body">
-                    <%= render partial: 'questions', locals: { questions: @meds, asker: nil } %>
-                  </div>
-                </div>
-              </div>
+              <%= render partial: 'questions', locals: { 
+                questions: @ratings, 
+                asker: "Highest rating for each day: ",
+                number: "Two",
+                title: "Ratings"
+                } %>
 
-              <div class="panel panel-default">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  <div class="panel-heading" role="tab" id="headingFour">
-                    <h4 class="panel-title">
-                      Actions
-                    </h4>
-                  </div>
-                </a>
-                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                  <div class="panel-body">
-                    <%= render partial: 'questions', locals: { questions: @actions, asker: nil } %>
-                  </div>
-                </div>
-              </div>
+              <%= render partial: 'questions', locals: { 
+                questions: @meds, 
+                asker: nil,
+                number: "Three",
+                title: "Drugs & Medications"
+                } %>
 
-              <div class="panel panel-default">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                  <div class="panel-heading" role="tab" id="headingFive">
-                    <h4 class="panel-title">
-                      Emotions
-                    </h4>
-                  </div>
-                </a>
-                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                  <div class="panel-body">
-                    <%= render partial: 'questions', locals: { questions: @emotions, asker: nil } %>
-                  </div>
-                </div>
-              </div>
+              <%= render partial: 'questions', locals: { 
+                questions: @actions, 
+                asker: nil,
+                number: "Four",
+                title: "Actions"
+                } %>
 
-              <div class="panel panel-default">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                  <div class="panel-heading" role="tab" id="headingSix">
-                    <h4 class="panel-title">
-                      Optional
-                    </h4>
-                  </div>
-                </a>
-                <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-                  <div class="panel-body">
-                    <%= render partial: 'questions', locals: { questions: @optionals, asker: nil } %>
-                  </div>
-                </div>
-              </div>
+              <%= render partial: 'questions', locals: { 
+                questions: @emotions, 
+                asker: nil,
+                number: "Five",
+                title: "Emotions"
+                } %>
 
-              <div class="panel panel-default">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                  <div class="panel-heading" role="tab" id="headingSeven">
-                    <h4 class="panel-title">
-                      Coming to Session: Urges
-                    </h4>
-                  </div>
-                </a>
-                <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-                  <div class="panel-body">
-                    <%= render partial: 'questions', locals: { questions: @session_urges, asker: "Urge Coming to Session: " } %>
-                  </div>
-                </div>
-              </div>
+              <%= render partial: 'questions', locals: { 
+                questions: @optionals, 
+                asker: nil,
+                number: "Six",
+                title: "Optional"
+                } %>
 
-              <div class="panel panel-default">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                  <div class="panel-heading" role="tab" id="headingEight">
-                    <h4 class="panel-title">
-                      Coming to Session: Belief I can Change/Regulate
-                    </h4>
-                  </div>
-                </a>
-                <div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
-                  <div class="panel-body">
-                    <%= render partial: 'questions', locals: { questions: @session_regs, asker: "Belief I Can Change/Regulate My " } %>
-                  </div>
-                </div>
-              </div>
+              <%= render partial: 'questions', locals: { 
+                questions: @session_urges, 
+                asker: "Urge Coming to Session: ",
+                number: "Seven",
+                title: "Coming to Session: Urges"
+                } %>
+
+              <%= render partial: 'questions', locals: { 
+                questions: @session_regs, 
+                asker: "Belief I Can Change/Regulate My ",
+                number: "Eight",
+                title: "Coming to Session: Belief I can Change/Regulate"
+                } %>
     
               <div class="panel panel-default">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
