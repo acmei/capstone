@@ -2,6 +2,7 @@
   <div class="row">
     <section>
       <div class="wizard">
+        <!-- ICONS -->
         <div class="wizard-inner">
           <div class="connecting-line"></div>
           <ul class="nav nav-tabs" role="tablist">
@@ -29,7 +30,7 @@
               icon: "play",
               state: "disabled"
               } %>
-              
+
           </ul>
         </div>
 
@@ -37,10 +38,9 @@
           <div class="tab-content">
             <div class="tab-pane active" role="tabpanel" id="urges">
               <div class="col-md-8 col-md-offset-2">
-              <div class="panel panel-info">
-
-                <!-- Default panel contents -->
-                <div class="panel-heading">Urges</div>
+                <div class="panel panel-default">
+                  <!-- Default panel contents -->
+                  <div class="panel-heading">Urges</div>
                   <div class="panel-body">
                     <%= form_for @answer, class: "form-inline", url: diary_index_path do |f| %>
 
