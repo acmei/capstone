@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :questions
   resources :users, except: [:show]
-  resources :answers, as: 'diary'
+  resources :answers
   resources :sessions, only: [:new, :create, :destroy]
 
   # Settings

@@ -16,11 +16,12 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @diary = Diary.new(diary_params)
-    if @diary.save
-      redirect_to user_path(@user)
+    raise
+    @answer = Answer.new(answer_params)
+    if @answer.save
+      redirect_to new_answer_path
     else
-      render new_diary_path
+      render new_answer_path
     end
   end
 
