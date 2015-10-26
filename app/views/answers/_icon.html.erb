@@ -1,5 +1,7 @@
-<%= content_tag :li, 
-  link_to( 
-    content_tag(:span, icon, class: "icon-foo round-tab"), 
-  title_tag, "data-toggle" => "tab", "aria-controls" => title, role: "tab", title: title.capitalize), 
-role: "presentation", class: "active" %>
+<li role="presentation" class="<%= state %>">
+  <a href="#<%= category %>" data-toggle="tab" aria-controls="<%= category %>" role="tab" title="<%= category.titlecase %>">
+    <span class="round-tab">
+      <%= fa_icon icon %>
+    </span>
+  </a>
+</li>

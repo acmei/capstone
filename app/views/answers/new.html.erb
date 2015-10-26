@@ -6,36 +6,30 @@
           <div class="connecting-line"></div>
           <ul class="nav nav-tabs" role="tablist">
 
-            <li role="presentation" class="active">
-              <a href="#urges" data-toggle="tab" aria-controls="urges" role="tab" title="Urges">
-                <span class="round-tab">
-                  <%= fa_icon "hand-stop-o" %>
-                </span>
-              </a>
-            </li>
+            <%= render partial: 'icon', locals: { 
+              category: "urges", 
+              icon: "hand-stop-o",
+              state: "active"
+              } %>
 
-            <li role="presentation" class="disabled">
-              <a href="#ratings" data-toggle="tab" aria-controls="ratings" role="tab" title="Ratings">
-                <span class="round-tab">
-                  <%= fa_icon "pencil" %>
-                </span>
-              </a>
-            </li>
-            <li role="presentation" class="disabled">
-              <a href="#drugs-meds" data-toggle="tab" aria-controls="drugs-meds" role="tab" title="Drugs and Medications">
-                <span class="round-tab">
-                  <%= fa_icon "heartbeat" %>
-                </span>
-              </a>
-            </li>
+            <%= render partial: 'icon', locals: { 
+              category: "ratings", 
+              icon: "pencil",
+              state: "disabled"
+              } %>
 
-            <li role="presentation" class="disabled">
-              <a href="#actions" data-toggle="tab" aria-controls="actions" role="tab" title="Actions">
-                <span class="round-tab">
-                  <%= fa_icon "play" %>
-                </span>
-              </a>
-            </li>
+            <%= render partial: 'icon', locals: { 
+              category: "drugs-and-medications", 
+              icon: "heartbeat",
+              state: "disabled"
+              } %>
+
+            <%= render partial: 'icon', locals: { 
+              category: "actions", 
+              icon: "play",
+              state: "disabled"
+              } %>
+              
           </ul>
         </div>
 
