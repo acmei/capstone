@@ -42,13 +42,33 @@
         <form role="form">
           <div class="tab-content">
             <div class="tab-pane active" role="tabpanel" id="urges">
-              <h3>Urges</h3>
-              <p>This is step 1</p>
-              this is my form
-              <ul class="list-inline pull-right">
-                <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
-              </ul>
+              <div class="panel panel-info form col-md-8 col-md-offset-2">
+
+                <!-- Default panel contents -->
+                <div class="panel-heading">Urges</div>
+                <div class="panel-body">
+                  <%= form_for @answer, class: "form-inline", url: diary_index_path do |f| %>
+
+                    <% @urges.each do |urge| %>
+                    <div class="row">
+                      <div class="col-md-5">
+                        <%= f.label :num, "Highest urge to: " + urge.text, class: "required" %>
+                      </div>
+                      <div class="col-md-7">
+                      <%= f.select :num, (0..5).map{ |n| [n, n] }, { include_blank: "Select a Rating" }, { class: 'form-control form-group' } %>
+                      </div>
+                    </div>
+
+                      <%= f.hidden_field :user_id, value: @user.id %>
+                      <%= f.hidden_field :question_id, value: urge.id %>
+
+                    <% end %>
+                    <%= f.submit "Save and continue", id: session[:user_id], class: "btn btn-primary next-step pull-right" %>
+                  <% end %>
+                </div>
+              </div>
             </div>
+
             <div class="tab-pane" role="tabpanel" id="ratings">
               <h3>Ratings</h3>
               <p>This is step 2</p>

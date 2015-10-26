@@ -6,7 +6,14 @@ class AnswersController < ApplicationController
   def show; end
 
   # Add a new diary
-  def new; end
+  def new
+    @answer = Answer.new
+
+    QUESTION_CATEGORIES.each do |category|
+      instance_variable = ("@" + category.pluralize).to_sym # :@urges
+      instance_variable_set(instance_variable, Question.category(category))
+    end
+  end
 
   def create
     @diary = Diary.new(diary_params)
@@ -31,16 +38,6 @@ class AnswersController < ApplicationController
     @diary.destroy
 
     redirect_to user_path
-  end
-
-  # Delete a question
-  def rm_question
-    @diary = Diary.find(params[:diary])
-    @question = Question.find(params[:question])
-    ids = @question.diary_ids.delete_if { |id| id == @diary.id }
-    @question.diary_ids = ids
-
-    redirect_to user_path(session[:user_id], :diary => @diary.id)
   end
 
 private

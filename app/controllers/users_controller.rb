@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include ApplicationHelper
-  before_action :logged_in_user, only: [:update]
+  before_action :logged_in_user, only: [:show, :update]
 
   def new
     @user = User.new
@@ -29,14 +29,10 @@ class UsersController < ApplicationController
     @photos = Photo.all
     @question = Question.new
 
-    @urges = Question.category("urge")
-    @ratings = Question.category("rating")
-    @meds = Question.category("med")
-    @actions = Question.category("action")
-    @emotions = Question.category("emotion")
-    @optionals = Question.category("optional")
-    @session_urges = Question.category("session_urge")
-    @session_regs = Question.category("session_reg")
+    QUESTION_CATEGORIES.each do |category|
+      instance_variable = ("@" + category.pluralize).to_sym # :@urges
+      instance_variable_set(instance_variable, Question.category(category))
+    end
   end
 
   def update
