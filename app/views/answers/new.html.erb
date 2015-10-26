@@ -100,16 +100,25 @@
                   <%= form_for @answer do |f| %>
                     <% @meds.each do |med| %>
                       <div class="row">
-                        <div class="col-md-2">
-                          <%= f.label :num, med.text.titlecase, class: "required" %>
-                        </div>
-                        <div class="col-md-2">
-                          <%= f.select :num, (0..20).map{ |n| [n, n] }, { include_blank: "#" }, { class: 'form-control form-group' } %>
-                        </div>
-                        <div class="col-md-8">
-                          <%= f.label :text, class: "sr-only" %>
-                          <%= f.text_field :text, placeholder: 'What?', class: 'form-control form-group' %>
-                        </div>
+                        <% if med.answer_type == "bool" %>
+                          <div class="col-md-6">
+                            <%= f.label :bool, med.text.titlecase, class: "required" %>
+                          </div>
+                          <div class="col-md-6">
+                            <%= f.select :bool, ['Yes', 'No'].map{ |n| [n, n] }, {}, { class: 'form-control form-group' } %>
+                          </div>
+                        <% elsif med.answer_type == "num/text" %>
+                          <div class="col-md-4">
+                            <%= f.label :num, med.text.titlecase, class: "required" %>
+                          </div>
+                          <div class="col-md-2">
+                            <%= f.select :num, (0..20).map{ |n| [n, n] }, { include_blank: "#" }, { class: 'form-control form-group' } %>
+                          </div>
+                          <div class="col-md-6">
+                            <%= f.label :text, class: "sr-only" %>
+                            <%= f.text_field :text, placeholder: 'What?', class: 'form-control form-group' %>
+                          </div>
+                        <% end %>
                       </div>
 
                       <%= f.hidden_field :user_id, value: @user.id %>
