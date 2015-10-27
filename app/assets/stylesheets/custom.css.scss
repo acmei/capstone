@@ -6,8 +6,6 @@
 
 .body {
   font-family: 'Open Sans', sans-serif;
-  /*background-color: #F5F8FA;*/
-  /*background: asset-url("blue.jpg") center center cover no-repeat fixed;*/
 }
 
 .center {
@@ -16,6 +14,12 @@
 
 a:hover {
   text-decoration: none;
+}
+
+.lotus {
+  width: 40px;
+  /*margin-top: -0.175em;*/
+  margin-right: 0.125em;
 }
 
 /* typography --------------------------------------------------------------- */
