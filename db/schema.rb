@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20151023211606) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.datetime "date",        default: '2015-10-25 04:13:00'
+    t.datetime "date",        default: '2015-10-27 06:38:10'
     t.integer  "num"
     t.string   "text"
     t.boolean  "bool"
