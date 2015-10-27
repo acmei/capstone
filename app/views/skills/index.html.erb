@@ -6,9 +6,11 @@
         <p class="card-title">MINDFULNESS</p>
       </div>
       <div class="panel-body card-back mindfulness">
+        <ul>
         <% @mindfulness.each do |skill| %>
-          <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
+          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %></li>
         <% end %>
+        </ul>
       </div>
     </div>
 
@@ -17,9 +19,11 @@
         <p class="card-title">EMOTION REGULATION</p>
       </div>
       <div class="panel-body card-back ER">
+        <ul>
         <% @ER.each do |skill| %>
-          <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
+          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %></li>
         <% end %>
+        </ul>
       </div>
     </div>
 
@@ -28,9 +32,11 @@
         <p class="card-title">DISTRESS TOLERANCE</p>
       </div>
       <div class="panel-body card-back DT">
+        <ul>
         <% @DT.each do |skill| %>
-          <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
+          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %></li>
         <% end %>
+        </ul>
       </div>
     </div>
 
@@ -39,9 +45,11 @@
         <p class="card-title">INTERPERSONAL EFFECTIVENESS</p>
       </div>
       <div class="panel-body card-back IE">
+        <ul>
         <% @IE.each do |skill| %>
-          <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
+          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %></li>
         <% end %>
+        </ul>
       </div>
     </div>
 
