@@ -1,8 +1,12 @@
 class SkillsController < ApplicationController
-  before_action :require_login
   before_action :define_user
+
+  SKILL_CATEGORIES = ['mindfulness', 'ER', 'IE', 'DT']
   
   def index
-    @skills = Skill.all
+    SKILL_CATEGORIES.each do |category|
+      instance_variable = ("@" + category).to_sym # :@mindfulness
+      instance_variable_set(instance_variable, Skill.category(category))
+    end
   end
 end

@@ -9,4 +9,7 @@ class Skill < ActiveRecord::Base
                           inclusion: { in: ["mindfulness", "IE", "ER", "DT"] }
   validates :description, presence: true,
                           uniqueness: { case_sensitive: false }
+
+  # SCOPES ---------------------------------------------------------------------
+  scope :category, -> (category) { where(category: category) }
 end
