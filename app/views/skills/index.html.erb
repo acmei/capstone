@@ -1,27 +1,27 @@
 <div class="container col-md-6 col-md-offset-3">
   <div class="row">
-    <div class="panel panel-success col-lg-5 card">
+    <div class="panel panel-default col-lg-5 mindfulness card">
       <div class="panel-body">
         <% @mindfulness.each do |skill| %>
           <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
         <% end %>
       </div>
     </div>
-    <div class="panel panel-danger col-lg-5 card">
+    <div class="panel panel-default col-lg-5 ER card">
       <div class="panel-body">
         <% @ER.each do |skill| %>
           <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
         <% end %>
       </div>
     </div>
-    <div class="panel panel-warning col-lg-5 card">
+    <div class="panel panel-default col-lg-5 DT card">
       <div class="panel-body">
         <% @DT.each do |skill| %>
           <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
         <% end %>
       </div>
     </div>
-    <div class="panel panel-info col-lg-5 card">
+    <div class="panel panel-default col-lg-5 IE card">
       <div class="panel-body">
         <% @IE.each do |skill| %>
           <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
