@@ -33,19 +33,19 @@ p.card-title {
 }
 
 .card-front.mindfulness  {
-  background: transparent url('blue-circle.png') no-repeat center top;
+  background: transparent url(image-path('blue-circle.png')) no-repeat center top;
 }
 
 .card-front.ER {
-  background: transparent url('bluesquare.png') no-repeat center top;
+  background: transparent url(image-path('bluesquare.png')) no-repeat center top;
 }
 
 .card-front.DT {
-  background: transparent url('square.png') no-repeat center top;
+  background: transparent url(image-path('square.png')) no-repeat center top;
 }
 
 .card-front.IE {
-  background: transparent url('blue-triangles.png') no-repeat center top;
+  background: transparent url(image-path('blue-triangles.png')) no-repeat center top;
 }
 
 .card-front,
