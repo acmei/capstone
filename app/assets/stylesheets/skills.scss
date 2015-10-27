@@ -3,8 +3,17 @@
 .card {
   margin: 0.75em;
   height: 22em;
-  line-height: 1.85em;
+  line-height: 1.8em;
   box-shadow: 1px 1px 7px #ccc;
+  border-radius: 0.5em;
+}
+
+.card a {
+  font-size: 1.125em;
+}
+
+.card a:hover {
+  border-bottom: 2px solid #ccc;
 }
 
 .card-title {
