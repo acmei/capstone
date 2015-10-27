@@ -145,7 +145,6 @@ class User < ActiveRecord::Base
       self.session_day = session_day.downcase.capitalize
     end
 
-
     # Creates and assigns the activation token and digest
     def create_activation_digest
       self.activation_token  = User.new_token
