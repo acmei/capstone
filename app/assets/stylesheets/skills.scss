@@ -1,23 +1,36 @@
+@import url(https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise);
+
 .card {
   margin: 0.75em;
-  height: 20.5em;
+  height: 22em;
   line-height: 1.85em;
   box-shadow: 1px 1px 7px #ccc;
 }
 
-.mindfulness {
+.card-title {
+  font-family: 'Waiting for the Sunrise', cursive;
+  font-size: 1.75em;
+  font-weight: bold;
+  letter-spacing: 0.125em;
+}
+
+p.card-title {
+  margin-top: 5em;
+}
+
+.card-front.mindfulness  {
   background: transparent url('blue-circle.png') no-repeat center top;
 }
 
-.ER {
+.card-front.ER {
   background: transparent url('bluesquare.png') no-repeat center top;
 }
 
-.DT {
+.card-front.DT {
   background: transparent url('square.png') no-repeat center top;
 }
 
-.IE {
+.card-front.IE {
   background: transparent url('blue-triangles.png') no-repeat center top;
 }
 
@@ -34,8 +47,11 @@
           transition: transform 0.3s;
 }
 
+.card-front {
+  text-align: center;
+}
+
 .card-back {
-  /*background-color: #1e1e1e;*/
   -webkit-transform: rotateY(-180deg);
           transform: rotateY(-180deg);
 }

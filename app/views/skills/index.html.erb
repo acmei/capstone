@@ -3,45 +3,45 @@
 
     <div class="panel panel-default col-lg-5 card effect-click">
       <div class="panel-body card-front mindfulness">
+        <p class="card-title">MINDFULNESS</p>
+      </div>
+      <div class="panel-body card-back mindfulness">
         <% @mindfulness.each do |skill| %>
           <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
         <% end %>
-      </div>
-      <div class="panel-body card-back mindfullness">
-        THIS IS THE BACK of MINDFULNESS
       </div>
     </div>
 
     <div class="panel panel-default col-lg-5 card effect-click">
       <div class="panel-body card-front ER">
+        <p class="card-title">EMOTION REGULATION</p>
+      </div>
+      <div class="panel-body card-back ER">
         <% @ER.each do |skill| %>
           <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
         <% end %>
-      </div>
-      <div class="panel-body card-back ER">
-        THIS IS THE BACK OF ER
       </div>
     </div>
 
     <div class="panel panel-default col-lg-5 DT card effect-click">
       <div class="panel-body card-front DT">
+        <p class="card-title">DISTRESS TOLERANCE</p>
+      </div>
+      <div class="panel-body card-back DT">
         <% @DT.each do |skill| %>
           <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
         <% end %>
-      </div>
-      <div class="panel-body card-back DT">
-        THIS IS THE BACK OF DT
       </div>
     </div>
 
     <div class="panel panel-default col-lg-5 IE card effect-click">
       <div class="panel-body card-front IE">
+        <p class="card-title">INTERPERSONAL EFFECTIVENESS</p>
+      </div>
+      <div class="panel-body card-back IE">
         <% @IE.each do |skill| %>
           <%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %><br>
         <% end %>
-      </div>
-      <div class="panel-body card-back IE">
-        THIS IS THE BACK OF IE
       </div>
     </div>
 
