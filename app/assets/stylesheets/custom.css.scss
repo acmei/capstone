@@ -10,10 +10,6 @@
   box-sizing: border-box;
 }
 
-.content {
-  /*font-family: 'Poiret One', cursive;*/
-}
-
 .center {
   text-align: center;
 }
@@ -128,8 +124,9 @@ html {
   position: absolute;
   bottom: 0;
   width: 100%;
+  margin-top: 10px;
   /* Set the fixed height of the footer here */
-  height: 50px;
+  height: 25px;
   .container .text-muted {
     font-size: 0.85em;
     text-align: center;
