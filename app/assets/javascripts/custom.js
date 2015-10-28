@@ -25,20 +25,35 @@ $(document).ready(function($) {
       $('.current-img').attr('src', currentSrc)
     });
 
+  // SKILLS MODALS
+  $('.card-back li a').click(function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    var x = $(this).data('desc');
+    console.log(x);
+    $('#myModal').show();
+  });
+
+  $('.close').click(function(event) {
+    event.preventDefault();
+    $('#myModal').hide();
+  });
+
+  $('#myModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    console.log(button);
+    // var recipient = button.data('whatever') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    // var modal = $(this)
+    // modal.find('.modal-title').text('New message to ' + recipient)
+    // modal.find('.modal-body input').val(recipient)
+  })
 
   // SKILLS CARD FLIP
-  (function() {
-    var cards = document.querySelectorAll(".card.effect-click");
-    for ( var i  = 0, len = cards.length; i < len; i++ ) {
-      var card = cards[i];
-      clickListener( card );
-    }
+  $('.card.effect-click').click(function (){
+    var c = this.classList;
+    c.contains("flipped") === true ? c.remove("flipped") : c.add("flipped");
+  })
 
-    function clickListener(card) {
-      card.addEventListener( "click", function() {
-        var c = this.classList;
-        c.contains("flipped") === true ? c.remove("flipped") : c.add("flipped");
-      });
-    }
-  })();
 });
