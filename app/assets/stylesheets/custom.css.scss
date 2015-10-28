@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-
+@import url(https://fonts.googleapis.com/css?family=Abel);
 /* universal ---------------------------------------------------------------- */
 
 * {
@@ -9,6 +9,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 
 .center {
   text-align: center;
@@ -23,16 +24,27 @@ a:hover {
   margin-right: 0.125em;
 }
 
+.clearfix {
+  clear: both;
+}
+
 /* home page ---------------------------------------------------------------- */
+
+.home h3 {
+  font-weight: bold;
+}
 
 .home {
   background: url(image-path('watercolor.png')) no-repeat bottom center fixed;
+  font-family: 'Abel', sans-serif;
+  font-size: 1.25em;
+  line-height: 1.625em;
   padding: 0 50px;
 }
 
 .about, .dialectics, .behavior {
   background-color: hsla(0, 0%, 60%, 0.2);
-  padding: 0 13px;
+  padding: 0 13px 13px 13px;
   border-radius: 8px;
 }
 
@@ -72,7 +84,7 @@ a:hover {
 .navbar-left {
   .fa {
   margin-right: 0.6em;
-  font-size: 1.3em;
+  font-size: 1.45em;
   color: hsla(0, 0%, 44%, 1);
   }
   a:hover {
