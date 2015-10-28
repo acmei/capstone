@@ -29,17 +29,24 @@ $(document).ready(function($) {
   $('.card-back li a').click(function(event) {
     var description = $(this).data('desc');
     var title = $(this).data('title');
+    var width = $(window).width();
+    var height = $(window).height();
+    var greyBox = $('.grey-box');
 
     event.preventDefault();
     event.stopPropagation();
     $('#myModal').show();
     $('.modal-body').text(description);
     $('.modal-title').text(title);
+    greyBox.css('width', width);
+    greyBox.css('height', height);
+    greyBox.addClass('display');
   });
 
   $('.close').click(function(event) {
     event.preventDefault();
     $('#myModal').hide();
+    $('.grey-box').removeClass('display');
   });
 
   // SKILLS CARD FLIP
