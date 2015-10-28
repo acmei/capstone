@@ -29,7 +29,7 @@ $(document).ready(function($) {
   $('.card-back li a').click(function(event) {
     event.preventDefault();
     event.stopPropagation();
-    var x = $(this).data('desc');
+    var x = $(this).data('title');
     console.log(x);
     $('#myModal').show();
   });
@@ -38,17 +38,6 @@ $(document).ready(function($) {
     event.preventDefault();
     $('#myModal').hide();
   });
-
-  $('#myModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    console.log(button);
-    // var recipient = button.data('whatever') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    // var modal = $(this)
-    // modal.find('.modal-title').text('New message to ' + recipient)
-    // modal.find('.modal-body input').val(recipient)
-  })
 
   // SKILLS CARD FLIP
   $('.card.effect-click').click(function (){
