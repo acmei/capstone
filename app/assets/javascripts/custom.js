@@ -27,11 +27,14 @@ $(document).ready(function($) {
 
   // SKILLS MODALS
   $('.card-back li a').click(function(event) {
+    var description = $(this).data('desc');
+    var title = $(this).data('title');
+
     event.preventDefault();
     event.stopPropagation();
-    var x = $(this).data('title');
-    console.log(x);
     $('#myModal').show();
+    $('.modal-body').text(description);
+    $('.modal-title').text(title);
   });
 
   $('.close').click(function(event) {

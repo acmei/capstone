@@ -8,7 +8,7 @@
       <div class="panel-body card-back mindfulness">
         <ul>
         <% @mindfulness.each do |skill| %>
-          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#myModal" %></li>
+          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#myModal", "data-desc": skill.description, "data-title": skill.text %></li>
         <% end %>
         </ul>
 
@@ -22,7 +22,7 @@
       <div class="panel-body card-back ER">
         <ul>
         <% @ER.each do |skill| %>
-          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %></li>
+          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal", "data-desc": skill.description, "data-title": skill.text %></li>
         <% end %>
         </ul>
       </div>
@@ -35,7 +35,7 @@
       <div class="panel-body card-back DT">
         <ul>
         <% @DT.each do |skill| %>
-          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal" %></li>
+          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal", "data-desc": skill.description, "data-title": skill.text %></li>
         <% end %>
         </ul>
       </div>
@@ -48,7 +48,7 @@
       <div class="panel-body card-back IE">
         <ul>
         <% @IE.each do |skill| %>
-          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal", "data-title": skill.text, "data-desc": skill.description %></li>
+          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal", "data-title": skill.text, "data-desc": skill.description, "data-title": skill.text %></li>
         <% end %>
         </ul>
       </div>
@@ -59,10 +59,9 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            <h4 class="modal-title" id="myModalLabel"></h4>
           </div>
           <div class="modal-body">
-            <%= params[:description] %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
