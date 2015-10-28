@@ -41,6 +41,9 @@ class User < ActiveRecord::Base
   validates :provider,    inclusion: { in: PROVIDERS }, allow_nil: true
   validates :activated,   inclusion: { in: [true, false] }
 
+  # SCOPES ---------------------------------------------------------------------
+  scope :therapists, -> { where(is_therapist: true) }
+
   # METHODS --------------------------------------------------------------------
   # Returns the hash digest of the given string
   def User.digest(string)

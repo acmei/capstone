@@ -1,7 +1,7 @@
-name,email,phone,password,password_confirmation,therapist_id,activated,photo_id
-anita,anita@email.com,,password,password,5,true,1
-harry,harry@email.com,,password,password,6,true,2
-william,willy@email.com,,password,password,6,true,3
-luna,luna@email.com,,password,password,5,true,4
-Dana Scully,scully@email.com,513-283-3829,password,password,,true,5
-Jennifer Melfi,melfi@email.com,684-293-4920,password,password,,true,6
+name,email,phone,password,password_confirmation,therapist_id,activated,photo_id,is_therapist
+anita,anita@email.com,,password,password,5,true,1,false
+harry,harry@email.com,,password,password,6,true,2,false
+william,willy@email.com,,password,password,6,true,3,false
+luna,luna@email.com,,password,password,5,true,4,false
+Dana Scully,scully@email.com,513-283-3829,password,password,,true,5,true
+Jennifer Melfi,melfi@email.com,684-293-4920,password,password,,true,6,true

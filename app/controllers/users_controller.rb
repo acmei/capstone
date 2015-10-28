@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     @user = current_user
     @photos = Photo.all
     @question = Question.new
+    @therapists = User.therapists
 
     QUESTION_CATEGORIES.each do |category|
       instance_variable = ("@" + category.pluralize).to_sym # :@urges

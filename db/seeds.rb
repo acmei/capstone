@@ -23,7 +23,8 @@ CSV.foreach("db/users.csv", headers: true, header_converters: :symbol, converter
     activated: row[:activated],
     activated_at: Time.zone.now,
     therapist_id: row[:therapist_id],
-    photo_id: row[:photo_id]
+    photo_id: row[:photo_id],
+    is_therapist: row[:is_therapist]
     )
 end
 
