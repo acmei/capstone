@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise);
 
+.dark-grey {
+  background-color: hsla(0, 0%, 25%, 0.65);
+  z-index: 1000;
+}
+
 .card {
   margin: 0.75em;
   height: 22em;
