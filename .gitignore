@@ -26,6 +26,10 @@
 aws.md
 /resources
 
+*.pem
+aws
+server.crt
+
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
