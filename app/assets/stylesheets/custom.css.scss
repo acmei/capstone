@@ -121,24 +121,19 @@ html {
 }
 
 body {
-  /* Margin top by nav height */
-  /*margin-top: 63px;*/
-
   /* Margin bottom by footer height */
   margin-bottom: 70px;
 }
 
-.footer {
+footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 50px;
-/*  border-top: 1px solid $border-top;
-  background-color: $background;
-*/}
+}
 
-.container .text-muted {
+footer .container .text-muted {
   font-size: 0.85em;
   margin: 16px 0;
   text-align: center;
