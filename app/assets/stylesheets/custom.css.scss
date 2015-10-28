@@ -113,23 +113,34 @@ a:hover {
   margin-left: 0;
 }
 
-/* footer ----------------------------------------------------- */
+/* footer ------------------------------------------------------------------- */
 
 html {
   position: relative;
   min-height: 100%;
 }
 
+body {
+  /* Margin top by nav height */
+  /*margin-top: 63px;*/
+
+  /* Margin bottom by footer height */
+  margin-bottom: 70px;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  margin-top: 10px;
   /* Set the fixed height of the footer here */
-  height: 25dpx;
-  .container .text-muted {
-    font-size: 0.85em;
-    text-align: center;
-  }
+  height: 50px;
+/*  border-top: 1px solid $border-top;
+  background-color: $background;
+*/}
+
+.container .text-muted {
+  font-size: 0.85em;
+  margin: 16px 0;
+  text-align: center;
 }
 
