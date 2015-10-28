@@ -23,6 +23,20 @@ a:hover {
   margin-right: 0.125em;
 }
 
+/* home page ---------------------------------------------------------------- */
+
+.home {
+  background: url(image-path('watercolor.png')) no-repeat bottom center fixed;
+  padding: 0 50px 200px 50px;
+}
+
+.about, .dialectics, .behavior {
+  background-color: hsla(0, 0%, 60%, 0.3);
+  padding: 0 13px;
+  margin: 25px;
+  border-radius: 15px;
+}
+
 /* typography --------------------------------------------------------------- */
 
 .text-small {
