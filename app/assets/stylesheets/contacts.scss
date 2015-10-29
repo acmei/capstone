@@ -1,3 +1,16 @@
-// Place all the styles related to the contacts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* CONTACTS */
+
+.therapist-tag {
+  margin-left: 0.5em;
+}
+
+.fa-phone {
+  margin-right: 0.625em;
+}
+
+.contact-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  background: url(image-path('swashblue.png')) no-repeat center center;
+  text-align: center;
+}

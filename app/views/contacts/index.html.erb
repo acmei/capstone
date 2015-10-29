@@ -1,0 +1,23 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="list-group-info">
+    <span class="list-group-item contact-title">
+      <h3 class="list-group-item-heading">
+        Contacts
+      </h3>
+    </span>
+    <span class="list-group-item">
+      <h3 class="list-group-item-heading">
+        <%= @user.therapist.name %><em class="text-muted text-small therapist-tag">therapist</em>
+      </h3>
+      <%= fa_icon 'phone' %><%= link_to @user.therapist.phone, "tel:#{ @user.therapist.phone }", class: "list-group-item-text" %>
+    </span>
+    <% @contacts.each do |contact| %>
+      <span class="list-group-item">
+        <h3 class="list-group-item-heading">
+          <%= contact.name %>
+        </h3>
+        <%= fa_icon 'phone' %><%= link_to contact.phone, "tel:#{ contact.phone }", class: "list-group-item-text" %>
+      </span>
+    <% end %>
+  </div>
+</div>
