@@ -61,7 +61,25 @@ a:hover {
   font-size: 0.8em;
 }
 
+h1, h2, h3, h4, h5, label, .panel-heading, .card-back {
+  font-family: 'Abel', sans-serif;
+  font-weight: bold;
+  font-size: 1.125em;
+}
+
+.card-back {
+  font-weight: normal;
+}
+
+.panel-heading {
+  font-size: 1.4em;
+}
+
 /* navigation --------------------------------------------------------------- */
+
+.navbar {
+  margin-bottom: 0.625em;
+}
 
 .nav-profile-img {
   width: 1.625em;
@@ -96,10 +114,6 @@ a:hover {
 
 .login, .user-nav {
   border-top: 0.1em solid hsla(0, 0%, 88%, 1);
-}
-
-.navbar {
-  margin-bottom: 0.625em;
 }
 
 /* forms -------------------------------------------------------------------- */

@@ -12,7 +12,7 @@
         <%= label_tag :num, question.text.titlecase, class: "required" %>
       </div>
       <div class="col-md-6">
-        <%= text_field_tag "answers[][num]", nil, placeholder: '#', class: 'form-control form-group' %>
+        <%= number_field_tag "answers[][num]", nil, min: 0, placeholder: '#', class: 'form-control form-group' %>
       </div>
     <% elsif question.answer_type == "num" %>
       <div class="col-md-6">
@@ -27,7 +27,7 @@
         <%= label_tag :num, question.text.titlecase, class: "required" %>
       </div>
       <div class="col-md-2">
-        <%= select_tag "answers[][num]", options_for_select(num_select(number)), { include_blank: "#", class: 'form-control form-group' } %>
+        <%= number_field_tag "answers[][num]", nil, min: 0, placeholder: '#', class: 'form-control form-group' %>
       </div>
       <div class="col-md-6">
         <%= label_tag :text, nil, class: "sr-only" %>
