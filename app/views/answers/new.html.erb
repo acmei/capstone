@@ -40,7 +40,7 @@
               <div class="panel panel-default">
                 <div class="panel-heading">Urges</div>
                 <div class="panel-body">
-                  <%= form_tag @answer, class: "urge-form" do%>
+                  <%= form_tag @answer, class: "diary-form" do%>
                     <%= render partial: 'form', locals: { 
                       questions: @urges, 
                       asker: "Highest urge to: ",
@@ -59,7 +59,7 @@
               <div class="panel panel-default">
                 <div class="panel-heading">Ratings</div>
                 <div class="panel-body">
-                  <%= form_tag @answer do %>
+                  <%= form_tag @answer, class: "diary-form" do %>
                     <%= render partial: 'form', locals: { 
                       questions: @ratings, 
                       asker: "Highest rating for each day: ",
@@ -78,7 +78,7 @@
               <div class="panel panel-default">
                 <div class="panel-heading">Drugs & Medications</div>
                 <div class="panel-body">
-                  <%= form_tag @answer do %>
+                  <%= form_tag @answer, class: "diary-form" do %>
                     <%= render partial: 'form', locals: { 
                       questions: @meds, 
                       asker: "",
@@ -97,7 +97,7 @@
               <div class="panel panel-default">
                 <div class="panel-heading">Actions</div>
                 <div class="panel-body">
-                  <%= form_tag @answer do %>
+                  <%= form_tag @answer, class: "diary-form" do %>
                     <%= render partial: 'form', locals: { 
                       questions: @actions, 
                       asker: "",

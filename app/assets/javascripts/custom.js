@@ -56,7 +56,7 @@ $(document).ready(function($) {
   })
 
   // DIARY FORM SUBMISSION
-  $('.urge-form').submit(function(event) {
+  $('.diary-form').submit(function(event) {
     event.preventDefault();
 
     var action = $(this).attr('action');
