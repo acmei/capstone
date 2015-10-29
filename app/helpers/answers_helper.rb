@@ -1,5 +1,5 @@
 module AnswersHelper
-  def select(num)
+  def num_select(num)
     (0..num).map{ |n| [n, n] }
   end
 end
