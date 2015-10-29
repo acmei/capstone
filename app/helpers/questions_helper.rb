@@ -8,7 +8,7 @@ module QuestionsHelper
       ['Emotion', 'emotion'],
       ['Optional', 'optional'],
       ['Coming to Session: Urge', 'session_urge'],
-      ['Coming to Session: Belief I can Change/Regulate', 'session_reg'],
+      ['Coming to Session: Belief I can Change/Regulate', 'session_reg']
     ]
   end
 
@@ -24,7 +24,7 @@ module QuestionsHelper
   def recurrence
     [
       ['Daily', 7],
-      ['Weekly', 1],
+      ['Weekly', 1]
     ]
   end
 end

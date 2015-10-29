@@ -1,0 +1,47 @@
+<% questions.each do |question| %>  
+  <div class="row">
+    <% if question.answer_type == "bool" %>
+      <div class="col-md-6">
+        <%= label_tag :bool, question.text.titlecase, class: "required" %>
+      </div>
+      <div class="col-md-6">
+        <%= select_tag "answers[][bool]", options_for_select([['No', false], ['Yes', true]]), { class: 'form-control form-group' } %>
+      </div>
+    <% elsif question.answer_type == "num" && question.category == "action" %>
+      <div class="col-md-6">
+        <%= label_tag :num, question.text.titlecase, class: "required" %>
+      </div>
+      <div class="col-md-6">
+        <%= text_field_tag "answers[][num]", nil, placeholder: '#', class: 'form-control form-group' %>
+      </div>
+    <% elsif question.answer_type == "num" %>
+      <div class="col-md-6">
+        <%= label_tag :num, asker + question.text.titlecase, class: "required" %>
+      </div>
+      <div class="col-md-6">
+      <%= select_tag "answers[][num]", options_for_select(num_select(number)), 
+        { include_blank: "Select a Rating", class: 'form-control form-group' } %>
+      </div>
+    <% elsif question.answer_type == "num/text" %>
+      <div class="col-md-4">
+        <%= label_tag :num, question.text.titlecase, class: "required" %>
+      </div>
+      <div class="col-md-2">
+        <%= select_tag "answers[][num]", options_for_select(num_select(number)), { include_blank: "#", class: 'form-control form-group' } %>
+      </div>
+      <div class="col-md-6">
+        <%= label_tag :text, nil, class: "sr-only" %>
+        <%= text_field_tag "answers[][text]", nil, placeholder: 'What?', class: 'form-control form-group' %>
+      </div>
+    <% elsif question.answer_type == "text" %>
+      <div class="col-md-6">
+        <%= label_tag :text, question.text.titlecase %>
+      </div>
+      <div class="col-md-6">
+        <%= text_field_tag "answers[][text]", placeholder: 'What?', class: 'form-control form-group' %>
+      </div>
+    <% end %>
+  </div>
+  <%= hidden_field_tag "answers[][user_id]", @user.id %>
+  <%= hidden_field_tag "answers[][question_id]", question.id %>
+<% end %>
