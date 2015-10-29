@@ -22,7 +22,7 @@
 
         <!-- USER SETTINGS -->
         <div class="row user-settings">
-          <div class="col-md-8 col-md-offset-2">
+          <div class="col-md-10 col-md-offset-1">
             <h4><%= @user.name.titlecase %> Profile Settings</h4>
             <div class="form">
               <%= form_for @user do |f| %>
@@ -155,8 +155,23 @@
 
         <!-- THERAPIST SETTINGS -->
         <div class="row therapist-settings">
-          <h4></h4>
+          <div class="col-md-10 col-md-offset-1">
+            <h4>Therapist</h4>
+            <%= form_for @question do |f| %>
+              <%= f.label :text, class: "sr-only" %>
+              <%= f.text_field :text, class: "form-control form-group", placeholder: "Question" %>
+
+              <%= f.select :category, options_for_select(categories), { include_blank: "Select a Category" }, { class: 'form-control form-group' } %>
+
+              <%= f.select :answer_type, options_for_select(answer_types), { include_blank: "Select a Response Type" }, { class: 'form-control form-group' } %>
+
+              <%= f.select :recurrence, options_for_select(recurrence), { include_blank: "How Often Should this Question be Asked?" }, { class: 'form-control form-group' } %>
+
+              <%= f.submit "Save", class: "btn btn-primary" %>
+            <% end %>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
