@@ -157,23 +157,25 @@
         <div class="row therapist-settings">
           <div class="col-md-10 col-md-offset-1">
             <h4>Therapist</h4>
-            <%= form_for @question do |f| %>
-              <%= f.label :text, class: "sr-only" %>
-              <%= f.text_field :text, class: "form-control form-group", placeholder: "Question" %>
+              <div class="row">
+                <div class="col-md-6 therapist-info">
+                  <% if @user.therapist_id %>
+                    <strong><%= @user.therapist.name %></strong><br>
+                    <%= @user.therapist.email %><br>
+                    <%= @user.therapist.phone %>
+                  <% end %>
+                </div>
+                <div class="col-md-6">
+                  <%= form_for @user do |f| %>
+                    <%= f.collection_select :therapist_id, @therapists, :id, :name, include_blank: "--Select Your Therapist--", class: "form-control form-group" %>
 
-              <%= f.select :category, options_for_select(categories), { include_blank: "Select a Category" }, { class: 'form-control form-group' } %>
-
-              <%= f.select :answer_type, options_for_select(answer_types), { include_blank: "Select a Response Type" }, { class: 'form-control form-group' } %>
-
-              <%= f.select :recurrence, options_for_select(recurrence), { include_blank: "How Often Should this Question be Asked?" }, { class: 'form-control form-group' } %>
-
-              <%= f.submit "Save", class: "btn btn-primary bottom-button" %>
-            <% end %>
+                    <%= f.submit "Save", class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
           </div>
         </div>
-
         <div class="row bottom-fix"></div>
-
       </div>
     </div>
   </div>

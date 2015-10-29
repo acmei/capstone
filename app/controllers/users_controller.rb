@@ -46,6 +46,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def set_therapist
+    
+  end
 
 private
 
