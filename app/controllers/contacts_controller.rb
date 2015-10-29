@@ -21,9 +21,12 @@ class ContactsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @contact = Contact.find_by(id: params[:id])
+  end
 
   def update
+    @contact.update(contact_params)
     if @contact.save
       flash[:success] = "Your contact has been updated."
       redirect_to contacts_path
@@ -34,26 +37,10 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    contact = Contact.find_by(id: contact_params)
+    contact = Contact.find_by(id: params[:id])
     contact.destroy
-    flash[:info] = "Contact has been deleted."
+    flash[:notice] = "Contact has been deleted."
     redirect_to contacts_path
-  end
-
-
-  def update
-    @recipe.update(recipe_params)
-    if @recipe.save
-      redirect_to recipes_path, notice: "You so fancy!"
-    else
-      flash.now[:error] = "Throw yo hands in the ERROR!!"
-      render :new
-    end
-  end
-
-  def destroy
-    @recipe.destroy
-    redirect_to recipes_path, notice: "#{@recipe} is no more :("
   end
 
   private
