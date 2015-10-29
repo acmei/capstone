@@ -54,7 +54,18 @@
 .therapist-settings {
   margin: 0 auto;
   padding-top: 1.275em;
+  margin-left: -1em;
+  margin-right: -1em;
   background: url(image-path('wet_snow.png')) fixed center repeat;
+}
+
+select#therapist_id.form-control {
+  margin-top: 0.5em;
+  width: 18em;
+}
+
+.therapist-save {
+  margin-left: 0.375em;
 }
 
 .therapist-info {

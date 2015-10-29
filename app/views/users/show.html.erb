@@ -166,10 +166,9 @@
                   <% end %>
                 </div>
                 <div class="col-md-7">
-                  <%= form_for @user do |f| %>
-                    <%= f.collection_select :therapist_id, @therapists, :id, :name, include_blank: "--Select Your Therapist--", class: "form-control form-group" %>
-
-                    <%= f.submit "Save", class: "btn btn-primary" %>
+                  <%= form_tag @user, class: "form-inline" do %>
+                    <%= select_tag :therapist_id, options_from_collection_for_select(@therapists, :id, :name), { include_blank: "--Select a therapist--", class: "form-control form-group" }  %>
+                    <%= submit_tag "Save", class: "btn btn-primary therapist-save" %>
                   <% end %>
                 </div>
               </div>

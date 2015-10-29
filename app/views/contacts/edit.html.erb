@@ -1,0 +1,9 @@
+<%= form_for @contact do |f| %>
+  <%= f.label :name, class: "sr-only" %>
+  <%= f.text_field :name, class: "form-control form-group", placeholder: "Name" %>
+
+  <%= f.label :phone, class: "sr-only" %>
+  <%= f.text_field :phone, class: "form-control form-group", placeholder: "Phone" %>
+
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
