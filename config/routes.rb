@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  resources :answers
+  resources :answers, only: [:new, :create]
   resources :questions
   resources :skills, only: [:index, :show]
   resources :users, except: [:show]
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post    "settings" => "questions#create"
   delete  "settings" => "questions#destroy"
   post    "photo"    => "photos#create", as: 'change_photo'
+  post    "user"     => "user#add_therapist", as: 'add_therapist'
 
   # Login/Logout
   get    "signup"             => "users#new"

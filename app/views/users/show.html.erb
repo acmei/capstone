@@ -166,7 +166,7 @@
                   <% end %>
                 </div>
                 <div class="col-md-6">
-                  <%= form_for @user do |f| %>
+                  <%= form_for @user, url: add_therapist_path do |f| %>
                     <%= f.collection_select :therapist_id, @therapists, :id, :name, include_blank: "--Select Your Therapist--", class: "form-control form-group" %>
 
                     <%= f.submit "Save", class: "btn btn-primary" %>

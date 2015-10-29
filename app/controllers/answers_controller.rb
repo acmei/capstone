@@ -2,10 +2,7 @@ class AnswersController < ApplicationController
   before_action :require_login
   before_action :define_user
 
-  # Display diary(s)
-  def show; end
-
-  # Add a new diary
+  # Diary Form
   def new
     @answer = Answer.new
 
@@ -15,6 +12,7 @@ class AnswersController < ApplicationController
     end
   end
 
+  # Create answer records
   def create
     answer_array = answer_params[:answer]
     answer_array.each do |answer|
@@ -22,22 +20,6 @@ class AnswersController < ApplicationController
     end
 
     render nothing: true
-  end
-
-  # Edit an existing diary
-  def edit; end
-
-  def update
-    @diary.update(diary_params)
-
-    redirect_to user_path
-  end
-
-  # Delete a diary
-  def destroy
-    @diary.destroy
-
-    redirect_to user_path
   end
 
 private
