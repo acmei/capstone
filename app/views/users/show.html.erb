@@ -158,15 +158,15 @@
           <div class="col-md-10 col-md-offset-1">
             <h4>Therapist</h4>
               <div class="row">
-                <div class="col-md-6 therapist-info">
+                <div class="col-md-5 therapist-info">
                   <% if @user.therapist_id %>
                     <strong><%= @user.therapist.name %></strong><br>
                     <%= @user.therapist.email %><br>
                     <%= @user.therapist.phone %>
                   <% end %>
                 </div>
-                <div class="col-md-6">
-                  <%= form_for @user, url: add_therapist_path do |f| %>
+                <div class="col-md-7">
+                  <%= form_for @user do |f| %>
                     <%= f.collection_select :therapist_id, @therapists, :id, :name, include_blank: "--Select Your Therapist--", class: "form-control form-group" %>
 
                     <%= f.submit "Save", class: "btn btn-primary" %>

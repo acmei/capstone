@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include ApplicationHelper
-  before_action :logged_in_user, only: [:show, :update]
+  before_action :logged_in_user, :define_user, only: [:show, :update, :set_therapist]
 
   def new
     @user = User.new
@@ -25,7 +25,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
     @photos = Photo.all
     @question = Question.new
     @therapists = User.therapists
@@ -37,7 +36,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
     if @user.update_attributes(user_params)
       flash[:success] = "User profile updated"
       redirect_to settings_path
@@ -46,14 +44,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def set_therapist
-    
-  end
-
 private
 
   def user_params
-    params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation, :is_therapist)
+    params.require(:user).permit(:name, :email, :phone, :password, :password_confirmation, :therapist_id, :is_therapist)
   end
 
   # Confirms a logged-in user
