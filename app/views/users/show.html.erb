@@ -5,7 +5,7 @@
         <h2 class="panel-title">Account Settings</h2>
       </div>
 
-      <div class="panel-body">
+      <div class="panel-body settings">
         <!-- PHOTO SETTINGS -->
         <div class="row photo-settings">
           <div class="col-md-3 photo-preview">
@@ -167,10 +167,12 @@
 
               <%= f.select :recurrence, options_for_select(recurrence), { include_blank: "How Often Should this Question be Asked?" }, { class: 'form-control form-group' } %>
 
-              <%= f.submit "Save", class: "btn btn-primary" %>
+              <%= f.submit "Save", class: "btn btn-primary bottom-button" %>
             <% end %>
           </div>
         </div>
+
+        <div class="row bottom-fix"></div>
 
       </div>
     </div>

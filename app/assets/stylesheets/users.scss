@@ -1,5 +1,14 @@
 /* Settings ----------------------------------------------------------------- */
 
+.settings {
+  padding-bottom: 0;
+}
+
+.bottom-fix {
+  height: 20px;
+  background: url(image-path('wet_snow.png')) fixed center repeat;
+}
+
 /* PHOTO */
 .photo-settings {
   text-align: center;
