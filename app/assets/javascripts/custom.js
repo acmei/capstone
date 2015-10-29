@@ -55,4 +55,26 @@ $(document).ready(function($) {
     c.contains("flipped") === true ? c.remove("flipped") : c.add("flipped");
   })
 
+  // DIARY FORM SUBMISSION
+  $('.urge-form').submit(function(event) {
+    event.preventDefault();
+
+    var action = $(this).attr('action');
+    var params = $(this).serializeArray();
+    var active = $('.wizard .nav-tabs li.active');
+
+    $.ajax({
+      url: action,
+      method: "POST",
+      data: params,
+    }).done(function() {
+      active.next().removeClass('disabled');
+      nextTab(active);
+    });
+  });
+
+  function nextTab(elem) {
+    $(elem).next().find('a[data-toggle="tab"]').click();
+  }
+
 });

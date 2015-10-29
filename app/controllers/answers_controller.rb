@@ -16,13 +16,12 @@ class AnswersController < ApplicationController
   end
 
   def create
-    raise
-    @answer = Answer.new(answer_params)
-    if @answer.save
-      redirect_to new_answer_path
-    else
-      render new_answer_path
+    answer_array = answer_params[:answer]
+    answer_array.each do |answer|
+      @answer = Answer.create(answer)
     end
+
+    render nothing: true
   end
 
   # Edit an existing diary
@@ -44,7 +43,7 @@ class AnswersController < ApplicationController
 private
 
     def answer_params
-      params.require(:answer).permit(:date, :num, :text, :bool, :question_id, :user_id)
+      params.permit(:answer => [:date, :num, :text, :bool, :question_id, :user_id])
     end
     
 end
