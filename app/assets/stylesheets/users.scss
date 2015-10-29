@@ -34,6 +34,7 @@
 /* USER */
 .user-settings {
   padding-bottom: 1.5625em;
+  padding-top: 1.275em;
   border-bottom: 0.125em solid hsla(0, 0%, 88%, 1);
   background: url(image-path('wet_snow.png')) fixed center repeat;
 }
@@ -41,6 +42,7 @@
 /* QUESTION */
 .question-settings {
   padding-bottom: 1.5625em;
+  padding-top: 1.275em;
   border-bottom: 0.125em solid hsla(0, 0%, 88%, 1);
 }
 
@@ -50,5 +52,6 @@
 
 /* THERAPIST */
 .therapist-settings {
+  padding-top: 1.275em;
   background: url(image-path('wet_snow.png')) fixed center repeat;
 }
