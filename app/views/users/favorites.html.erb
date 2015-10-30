@@ -3,7 +3,7 @@
     <% @favorites.each do |favorite| %>
       <%= render partial: 'favorite', locals: { 
         number: favorite.id,
-        title: favorite.text.titlecase,
+        title: favorite.text,
         desc: favorite.description,
         id: favorite.id
         } %>
