@@ -22,6 +22,14 @@ class SkillsController < ApplicationController
     render nothing: true
   end
 
+  def destroy_favorite
+    skill_id = params[:format]
+    @user.skills.find_by(id: skill_id).destroy
+    @user.save
+
+    redirect_to favorites_path
+  end
+
   private
 
     def skill_params

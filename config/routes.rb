@@ -22,8 +22,9 @@ Rails.application.routes.draw do
   delete "logout"             => "sessions#destroy"
 
   # Favorite
-  get  "favorites" => "users#favorites"
-  post "favorite"  => "skills#favorite"
+  get     "favorites" => "users#favorites"
+  post    "favorite"  => "skills#favorite"
+  delete  "favorite"  => "skills#destroy_favorite"
 
   # Account Activation
   resources :account_activations, only: [:edit]

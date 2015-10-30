@@ -4,7 +4,8 @@
       <%= render partial: 'favorite', locals: { 
         number: favorite.id,
         title: favorite.text.titlecase,
-        desc: favorite.description
+        desc: favorite.description,
+        id: favorite.id
         } %>
     <% end %>
   </div>
