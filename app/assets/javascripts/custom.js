@@ -54,7 +54,8 @@ $(document).ready(function($) {
         url: "/favorite",
         method: "POST",
         data: { skill: { id: skill_id } }
-      }).done(function() {
+      }).done(function(data) {
+        console.log(data);
         alert(skill_id);
       });
     });
