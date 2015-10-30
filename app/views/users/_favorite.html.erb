@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= number %>" aria-expanded="false" aria-controls="collapse<%= number %>">
+    <div class="panel-heading" role="tab" id="heading<%= number %>">
+      <h4 class="panel-title">
+        <%= fa_icon 'star' %><%= title %>
+      </h4>
+    </div>
+  </a>
+  <div id="collapse<%= number %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= number %>">
+    <div class="panel-body">
+      <%= desc %>
+    </div>
+  </div>
+</div>

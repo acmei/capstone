@@ -1,0 +1,11 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <% @favorites.each do |favorite| %>
+      <%= render partial: 'favorite', locals: { 
+        number: favorite.id,
+        title: favorite.text.titlecase,
+        desc: favorite.description
+        } %>
+    <% end %>
+  </div>
+</div>
