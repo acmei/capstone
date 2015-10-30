@@ -9,4 +9,17 @@ class SkillsController < ApplicationController
       instance_variable_set(instance_variable, Skill.category(category))
     end
   end
+
+  def favorite
+    skill_id = params[:skill][:id]
+    skill = Skill.find_by(id: skill_id)
+    @user.skills << skill
+    @user.save
+  end
+
+  private
+
+    def skill_params
+      params.require(:skill).permit(:id, :user_id)
+    end
 end

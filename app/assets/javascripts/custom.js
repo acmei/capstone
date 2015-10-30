@@ -41,6 +41,23 @@ $(document).ready(function($) {
     greyBox.css('width', width);
     greyBox.css('height', height);
     greyBox.addClass('display');
+
+    var that = $(this);
+
+    // SKILLS FAVORITE
+    $('.favorite').click(function(event) {
+      event.preventDefault();
+
+      var skill_id = that.data('skill_id')
+
+      $.ajax({
+        url: "/favorite",
+        method: "POST",
+        data: { skill: { id: skill_id } }
+      }).done(function() {
+        alert(skill_id);
+      });
+    });
   });
 
   $('.close').click(function(event) {
@@ -48,6 +65,7 @@ $(document).ready(function($) {
     $('#myModal').hide();
     $('.grey-box').removeClass('display');
   });
+
 
   // SKILLS CARD FLIP
   $('.card.effect-click').click(function (){

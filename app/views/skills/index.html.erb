@@ -9,7 +9,7 @@
       <div class="panel-body card-back mindfulness">
         <ul>
         <% @mindfulness.each do |skill| %>
-          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#myModal", "data-desc": skill.description, "data-title": skill.text %></li>
+          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#myModal", "data-desc": skill.description, "data-title": skill.text, "data-skill_id": skill.id %></li>
         <% end %>
         </ul>
 
@@ -65,7 +65,9 @@
           <div class="modal-body">
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= link_to favorite_path, class: 'btn btn-default favorite' do %>
+              <i class="fa fa-star-o"></i> Favorite
+            <% end %>
           </div>
         </div>
       </div>

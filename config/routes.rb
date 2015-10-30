@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :answers, only: [:new, :create]
-  resources :questions
-  resources :skills, only: [:index, :show]
+  resources :questions, only: [:create, :destroy]
+  resources :skills, only: [:index]
   resources :users, except: [:show]
   resources :contacts, except: [:show]
   resources :sessions, only: [:new, :create, :destroy]
@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get    "login"              => "sessions#new"
   post   "login"              => "sessions#create"
   delete "logout"             => "sessions#destroy"
+
+  # Favorite
+  post "favorite" => "skills#favorite"
 
   # Account Activation
   resources :account_activations, only: [:edit]
