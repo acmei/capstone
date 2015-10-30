@@ -13,8 +13,8 @@
     </span>
     <% @contacts.each do |contact| %>
       <span class="list-group-item">
-        <%= link_to "\u270E", edit_contact_path(contact.id), class: 'contact-edit' %>
         <%= link_to "\u00D7", contact_path(contact.id), class: 'contact-delete', method: :delete, data: { confirm: "Delete this contact?" } %>
+        <%= link_to "\u270E", edit_contact_path(contact.id), class: 'contact-edit' %>
         <h3 class="list-group-item-heading">
           <%= contact.name %>
         </h3>
@@ -22,4 +22,5 @@
       </span>
     <% end %>
   </div>
+  <p class="add-contact"><i class="text-muted fa fa-plus"></i> <%= link_to "Add A New Contact", new_contact_path, class: "add-question" %></p>
 </div>
