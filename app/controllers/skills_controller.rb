@@ -13,7 +13,8 @@ class SkillsController < ApplicationController
   def favorite
     skill_id = params[:skill][:id]
     skill = Skill.find_by(id: skill_id)
-    unless @user.skills.include?(skill)
+    @favorite = @user.skills.include?(skill)
+    unless @favorite
       @user.skills << skill
       @user.save
     end

@@ -55,8 +55,8 @@ $(document).ready(function($) {
         method: "POST",
         data: { skill: { id: skill_id } }
       }).done(function(data) {
-        console.log(data);
-        alert(skill_id);
+        $('.favorite i').removeClass('fa fa-star-o')
+        $('.favorite i').addClass('fa fa-star')
       });
     });
   });

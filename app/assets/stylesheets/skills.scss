@@ -1,21 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise);
 
-.grey-box {
-  top: 0;
-  left: 0;
-  background-color:  hsla(0, 0%, 30%, 0.5);
-  position: absolute;
-  visibility: hidden;
-  z-index: 1020;
-}
-
-.display {
-  visibility: visible;
-}
-
-.modal {
-  margin-top: 9.5em;
-}
+/* CARD */
 
 .clearfix {
   clear: both;
@@ -100,3 +85,24 @@ p.card-title {
   -webkit-transform: rotateY(0);
           transform: rotateY(0);
 }
+
+/* MODAL */
+
+.grey-box {
+  top: 0;
+  left: 0;
+  background-color:  hsla(0, 0%, 30%, 0.5);
+  position: absolute;
+  visibility: hidden;
+  z-index: 1020;
+}
+
+.display {
+  visibility: visible;
+}
+
+.modal {
+  margin-top: 9.5em;
+}
+
+/* FAVORITE */
