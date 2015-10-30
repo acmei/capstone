@@ -44,6 +44,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def favorites
+    define_user
+    @favorites = @user.skills
+  end
+
 private
 
   def user_params
