@@ -59,13 +59,14 @@
   background: url(image-path('wet_snow.png')) fixed center repeat;
 }
 
-select#therapist_id.form-control {
+select#user_therapist_id.form-control {
   margin-top: 0.5em;
-  width: 18em;
+  width: 16em;
 }
 
 .therapist-save {
-  margin-left: 0.375em;
+  margin-left: 0.5em;
+  margin-top: 0.125em;
 }
 
 .therapist-info {
