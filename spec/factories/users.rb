@@ -13,5 +13,6 @@ FactoryGirl.define do
     user.activated_at "2015-10-21 21:35:07"
     user.photo nil
     user.therapist nil
+    user.reset_token "random"
   end
 end
