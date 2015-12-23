@@ -1,0 +1,21 @@
+<div class="panel panel-default col-lg-5 card effect-click">
+  <div class="panel-body card-front <%= skill_category %>">
+    <p class="card-title"><%= skill_title.upcase %></p>
+  </div>
+  <div class="panel-body card-back <%= skill_category %>">
+    <ul>
+    <% skill_variable.each do |skill| %>
+      <li>
+        <%= link_to skill.text, "#", 
+          "data-toggle": "modal", 
+          "data-target": "#myModal", 
+          "data-desc": skill.description, 
+          "data-title": skill.text, 
+          "data-skill_id": skill.id,
+          "data-is_favorite": @user.skills.include?(skill)
+        %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>

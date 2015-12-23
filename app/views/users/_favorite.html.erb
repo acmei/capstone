@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="heading<%= number %>" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= number %>" aria-expanded="false" aria-controls="collapse<%= number %>">
-      <%= link_to "\u00D7", favorite_path(id), class: 'favorite-delete', method: :delete, data: { confirm: "Delete this favorite?" } %>
+      <%= link_to "\u00D7", favorite_path(id), class: 'favorite-delete', method: :delete %>
       <h4 class="panel-title">
         <%= fa_icon 'star' %><%= title %>
       </h4>
