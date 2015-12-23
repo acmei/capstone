@@ -27,7 +27,7 @@ class SkillsController < ApplicationController
     skill = @user.skills.find_by(id: skill_id)
     @user.skills.delete(skill)
     @user.save
-
+    
     redirect_to favorites_path
   end
 

@@ -43,11 +43,13 @@ $(document).ready(function($) {
     greyBox.css('height', height);
     greyBox.addClass('display');
 
-    // Colorize stars
+    // Colorize stars and disable btn once favorited
     if (is_favorite) {
       $('.favorite i').removeClass();
       $('.favorite i').addClass('fa fa-star');
+      $('.modal-footer a').addClass('disabled');
     } else {
+      $('.modal-footer a').removeClass('disabled');
       $('.favorite i').removeClass();
       $('.favorite i').addClass('fa fa-star-o');
     }
@@ -60,25 +62,15 @@ $(document).ready(function($) {
 
       var skill_id = that.data('skill_id');
 
-      if (is_favorite) {
-        $.ajax({
-          url: "/favorite",
-          method: "DELETE",
-          data: { format: skill_id }
-        }).done(function(data) {
-          $('.favorite i').removeClass();
-          $('.favorite i').addClass('fa fa-star-o');
-        });
-      } else {
-        $.ajax({
-          url: "/favorite",
-          method: "POST",
-          data: { skill: { id: skill_id } }
-        }).done(function(data) {
-          $('.favorite i').removeClass();
-          $('.favorite i').addClass('fa fa-star')
-        });
-      }
+      $.ajax({
+        url: "/favorite",
+        method: "POST",
+        data: { skill: { id: skill_id } }
+      }).done(function(data) {
+        $('.favorite i').removeClass();
+        $('.favorite i').addClass('fa fa-star');
+        location.reload();
+      });
     });
   });
 
@@ -87,7 +79,6 @@ $(document).ready(function($) {
     $('#myModal').hide();
     $('.grey-box').removeClass('display');
   });
-
 
   // SKILLS CARD FLIP
   $('.card.effect-click').click(function (){
