@@ -32,6 +32,7 @@ $(document).ready(function($) {
     var width = $(window).width();
     var height = $(window).height();
     var greyBox = $('.grey-box');
+    var is_favorite = $(this).data('is_favorite');
 
     event.preventDefault();
     event.stopPropagation();
@@ -42,13 +43,21 @@ $(document).ready(function($) {
     greyBox.css('height', height);
     greyBox.addClass('display');
 
+    if (is_favorite) {
+      $('.favorite i').removeClass();
+      $('.favorite i').addClass('fa fa-star');
+    } else {
+      $('.favorite i').removeClass();
+      $('.favorite i').addClass('fa fa-star-o');
+    }
+
     var that = $(this);
 
     // SKILLS FAVORITE
     $('.favorite').click(function(event) {
       event.preventDefault();
 
-      var skill_id = that.data('skill_id')
+      var skill_id = that.data('skill_id');
 
       $.ajax({
         url: "/favorite",

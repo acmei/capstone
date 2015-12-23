@@ -2,6 +2,7 @@
 <div class="container col-md-6 col-md-offset-3">
   <div class="row">
 
+    <!-- Mindfulness Card -->
     <div class="panel panel-default col-lg-5 card effect-click">
       <div class="panel-body card-front mindfulness">
         <p class="card-title">MINDFULNESS</p>
@@ -9,13 +10,23 @@
       <div class="panel-body card-back mindfulness">
         <ul>
         <% @mindfulness.each do |skill| %>
-          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#myModal", "data-desc": skill.description, "data-title": skill.text, "data-skill_id": skill.id %></li>
+          <li>
+            <%= link_to skill.text, "#", 
+              "data-toggle": "modal", 
+              "data-target": "#myModal", 
+              "data-desc": skill.description, 
+              "data-title": skill.text, 
+              "data-skill_id": skill.id,
+              "data-is_favorite": @user.skills.include?(skill)
+            %>
+          </li>
         <% end %>
         </ul>
 
       </div>
     </div>
 
+    <!-- Emotion Regulation Card -->
     <div class="panel panel-default col-lg-5 card effect-click">
       <div class="panel-body card-front ER">
         <p class="card-title">EMOTION REGULATION</p>
@@ -23,12 +34,22 @@
       <div class="panel-body card-back ER">
         <ul>
         <% @ER.each do |skill| %>
-          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal", "data-desc": skill.description, "data-title": skill.text, "data-skill_id": skill.id %></li>
+          <li>
+            <%= link_to skill.text, "#", 
+              "data-toggle": "modal", 
+              "data-target": "#modal", 
+              "data-desc": skill.description, 
+              "data-title": skill.text, 
+              "data-skill_id": skill.id,
+              "data-is_favorite": @user.skills.include?(skill) 
+            %>
+          </li>
         <% end %>
         </ul>
       </div>
     </div>
 
+    <!-- Distress Tolerance Card -->
     <div class="panel panel-default col-lg-5 DT card effect-click">
       <div class="panel-body card-front DT">
         <p class="card-title">DISTRESS TOLERANCE</p>
@@ -36,12 +57,22 @@
       <div class="panel-body card-back DT">
         <ul>
         <% @DT.each do |skill| %>
-          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal", "data-desc": skill.description, "data-title": skill.text, "data-skill_id": skill.id %></li>
+          <li>
+            <%= link_to skill.text, "#", 
+              "data-toggle": "modal", 
+              "data-target": "#modal", 
+              "data-desc": skill.description, 
+              "data-title": skill.text, 
+              "data-skill_id": skill.id,
+              "data-is_favorite": @user.skills.include?(skill) 
+            %>
+          </li>
         <% end %>
         </ul>
       </div>
     </div>
 
+    <!-- Interpersonal Effectiveness Card -->
     <div class="panel panel-default col-lg-5 IE card effect-click">
       <div class="panel-body card-front IE">
         <p class="card-title">INTERPERSONAL EFFECTIVENESS</p>
@@ -49,7 +80,16 @@
       <div class="panel-body card-back IE">
         <ul>
         <% @IE.each do |skill| %>
-          <li><%= link_to skill.text, "#", "data-toggle": "modal", "data-target": "#modal", "data-title": skill.text, "data-desc": skill.description, "data-title": skill.text, "data-skill_id": skill.id %></li>
+          <li>
+            <%= link_to skill.text, "#", 
+              "data-toggle": "modal", 
+              "data-target": "#modal", 
+              "data-desc": skill.description, 
+              "data-title": skill.text, 
+              "data-skill_id": skill.id,
+              "data-is_favorite": @user.skills.include?(skill) 
+            %>
+          </li>
         <% end %>
         </ul>
       </div>
@@ -66,7 +106,9 @@
           </div>
           <div class="modal-footer">
             <%= link_to favorite_path, class: 'btn btn-default favorite' do %>
-              <i class="fa fa-star-o"></i> Favorite
+              <% if logged_in? %> 
+                <i></i> Favorite
+              <% end %>
             <% end %>
           </div>
         </div>
