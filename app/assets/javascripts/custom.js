@@ -43,6 +43,7 @@ $(document).ready(function($) {
     greyBox.css('height', height);
     greyBox.addClass('display');
 
+    // Colorize stars
     if (is_favorite) {
       $('.favorite i').removeClass();
       $('.favorite i').addClass('fa fa-star');
@@ -59,14 +60,25 @@ $(document).ready(function($) {
 
       var skill_id = that.data('skill_id');
 
-      $.ajax({
-        url: "/favorite",
-        method: "POST",
-        data: { skill: { id: skill_id } }
-      }).done(function(data) {
-        $('.favorite i').removeClass('fa fa-star-o')
-        $('.favorite i').addClass('fa fa-star')
-      });
+      if (is_favorite) {
+        $.ajax({
+          url: "/favorite",
+          method: "DELETE",
+          data: { format: skill_id }
+        }).done(function(data) {
+          $('.favorite i').removeClass();
+          $('.favorite i').addClass('fa fa-star-o');
+        });
+      } else {
+        $.ajax({
+          url: "/favorite",
+          method: "POST",
+          data: { skill: { id: skill_id } }
+        }).done(function(data) {
+          $('.favorite i').removeClass();
+          $('.favorite i').addClass('fa fa-star')
+        });
+      }
     });
   });
 
