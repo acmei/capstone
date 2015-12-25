@@ -12,7 +12,7 @@
           "data-desc": skill.description, 
           "data-title": skill.text, 
           "data-skill_id": skill.id,
-          "data-is_favorite": @user.skills.include?(skill)
+          "data-is_favorite": logged_in? ? @user.skills.include?(skill) : nil
         %>
       </li>
     <% end %>

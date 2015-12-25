@@ -44,8 +44,8 @@
           <div class="modal-body">
           </div>
           <div class="modal-footer">
-            <%= link_to favorite_path, class: 'btn btn-default favorite' do %>
-              <% if logged_in? %> 
+            <% if logged_in? %> 
+              <%= link_to favorite_path, class: 'btn btn-default favorite' do %>
                 <i></i> Favorite
               <% end %>
             <% end %>
