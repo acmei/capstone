@@ -32,6 +32,8 @@ DBT involves the use of diary cards (sometimes to be filled out multiple times a
 
 Additionally, those seeking help or have the desire to learn more about DBT do not have readily accessible sources of information beyond articles on the internet.
 
+#### Entity Relationship Diagram
+![ERD](/images/erd.png)
 
 ### Market Research
 **Competition and Current Opinions**
@@ -56,24 +58,19 @@ This web app will be comprehensive and inclusive of all the skills and modules t
 
 ### Product Specifications
 
-### Entity Relationship Diagram
-![ERD](/images/erd.png)
-
-### User Settings
+#### User Settings
 ![User settings](/images/custom-settings.png)
 
-### Skill Cards
+#### Skill Cards
 ![Skill cards](/images/skill-cards.png)
 
-#### Integration Choices
+#### Integrations & Advanced Features
 - Background/Async Jobs (sending emails, confirming registrations)
-
-#### Advanced Feature Choices
 - Secure Socket Layer (SSL)
 - Live Events (notifications, live updates)
 - S3 storage/delivery
 
-### Resources
+### Resources & Add-Ons
 - [Project Requirements](https://github.com/Ada-Developers-Academy/daily-curriculum/blob/master/topic_resources/capstone/capstone.md)
 - [Alchemy API](http://www.alchemyapi.com/api): text sentiment analysis
 - [Full Calendar](http://fullcalendar.io/): drag and drop calendar
