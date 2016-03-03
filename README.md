@@ -3,6 +3,7 @@ Product Plan
 
 ![DBT Companion homepage](/images/homepage.png)
 
+### Table of Contents
 - [Background](#background)
 - [Problem Statement](#problem-statement)
 - [Market Research](#market-research)
@@ -43,6 +44,8 @@ The iOS app (*DBT Diary Card*) is available for $4.99. While it seems pretty com
 **Differentiation**
 This web app will be comprehensive and inclusive of all the skills and modules taught in DBT with additional functionality for therapists to access graphical data to better understand and track behavioral changes of their patients. The app will also include a fully customizable diary card that can also be emailed to a therapist. Those using the app will be required to create an account so that they may save their information and access at a later date if needed and bookmark specific skills to reference later. The web application will be free and aims to provide information about DBT not only for those already enrolled but for those who are looking for learn about the benefits of this form of therapy and for programs near them.
 
+### Intuitive and Customizable Diary Card
+![Diary card](/images/form.png)
 
 ### User Personas
 - **Curious about DBT**: These are people who are seeking answers about DBT and who may have been suffering from BPD or chronic/severe depression. They're looking for ways they can get help with their mental illness but have not yet made the decision to seek out therapy. They are looking for avenues of information and help.
@@ -53,32 +56,14 @@ This web app will be comprehensive and inclusive of all the skills and modules t
 
 ### Product Specifications
 
-[Wireframes](https://github.com/acmei/capstone/tree/master/resources/wireframe)
+### Entity Relationship Diagram
+![ERD](/images/erd.png)
 
-#### Deliverables
+### User Settings
+![User settings](/images/custom-settings.png)
 
-**WAVE 1**
-
-- Complete product plan
-- Wireframing for site structure/design
-- Database structure and ERD finalized
-- OAuth development strategy
-- Create seed data for skills, users, therapists
-- Implement registration process, sign up (no email confirmation)
-
-**WAVE 2**
-
-- Integrate email registration and password change confirmation
-- Create custom icon font for visual display
-- Seed data and complete model definition
-- CRUD for controllers
-- Start structure of views
-- Integrate calendar functions and display
-
-**WAVE 3**
-
-- Integrate Therapist user visualizations
-- TBD
+### Skill Cards
+![Skill cards](/images/skill-cards.png)
 
 #### Integration Choices
 - Background/Async Jobs (sending emails, confirming registrations)
